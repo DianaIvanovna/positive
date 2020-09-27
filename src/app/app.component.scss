@@ -1,8 +1,23 @@
 @import "../assets/styles/variables.scss";
 
+.page{
+  width: 100%;
+  border: 1px solid red;
+  position: relative;
+  overflow: hidden;
+}
+.page__background{
+  width: 100%;
+  position: absolute;
+  top:0px;
+  left: 0px;
+  z-index: -1;
+}
 .pageContent{
   border: 1px solid $highlightColor;
   display: flex;
   flex-direction: column;
-
+  max-width: 1140px;
+  margin: 0px auto;
 }
+

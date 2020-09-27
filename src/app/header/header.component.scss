@@ -3,11 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1140px;
-  margin: 0px auto;
+  // max-width: 1140px;
+  // margin: 0px auto;
+  width: 100%;
 }
 .header__link{
-  @include fontGilroy;
+  @include mainFont;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.04em;
@@ -18,7 +19,7 @@
   margin-right: 30px;
 }
 .header__link_active{
-  @include fontGilroy;
+  @include mainFont;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.04em;
@@ -28,7 +29,7 @@
   color: $highlightColor;
 }
 .header__number{
-  @include fontGilroy;
+  @include mainFont;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0.04em;

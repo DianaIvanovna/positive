@@ -2,8 +2,13 @@ $highlightColor: #F1A22C;
 $mainColor: #241534;
 $fontColor: #000000;
 $bsckgroundColor:#E5E5E5;
-@mixin  fontGilroy {
+@mixin  mainFont {
   font-family: Gilroy-Regular;
   font-style: normal;
   font-weight: 600;
+}
+@mixin titleFont {
+  font-family: Oranienbaum;
+  font-style: normal;
+  font-weight: normal;
 }

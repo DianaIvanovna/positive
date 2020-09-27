@@ -1,0 +1,49 @@
+@import "../../assets/styles/variables.scss";
+.authorTours{
+  overflow: hidden;
+  position: relative;
+  box-sizing: content-box;
+}
+.authorTours__title{
+  @include titleFont;
+  font-size: 84px;
+  line-height: 115.75%;
+  text-transform: uppercase;
+  color:$highlightColor;
+
+  width: 555px;
+  margin: 40px 0px 20px;
+}
+.authorTours__subtitle{
+  @include mainFont;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: $mainColor;
+  margin: 0px 0px 56px;
+}
+.authorTours__button{
+  width: 275.8px;
+  height: 77.57px;
+  border: none;
+  background: linear-gradient(184.46deg,$highlightColor 3.39%, $highlightColor 96.19%);
+  box-shadow: 0px 2.75659px 0px $highlightColor;
+  border-radius: 90px;
+  margin-bottom: 20px;
+
+  @include mainFont;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.09em;
+  color: #FFFFFF;
+  text-shadow: 0px -1.2183px 2.4366px $highlightColor;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .button__icon{
+    margin-right: 12px;
+  }
+  &:focus {outline:none}
+}
