@@ -1,0 +1,8 @@
+@import "../assets/styles/variables.scss";
+
+.pageContent{
+  border: 1px solid $highlightColor;
+  display: flex;
+  flex-direction: column;
+
+}

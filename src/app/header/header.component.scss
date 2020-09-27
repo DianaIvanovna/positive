@@ -1,0 +1,38 @@
+@import "../../assets/styles/variables.scss";
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1140px;
+  margin: 0px auto;
+}
+.header__link{
+  @include fontGilroy;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: $fontColor;
+  margin-right: 30px;
+}
+.header__link_active{
+  @include fontGilroy;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid $highlightColor;
+
+  color: $highlightColor;
+}
+.header__number{
+  @include fontGilroy;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: $mainColor;
+}
