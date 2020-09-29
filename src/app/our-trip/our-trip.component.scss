@@ -1,0 +1,16 @@
+@import "../../assets/styles/variables.scss";
+.our-trip__header{
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+}
+.our-trip__title{
+  @include titleFont;
+  font-size: 48px;
+  line-height: 115.75%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: $mainColor;
+  margin-left: 23px;
+}

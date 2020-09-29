@@ -1,0 +1,71 @@
+@import "../../assets/styles/variables.scss";
+.trip{
+  display: inline-flex;
+  align-items: flex-start;
+  margin-bottom: 70px;
+}
+.trip_reverse{
+  flex-flow: row-reverse;
+}
+.trip__info{
+  padding: 0px 30px;
+}
+.trip__title{
+  @include mainFont;
+  font-size: 36px;
+  line-height: 115.75%;
+
+  color: $mainColor;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+.trip__description{
+  @include mainFont;
+  font-size: 16px;
+  line-height: 115.75%;
+  /* or 19px */
+  color: $secondaryColor;
+
+  width: 555px;
+  margin-bottom: 35px;
+}
+.trip__date{
+  display: flex;
+  align-items: center;
+  @include mainFont;
+  font-size: 18px;
+  line-height: 115.75%;
+  color: #2D2D2D;
+  .trip__icon{
+    margin-right: 15px;
+  }
+  margin-bottom: 45px;
+}
+
+.trip__button{
+  width: 211px;
+  height: 51px;
+  background: linear-gradient(180deg, $highlightColor 0%, #EEBE55 100%);
+  box-shadow: 0px 3.22136px 0px #C17B11;
+  border-radius: 5.84204px;
+  border: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.trip__img-background{
+  -webkit-box-shadow: inset 0px 0px 0px 27px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0px 0px 0px 27px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0px 0px 0px 27px rgba(255, 255, 255, 0.5);
+  border-radius: 32px 0px;
+}
+.trip__img{
+  width: 360px;
+  height: 341px;
+  object-fit: cover;
+  position: relative;
+  z-index: -1;
+  border-radius: 32px 0px;
+}
