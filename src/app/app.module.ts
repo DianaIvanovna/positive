@@ -10,6 +10,7 @@ import { OurTripComponent } from './our-trip/our-trip.component';
 import { TripComponent } from './trip/trip.component';
 import { PhotogalleryComponent } from './photogallery/photogallery.component';
 import { PositiveIsComponent } from './positive-is/positive-is.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PositiveIsComponent } from './positive-is/positive-is.component';
     TripComponent,
     PhotogalleryComponent,
     PositiveIsComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,

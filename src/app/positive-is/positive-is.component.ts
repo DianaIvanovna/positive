@@ -7,19 +7,19 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class PositiveIsComponent implements OnInit {
 
-  @ViewChild('scroll', { read: ElementRef }) public scroll: ElementRef<any>
+  // @ViewChild('scroll', { read: ElementRef }) public scroll: ElementRef<any>
   constructor() { }
 
   ngOnInit(): void {
   }
-  scrollLeft(){
-    this.scroll.nativeElement.scrollTo({
-      left: (this.scroll.nativeElement.scrollLeft - 200),
-      behavior: 'smooth' });
-  }
-  scrollRigth(){
-    this.scroll.nativeElement.scrollTo({
-      left: (this.scroll.nativeElement.scrollLeft + 200),
-      behavior: 'smooth' });
-  }
+  // scrollLeft(){
+  //   this.scroll.nativeElement.scrollTo({
+  //     left: (this.scroll.nativeElement.scrollLeft - 200),
+  //     behavior: 'smooth' });
+  // }
+  // scrollRigth(){
+  //   this.scroll.nativeElement.scrollTo({
+  //     left: (this.scroll.nativeElement.scrollLeft + 200),
+  //     behavior: 'smooth' });
+  // }
 }

@@ -2,7 +2,6 @@
 
 .page{
   width: 100%;
-  border: 1px solid red;
   position: relative;
   overflow: hidden;
 }
@@ -16,6 +15,24 @@
 .positive-is__background{
   opacity: 0.3;
   width: 100%;
+
+  overflow: hidden;
+  object-fit: cover;
+  @media screen and (max-width: 1280px){
+    &{
+      height: 800px;
+    }
+  }
+  @media screen and (max-width: 650px){
+    &{
+      height: 800px;
+    }
+  }
+  @media screen and (max-width: 450px){
+    &{
+      height: 1400px;
+    }
+  }
 }
 .pageContent{
   border: 1px solid $highlightColor;
@@ -24,4 +41,33 @@
   max-width: 1140px;
   margin: 0px auto;
 }
-
+@media screen and (max-width: 1280px){
+  .page{
+    box-sizing: border-box;
+    padding: 0px 80px;
+  }
+}
+@media screen and (max-width: 1040px){
+  .page{
+    padding: 0px 40px;
+  }
+  .page__background{
+    top:100px;
+    left: 0px;
+  }
+}
+@media screen and (max-width: 650px){
+  .page__background{
+    top:170px;
+    left: 0px;
+  }
+}
+@media screen and (max-width: 500px){
+  .page__background{
+    top:230px;
+    left: 0px;
+  }
+  .page{
+    padding: 0px 20px;
+  }
+}

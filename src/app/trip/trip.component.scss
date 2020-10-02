@@ -1,4 +1,5 @@
 @import "../../assets/styles/variables.scss";
+
 .trip{
   display: inline-flex;
   align-items: flex-start;
@@ -26,7 +27,8 @@
   /* or 19px */
   color: $secondaryColor;
 
-  width: 555px;
+  max-width: 555px;
+  width: 100%;
   margin-bottom: 35px;
 }
 .trip__date{
@@ -49,7 +51,16 @@
   box-shadow: 0px 3.22136px 0px #C17B11;
   border-radius: 5.84204px;
   border: none;
+
+  @include mainFont;
+  font-size: 11.862px;
+  line-height: 148.67%;
+  text-align: center;
+  letter-spacing: 0.17em;
+  color: #FFFFFF;
+  text-shadow: 0px -1.48275px 0.741375px rgba(109, 109, 109, 0.25);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -68,4 +79,40 @@
   position: relative;
   z-index: -1;
   border-radius: 32px 0px;
+}
+@media screen and (max-width: 780px){
+  .trip{
+    display: flex;
+    flex-direction: column;
+    .trip__img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+@media screen and (max-width: 600px){
+  .trip__title{
+    margin-top: 20px;
+    font-size: 32px;
+  }
+  .trip__description{
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .trip__date{
+    font-size: 16px;
+    line-height: 115.75%;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 500px){
+
+  .trip__button{
+    width: 180px;
+    height: 40px;
+  }
+  .trip{
+    margin-bottom: 40px;
+  }
+
 }

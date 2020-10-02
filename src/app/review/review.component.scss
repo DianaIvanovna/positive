@@ -1,0 +1,93 @@
+@import "../../assets/styles/variables.scss";
+
+// .review{
+//   background: #E5E5E5;
+// }
+.review__header{
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 45px;
+}
+.review__title{
+  @include titleFont;
+  font-size: 48px;
+  line-height: 115.75%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: $mainColor;
+  margin-left: 23px;
+}
+
+.review__container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+.review__background{
+  max-width: 925px;
+  padding: 10px;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 10px;
+
+}
+.review__content{
+  max-width: 925px;
+  width: 100%;
+  border: 1px solid #F1A22C;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 75px 0px 75px;
+
+}
+
+
+
+.review__avatar{
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 30px;
+}
+.review__name{
+  @include  mainFont;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 115.75%;
+
+  color: $mainColor;
+  margin-bottom: 10px;
+}
+.review__text{
+  @include  mainFont;
+  font-size: 14px;
+  line-height: 115.75%;
+  max-width: 555px;
+
+  color: $secondaryColor;
+}
+.review__link{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  @include  mainFont;
+  font-size: 16px;
+  line-height: 115.75%;
+  color: #4A76A8;
+  .review__icon{
+    margin-right: 10px;
+  }
+}
+
+.review__button{
+  background: none;
+  border: none;
+}

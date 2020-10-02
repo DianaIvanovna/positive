@@ -11,7 +11,7 @@
   text-transform: uppercase;
   color:$highlightColor;
 
-  width: 555px;
+  width: 50%;
   margin: 40px 0px 20px;
 }
 .authorTours__subtitle{
@@ -31,6 +31,10 @@
   border-radius: 90px;
   margin-bottom: 20px;
 
+  &:focus {outline:none} // убрала рамку при нажатии
+}
+.authorTours__link{
+  text-decoration: none;
   @include mainFont;
   font-size: 14px;
   line-height: 17px;
@@ -45,5 +49,63 @@
   .button__icon{
     margin-right: 12px;
   }
-  &:focus {outline:none}
+}
+@media screen and (max-width: 1040px){
+  .authorTours__title{
+    font-size: 72px;
+    line-height: 115.75%;
+  }
+  .authorTours__subtitle{
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0px 0px 40px;
+  }
+}
+@media screen and (max-width: 800px){
+  .authorTours__title{
+    font-size: 64px;
+    line-height: 115.75%;
+  }
+  .authorTours__subtitle{
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0px 0px 40px;
+  }
+  .authorTours__button{
+    width: 250px;
+    height: 70px;
+  }
+  .authorTours__link{
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+@media screen and (max-width: 650px){
+  .authorTours__title{
+    font-size: 48px;
+    line-height: 115.75%;
+  }
+}
+@media screen and (max-width: 500px){
+  .authorTours__title{
+    font-size: 36px;
+    line-height: 115.75%;
+  }
+  .authorTours__subtitle{
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0px 0px 30px;
+  }
+  .authorTours__link{
+    font-size: 10px;
+    line-height: 12px;
+    .button__icon{
+      width: 18px;
+      height: 22px;
+    }
+  }
+  .authorTours__button{
+    width: 180px;
+    height: 40px;
+  }
 }
