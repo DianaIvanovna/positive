@@ -11,6 +11,8 @@ import { TripComponent } from './trip/trip.component';
 import { PhotogalleryComponent } from './photogallery/photogallery.component';
 import { PositiveIsComponent } from './positive-is/positive-is.component';
 import { ReviewComponent } from './review/review.component';
+import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,14 @@ import { ReviewComponent } from './review/review.component';
     PhotogalleryComponent,
     PositiveIsComponent,
     ReviewComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

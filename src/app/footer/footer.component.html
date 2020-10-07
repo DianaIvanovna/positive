@@ -1,0 +1,36 @@
+<footer class="footer">
+  <div class="footer__header">
+    <h2 class="footer__title" id="footer">Контакты</h2>
+  </div>
+  <div class="footer__container">
+    <nav class="footer__nav">
+      <a href="#" class="footer__link">+7 (999) 999 - 99 -99</a>
+      <a href="#" class="footer__link">nezovitin@ya.ru</a>
+      <p class="footer__subtitle">Присоединяйтесь в соц. сетях:</p>
+      <ul class="footer__links">
+        <li><a href="#"><img src="../../assets/img/facebook.svg" alt="facebook" class="footer__link"></a></li>
+        <li><a href="#"><img src="../../assets/img/vk-2.svg" alt="vk" class="footer__link"></a></li>
+        <li><a href="#"><img src="../../assets/img/instagram.svg" alt="instagram" class="footer__link"></a></li>
+        <li><a href="#"><img src="../../assets/img/telegram.svg" alt="telegram" class="footer__link"></a></li>
+        <li><a href="#"><img src="../../assets/img/youtube.svg" alt="youtube" class="footer__link"></a></li>
+      </ul>
+    </nav>
+
+    <form class="footer__form" action="" [formGroup]="form" (ngSubmit)="submit()">
+
+      <h3 class="form__title">Оставьте заявку</h3>
+      <p class="form__subtitle">и наш менеджер свяжется с Вами
+        в течение 5 минут</p>
+
+      <input class="form__input" type="text" placeholder="Введите свое имя" required>
+      <input class="form__input" type="tel" placeholder="Введите номер телефона" required>
+
+      <button class="form__button" type="submit">ОТПРАВИТЬ</button>
+
+      <p class="form__text">Отправляя заявку, вы даете согласие
+        на обработку персональных данных</p>
+    </form>
+
+  </div>
+  <img src="../../assets/img/logo.jpg" alt="логтип positive" class="footer__logo">
+</footer>
