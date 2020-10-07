@@ -1,8 +1,5 @@
 @import "../../assets/styles/variables.scss";
 
-// .review{
-//   background: #E5E5E5;
-// }
 .review__header{
   margin-top: 40px;
   display: flex;
@@ -24,30 +21,62 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 100px;
 }
 
 .review__background{
+  position: relative;
+
   max-width: 925px;
   padding: 10px;
   width: 100%;
-  background: #FFFFFF;
   border-radius: 10px;
+  box-sizing: border-box;
+
+  background: white;
+  overflow: hidden;
+  &::before{
+    content: url(../../assets/img/t-1.svg);
+    position: absolute;
+    left: calc(50% - 81px);
+    top: -35px;
+    z-index: 3;
+  }
 
 }
 .review__content{
   max-width: 925px;
   width: 100%;
+  box-sizing: border-box;
+
+  background: white;
   border: 1px solid #F1A22C;
   border-radius: 10px;
+  overflow: hidden;
 
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+
+  display: grid;
+  grid-template-columns: 200px auto;
   justify-content: center;
-  padding: 75px 0px 75px;
+  align-items: center;
+  grid-template-areas:
+  "avatar name"
+  "avatar text"
+  "avatar link";
+
+  padding: 45px 20px ;
+  position: relative;
+  &::before{
+    content: url(../../assets/img/t-2.svg);
+    position: absolute;
+    left: calc(50% - 81px);
+    top: -45px;
+    z-index: 1;
+  }
 
 }
-
 
 
 .review__avatar{
@@ -56,6 +85,8 @@
   border-radius: 50%;
   object-fit: cover;
   margin-right: 30px;
+
+  grid-area: avatar;
 }
 .review__name{
   @include  mainFont;
@@ -65,6 +96,8 @@
 
   color: $mainColor;
   margin-bottom: 10px;
+
+  grid-area: name;
 }
 .review__text{
   @include  mainFont;
@@ -73,6 +106,7 @@
   max-width: 555px;
 
   color: $secondaryColor;
+  grid-area: text;
 }
 .review__link{
   display: inline-flex;
@@ -85,9 +119,88 @@
   .review__icon{
     margin-right: 10px;
   }
+  grid-area: link;
 }
 
 .review__button{
   background: none;
   border: none;
+}
+.review__button_active{
+  path{
+    fill: #F1A22C;
+  }
+}
+
+.review__dashes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .review__hr{
+    margin-left: 5px;
+  }
+  .review__hr_active{
+    rect{
+      fill: #F1A22C;
+    }
+  }
+  margin: 0px auto 100px;
+}
+
+@media screen and (max-width: 700px){
+  .review__title{
+    font-size: 32px;
+  }
+  .review__header{
+    padding: 0px;
+    margin: 20px 0px;
+  }
+  .review__content{
+    grid-template-columns: 120px auto;
+    grid-template-areas:
+    "avatar name"
+    "avatar text"
+    "avatar link";
+
+    .review__avatar{
+      width: 100px;
+      height: 100px;
+    }
+    .review__name{
+      font-size: 18px;
+      line-height: 115.75%;
+    }
+    .review__text{
+      font-size: 12px;
+    }
+    .review__link{
+      font-size: 12px;
+      line-height: 115.75%;
+    }
+  }
+  .review__img{
+    width: 104px;
+  }
+}
+@media screen and (max-width: 600px){
+  .review__button{
+    display: none;
+  }
+}
+@media screen and (max-width: 450px){
+  .review__content{
+    grid-template-areas:
+    "avatar name"
+    "text text"
+    "link link";
+  }
+  .review__title{
+    font-size: 28px;
+  }
+  .review__header{
+    margin: 20px 0px;
+  }
+  .review__img{
+    width: 80px;
+  }
 }
