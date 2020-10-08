@@ -13,6 +13,9 @@ import { PositiveIsComponent } from './positive-is/positive-is.component';
 import { ReviewComponent } from './review/review.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { TripInfoComponent } from './trip-info/trip-info.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PositiveIsComponent,
     ReviewComponent,
     FooterComponent,
+    HomeComponent,
+    TripInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -53,7 +53,6 @@
 .header__logo{
   border-radius: 50%;
   object-fit: cover;
-  margin-left: 10px;
   grid-area: logo;
 }
 @media screen and (max-width: 780px){
@@ -72,5 +71,8 @@
     .header__number{
       margin-left: 10px;
     }
+  }
+  .header__logo{
+    margin-left: 10px;
   }
 }
