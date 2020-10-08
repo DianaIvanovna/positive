@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'trip-info/:linkName',
     component: TripInfoComponent
+  },
+  {
+    path: '**',
+    component: HomeComponent
   }
 ];
 

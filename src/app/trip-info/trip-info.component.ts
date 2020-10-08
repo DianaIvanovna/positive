@@ -10,16 +10,20 @@ import { TripService } from '../trip.service';
 export class TripInfoComponent implements OnInit {
 
   trip;
+  numberActivePhoto:number;
   constructor(private tripService:TripService,
     private route: ActivatedRoute) {
-    // this.tripService
    }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params)=>{
       this.trip=this.tripService.searchByName(params.linkName);
-      console.log(this.trip);
     })
+    this.numberActivePhoto = 0;
+  }
+
+  changeActivePhoto(number){
+    this.numberActivePhoto = number;
   }
 
 }
