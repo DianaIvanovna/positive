@@ -1,8 +1,8 @@
 @import "../../assets/styles/variables.scss";
 .photogallery__header{
-  margin-top: 40px;
   display: flex;
   align-items: center;
+  margin-top: 50px;
 }
 .photogallery__title{
   @include titleFont;
@@ -51,9 +51,117 @@
   background: none;
   border: none;
 }
+.photogallery__button_active{
+  path{
+    fill: #F1A22C;
+  }
+}
 .photogallery__ps{
   @include mainFont;
   font-size: 18px;
   line-height: 115.75%;
   color: $mainColor;
+}
+.photogallery{
+  position: relative;
+}
+
+.photogallery__snowboarder{
+  position: absolute;
+  top: -150px;
+  right: -320px;
+  z-index: -1 ;
+}
+
+@media screen and (max-width: 1024px){
+  .photogallery__grid{
+    grid-template-columns: auto;
+    grid-template-rows: 200px 200px 200px 200px;
+    grid-gap: 20px 20px;
+    grid-template-areas:
+    "item1 item1 item3"
+    "item1 item1 item4"
+    "item2 item2 item5"
+    "item6 item7 item8";
+  }
+}
+
+@media screen and (max-width: 700px){
+  .photogallery__title{
+    font-size: 32px;
+  }
+  .photogallery__header{
+    margin: 20px 0px;
+  }
+  .photogallery__grid{
+    grid-template-columns: auto;
+    grid-template-rows: 200px 200px 200px 200px 200px 200px;
+    grid-gap: 20px 20px;
+    grid-template-areas:
+    "item1 item1"
+    "item1 item1"
+    "item3 item4"
+    "item2 item2"
+    "item5 item6"
+    "item7 item8";
+  }
+  .photogallery__snowboarder{
+    position: absolute;
+    top: -25px;
+    right: -175px;
+    z-index: -1 ;
+
+    width: 300px;
+  }
+  .photogallery__footer{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 10px;
+  }
+  .photogallery__ps{
+    font-size: 14px;
+    line-height: 115.75%;
+    text-align: center;
+  }
+
+}
+@media screen and (max-width: 500px){
+  .photogallery__title{
+    font-size: 28px;
+  }
+  .photogallery__img{
+    width: 80px;
+  }
+  .photogallery__snowboarder{
+    position: absolute;
+    top: -50px;
+    right: -155px;
+    z-index: -1 ;
+
+    width: 300px;
+  }
+}
+@media screen and (max-width: 450px){
+  .photogallery__title{
+    font-size: 28px;
+  }
+  .photogallery__img{
+    width: 80px;
+  }
+  .photogallery__grid{
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(8, 200px);
+    grid-gap: 20px;
+    grid-template-areas:
+    "item1"
+    "item2"
+    "item3"
+    "item4"
+    "item5"
+    "item6"
+    "item7"
+    "item8";
+  }
 }

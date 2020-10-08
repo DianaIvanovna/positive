@@ -53,10 +53,6 @@
   border-radius: 10px;
   overflow: hidden;
 
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-
   display: grid;
   grid-template-columns: 200px auto;
   justify-content: center;
@@ -181,6 +177,9 @@
   .review__img{
     width: 104px;
   }
+  .review__dashes{
+    margin: 0px auto 50px;
+  }
 }
 @media screen and (max-width: 600px){
   .review__button{
@@ -202,5 +201,8 @@
   }
   .review__img{
     width: 80px;
+  }
+  .review__dashes{
+    margin: 0px auto 30px;
   }
 }

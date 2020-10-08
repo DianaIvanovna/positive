@@ -16,20 +16,23 @@
       </ul>
     </nav>
 
-    <form class="footer__form" action="" [formGroup]="form" (ngSubmit)="submit()">
+    <form class="footer__form" ction="send.php" method="post" [formGroup]="form" (ngSubmit)="submit()">
 
       <h3 class="form__title">Оставьте заявку</h3>
       <p class="form__subtitle">и наш менеджер свяжется с Вами
         в течение 5 минут</p>
 
-      <input class="form__input" type="text" placeholder="Введите свое имя" required>
-      <input class="form__input" type="tel" placeholder="Введите номер телефона" required>
+      <input class="form__input" type="text" name="name"
+      placeholder="Введите свое имя" formControlName="name" required>
+      <input class="form__input" type="tel" name="tel"
+      placeholder="Введите номер телефона" formControlName="tel" required>
 
-      <button class="form__button" type="submit">ОТПРАВИТЬ</button>
+      <button class="form__button" type="submit" [disabled]="form.invalid">ОТПРАВИТЬ</button>
 
       <p class="form__text">Отправляя заявку, вы даете согласие
         на обработку персональных данных</p>
     </form>
+
 
   </div>
   <img src="../../assets/img/logo.jpg" alt="логтип positive" class="footer__logo">
