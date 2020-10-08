@@ -9,10 +9,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'trip-info',
+    path: 'trip-info/:linkName',
     component: TripInfoComponent
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { TripService } from '../trip.service';
 
 @Component({
   selector: 'app-trip-info',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TripInfoComponent implements OnInit {
 
-  constructor() { }
+  trip;
+  constructor(private tripService:TripService,
+    private route: ActivatedRoute) {
+    // this.tripService
+   }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params)=>{
+      this.trip=this.tripService.searchByName(params.linkName);
+      console.log(this.trip);
+    })
   }
 
 }
