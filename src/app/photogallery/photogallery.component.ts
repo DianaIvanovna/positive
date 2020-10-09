@@ -10,40 +10,40 @@ export class PhotogalleryComponent implements OnInit {
   activeButtonRight = true;
   activeLayer = 8;
   photos = [
-    "../../assets/img/фото1.jpg",
-    "../../assets/img/фото2.jpg",
-    "../../assets/img/фото3.jpg",
-    "../../assets/img/фото4.jpg",
-    "../../assets/img/фото5.jpg",
-    "../../assets/img/фото6.jpg",
-    "../../assets/img/фото1.jpg",
-    "../../assets/img/фото2.jpg",
-    "../../assets/img/avatar.png", // 1 фото
-    "../../assets/img/фото2.jpg",
-    "../../assets/img/фото3.jpg",
-    "../../assets/img/фото4.jpg",
-    "../../assets/img/фото5.jpg",
-    "../../assets/img/фото6.jpg",
-    "../../assets/img/фото1.jpg",
-    "../../assets/img/фото2.jpg",
-    "../../assets/img/фото1.jpg",
-    "../../assets/img/avatar.png", // второе фото
-    "../../assets/img/фото3.jpg",
-    "../../assets/img/фото4.jpg",
-    "../../assets/img/фото5.jpg",
-    "../../assets/img/фото6.jpg",
-    "../../assets/img/фото1.jpg",
-    "../../assets/img/фото2.jpg",
+    "./assets/img/фото1.jpg",
+    "./assets/img/фото2.jpg",
+    "./assets/img/фото3.jpg",
+    "./assets/img/фото4.jpg",
+    "./assets/img/фото5.jpg",
+    "./assets/img/фото6.jpg",
+    "./assets/img/фото1.jpg",
+    "./assets/img/фото2.jpg",
+    "./assets/img/avatar.png", // 1 фото
+    "./assets/img/фото2.jpg",
+    "./assets/img/фото3.jpg",
+    "./assets/img/фото4.jpg",
+    "./assets/img/фото5.jpg",
+    "./assets/img/фото6.jpg",
+    "./assets/img/фото1.jpg",
+    "./assets/img/фото2.jpg",
+    "./assets/img/фото1.jpg",
+    "./assets/img/avatar.png", // второе фото
+    "./assets/img/фото3.jpg",
+    "./assets/img/фото4.jpg",
+    "./assets/img/фото5.jpg",
+    "./assets/img/фото6.jpg",
+    "./assets/img/фото1.jpg",
+    "./assets/img/фото2.jpg",
   ];
   photosActive = [
-    "../../assets/img/фото1.jpg",
-  "../../assets/img/фото2.jpg",
-  "../../assets/img/фото3.jpg",
-  "../../assets/img/фото4.jpg",
-  "../../assets/img/фото5.jpg",
-  "../../assets/img/фото6.jpg",
-  "../../assets/img/фото1.jpg",
-  "../../assets/img/фото2.jpg",];
+    "./assets/img/фото1.jpg",
+  "./assets/img/фото2.jpg",
+  "./assets/img/фото3.jpg",
+  "./assets/img/фото4.jpg",
+  "./assets/img/фото5.jpg",
+  "./assets/img/фото6.jpg",
+  "./assets/img/фото1.jpg",
+  "./assets/img/фото2.jpg",];
 
   constructor() { }
 
