@@ -1,5 +1,16 @@
 @import "../assets/styles/variables.scss";
-
+.main{
+  position: relative;
+  .main__contant{
+    position: relative;
+    top: 106px;
+  }
+  @media screen and (max-width: 450px){
+    .main__contant{
+      top: 80px;
+    }
+  }
+}
 .page{
   width: 100%;
   position: relative;

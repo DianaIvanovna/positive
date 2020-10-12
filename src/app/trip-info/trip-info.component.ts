@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { TripService } from '../trip.service';
 
@@ -8,6 +8,7 @@ import { TripService } from '../trip.service';
   styleUrls: ['./trip-info.component.scss']
 })
 export class TripInfoComponent implements OnInit {
+  @ViewChild ('tripUp') tripUp:ElementRef;
 
   trip;
   numberActivePhoto:number;
@@ -20,6 +21,9 @@ export class TripInfoComponent implements OnInit {
       this.trip=this.tripService.searchByName(params.linkName);
     })
     this.numberActivePhoto = 0;
+  }
+  ngAfterViewInit(): void {
+    window.scrollTo(pageXOffset, 0);
   }
 
   changeActivePhoto(number){

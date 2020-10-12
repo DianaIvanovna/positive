@@ -1,4 +1,4 @@
-<div class="trip" [class.trip_reverse]="trip.reverseTrip">
+<div class="trip" [class.trip_reverse]="trip.reverseTrip" id="{{trip.id}}">
   <div class="trip__img-background">
     <img src="{{trip.mainImg}}" alt="фото поездки" class="trip__img">
   </div>
@@ -12,4 +12,6 @@
     <button class="trip__button" [routerLink]="['/trip-info',trip.linkName]">ПОДРОБНЕЕ</button>
   </div>
 </div>
+
+
 

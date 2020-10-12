@@ -14,6 +14,7 @@ interface Trip {
   price: string,
   travelPlan: string,
   reverseTrip?: boolean,
+  id?: number,
 }
 
 @Injectable({
@@ -87,6 +88,7 @@ export class TripService {
   ];
   constructor() {
     this.trips.forEach((item, index)=>{
+      item.id=index;
       item.mainImg = item.photos[0];
       if (index%2==0) item.reverseTrip = false;
       else item.reverseTrip = true;
