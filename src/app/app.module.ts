@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { TripInfoComponent } from './trip-info/trip-info.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TripInfoComponent } from './trip-info/trip-info.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    TextMaskModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
