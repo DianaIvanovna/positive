@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { TripService } from '../trip.service';
+
 
 @Component({
   selector: 'app-our-trip',
@@ -8,6 +9,7 @@ import { TripService } from '../trip.service';
 })
 export class OurTripComponent implements OnInit {
   trips = [];
+
   constructor(private tripService:TripService) { }
 
   ngOnInit(): void {
@@ -15,3 +17,5 @@ export class OurTripComponent implements OnInit {
   }
 
 }
+
+

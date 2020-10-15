@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 
 @Component({
   selector: 'app-photogallery',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photogallery.component.scss']
 })
 export class PhotogalleryComponent implements OnInit {
+  urlBigPhoto = "";
+
   activeButtonLeft = false;
   activeButtonRight = true;
   activeLayer = 8;
@@ -71,6 +73,10 @@ export class PhotogalleryComponent implements OnInit {
       this.activeButtonLeft = false;
     }
 
+  }
+  openPhoto(src){
+    this.urlBigPhoto = src;
+    console.log(src);
   }
 }
 

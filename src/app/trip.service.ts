@@ -16,7 +16,7 @@ interface Trip {
   reverseTrip?: boolean,
   id?: number,
 }
-
+// linkName ЛУЧШЕ ПИСАТЬ НА АНЛИЙСКОМ
 @Injectable({
   providedIn: 'root'
 })

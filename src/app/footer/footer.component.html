@@ -24,14 +24,14 @@
 
       <input class="form__input" type="text" name="name"
       placeholder="Введите свое имя" formControlName="name" required>
-      <input class="form__input" type="tel" name="tel"
+      <input class="form__input form__input_tel" type="tel" name="tel" value="+7(___)___-____"
       placeholder="Введите номер телефона" formControlName="tel" required>
-
       <button class="form__button" type="submit" [disabled]="form.invalid">ОТПРАВИТЬ</button>
 
       <p class="form__text">Отправляя заявку, вы даете согласие
         на обработку персональных данных</p>
     </form>
+
 
 
   </div>

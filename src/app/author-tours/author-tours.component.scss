@@ -3,7 +3,9 @@
   overflow: hidden;
   position: relative;
   box-sizing: content-box;
+  // height: calc( 100vh - 106px ) ;
 }
+
 .authorTours__title{
   @include titleFont;
   font-size: 84px;

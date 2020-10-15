@@ -5,7 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
-  title = 'positive2';
+  title = 'positive';
+
+  constructor() {
+  }
 
 }
