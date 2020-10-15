@@ -9,6 +9,10 @@
       <img src="./assets/img/Calendar_for_trip.svg" alt="иконка календаря" class="trip__icon">
       <span class="">{{trip.date}}</span>
     </div>
+    <div>
+      <p class="trip__price">Цена:</p>
+      <p class="trip__price-value">{{trip.price}} ₽</p>
+    </div>
     <button class="trip__button" [routerLink]="['/trip-info',trip.linkName]">ПОДРОБНЕЕ</button>
   </div>
 </div>

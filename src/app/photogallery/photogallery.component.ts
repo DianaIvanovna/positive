@@ -74,9 +74,10 @@ export class PhotogalleryComponent implements OnInit {
     }
 
   }
-  openPhoto(src){
-    this.urlBigPhoto = src;
-    console.log(src);
+  closePopup(event){
+    if (event.target.classList.contains('popup')){
+      this.urlBigPhoto = ""
+    }
   }
 }
 

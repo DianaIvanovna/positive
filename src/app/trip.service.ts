@@ -84,6 +84,90 @@ export class TripService {
       travelPlan: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.
 
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. `,
+    },
+    {
+      title: "Поездка 4",
+      linkName: "Поездка_4",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.",
+      date: "23.11.2020 - 27.11.2020",
+      photos: [
+        "./assets/img/фото5.jpg",
+        "./assets/img/фото6.jpg",
+        "./assets/img/фото1.jpg",
+        "./assets/img/фото2.jpg",
+        "./assets/img/фото3.jpg",
+      ],
+      time: "10:00-17:00",
+      numberOfPersons: 10,
+      place: "Челябинская обл. Магнитогорск",
+      price: "10 000",
+      imgForTravelPlan: "./assets/img/фото1.jpg",
+      travelPlan: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. `,
+    },
+    {
+      title: "Поездка 5",
+      linkName: "Поездка_5",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.",
+      date: "23.11.2020 - 27.11.2020",
+      photos: [
+        "./assets/img/фото5.jpg",
+        "./assets/img/фото6.jpg",
+        "./assets/img/фото1.jpg",
+        "./assets/img/фото2.jpg",
+        "./assets/img/фото3.jpg",
+      ],
+      time: "10:00-17:00",
+      numberOfPersons: 10,
+      place: "Челябинская обл. Магнитогорск",
+      price: "10 000",
+      imgForTravelPlan: "./assets/img/фото1.jpg",
+      travelPlan: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. `,
+    },
+    {
+      title: "Поездка 6",
+      linkName: "Поездка_6",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.",
+      date: "23.11.2020 - 27.11.2020",
+      photos: [
+        "./assets/img/фото5.jpg",
+        "./assets/img/фото6.jpg",
+        "./assets/img/фото1.jpg",
+        "./assets/img/фото2.jpg",
+        "./assets/img/фото3.jpg",
+      ],
+      time: "10:00-17:00",
+      numberOfPersons: 10,
+      place: "Челябинская обл. Магнитогорск",
+      price: "10 000",
+      imgForTravelPlan: "./assets/img/фото1.jpg",
+      travelPlan: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. `,
+    },
+    {
+      title: "Поездка 7",
+      linkName: "Поездка_7",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.",
+      date: "23.11.2020 - 27.11.2020",
+      photos: [
+        "./assets/img/фото5.jpg",
+        "./assets/img/фото6.jpg",
+        "./assets/img/фото1.jpg",
+        "./assets/img/фото2.jpg",
+        "./assets/img/фото3.jpg",
+      ],
+      time: "10:00-17:00",
+      numberOfPersons: 10,
+      place: "Челябинская обл. Магнитогорск",
+      price: "10 000",
+      imgForTravelPlan: "./assets/img/фото1.jpg",
+      travelPlan: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. `,
     }
   ];
   constructor() {

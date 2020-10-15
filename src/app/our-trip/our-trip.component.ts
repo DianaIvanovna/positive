@@ -9,11 +9,29 @@ import { TripService } from '../trip.service';
 })
 export class OurTripComponent implements OnInit {
   trips = [];
+  tripsShown = [];
+  indexTrip;
+  hideButton= false;
 
   constructor(private tripService:TripService) { }
 
   ngOnInit(): void {
     this.trips = this.tripService.getTrips();
+    this.tripsShown = this.trips.slice(0,2);
+    this.indexTrip = 2;
+  }
+
+  showMore(){
+    if (this.indexTrip == this.trips.length-1){
+      this.indexTrip +=1;
+    }
+    else{
+      this.indexTrip +=2;
+    }
+    this.tripsShown = this.trips.slice(0,this.indexTrip);
+    if (this.indexTrip == this.trips.length){
+      this.hideButton = true;
+    }
   }
 
 }
