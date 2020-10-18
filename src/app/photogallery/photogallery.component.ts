@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
+import { PhotosService } from '../photos.service';
 
 @Component({
   selector: 'app-photogallery',
@@ -7,76 +8,44 @@ import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 })
 export class PhotogalleryComponent implements OnInit {
   urlBigPhoto = "";
+  bigPhoto = {
+    photo: '',
+    description: '',
+  }
 
   activeButtonLeft = false;
   activeButtonRight = true;
-  activeLayer = 8;
-  photos = [
-    "./assets/img/фото1.jpg",
-    "./assets/img/фото2.jpg",
-    "./assets/img/фото3.jpg",
-    "./assets/img/фото4.jpg",
-    "./assets/img/фото5.jpg",
-    "./assets/img/фото6.jpg",
-    "./assets/img/фото1.jpg",
-    "./assets/img/фото2.jpg",
-    "./assets/img/avatar.png", // 1 фото
-    "./assets/img/фото2.jpg",
-    "./assets/img/фото3.jpg",
-    "./assets/img/фото4.jpg",
-    "./assets/img/фото5.jpg",
-    "./assets/img/фото6.jpg",
-    "./assets/img/фото1.jpg",
-    "./assets/img/фото2.jpg",
-    "./assets/img/фото1.jpg",
-    "./assets/img/avatar.png", // второе фото
-    "./assets/img/фото3.jpg",
-    "./assets/img/фото4.jpg",
-    "./assets/img/фото5.jpg",
-    "./assets/img/фото6.jpg",
-    "./assets/img/фото1.jpg",
-    "./assets/img/фото2.jpg",
-  ];
-  photosActive = [
-    "./assets/img/фото1.jpg",
-  "./assets/img/фото2.jpg",
-  "./assets/img/фото3.jpg",
-  "./assets/img/фото4.jpg",
-  "./assets/img/фото5.jpg",
-  "./assets/img/фото6.jpg",
-  "./assets/img/фото1.jpg",
-  "./assets/img/фото2.jpg",];
+  photoPages = 0;
+  photoPagesActive = 0;
+  photosActive = [];
 
-  constructor() { }
+  constructor(private photosService:PhotosService,) { }
 
   ngOnInit(): void {
+    this.photosActive = this.photosService.getphoto(this.photoPagesActive);
+    this.photoPages = this.photosService.photos.length;
   }
   next(event){
     event.preventDefault();
-    if (this.activeLayer/ 8 !== this.photos.length / 8 ){
-      this.photosActive = this.photos.slice (this.activeLayer/ 8 * 8 , this.activeLayer/ 8 * 8 + 8);
-      this.activeLayer+=8;
+    if (this.photoPagesActive!==this.photoPages-1){
+      this.photoPagesActive++;
       this.activeButtonLeft = true;
+      this.photosActive = this.photosService.getphoto(this.photoPagesActive);
     }
-    if (this.activeLayer/ 8 === this.photos.length / 8){
-      this.activeButtonRight = false;
-    }
+    if (this.photoPagesActive===this.photoPages-1) this.activeButtonRight = false;
   }
   previous(event){
     event.preventDefault();
-    if (this.activeLayer/ 8 !== 1 ){
-      this.activeLayer-=8;
+    if (this.photoPagesActive!==0){
+      this.photoPagesActive--;
       this.activeButtonRight=true;
-      this.photosActive = this.photos.slice(this.activeLayer-8, this.activeLayer);
+      this.photosActive = this.photosService.getphoto(this.photoPagesActive);
     }
-    if (this.activeLayer/ 8 === 1){
-      this.activeButtonLeft = false;
-    }
-
+    if (this.photoPagesActive===0) this.activeButtonLeft = false;
   }
   closePopup(event){
     if (event.target.classList.contains('popup')){
-      this.urlBigPhoto = ""
+      this.bigPhoto.photo = ""
     }
   }
 }

@@ -5,8 +5,8 @@
     <h2 class="photogallery__title" id="photogallery">Фотогалерея</h2>
   </div>
   <div class="photogallery__grid">
-    <img *ngFor="let item of photosActive; let i = index;" (click)="urlBigPhoto = item"
-    src="{{item}}" alt="" class="grid__item item-{{i+1}}">
+    <img *ngFor="let item of photosActive; let i = index;" (click)="bigPhoto.photo = item.photo; bigPhoto.description= item.description"
+    src="{{item.photo}}" alt="" class="grid__item item-{{i+1}}">
   </div>
 
   <div class="photogallery__footer">
@@ -25,15 +25,15 @@
   </div>
 
   <!-- ПОПАП ДЛЯ БОЛЬШОГО ФОТО -->
-  <div class="popup popup_image" [class.popup_is-opened]="urlBigPhoto" (click)="closePopup($event)">
+  <div class="popup popup_image" [class.popup_is-opened]="bigPhoto.photo" (click)="closePopup($event)">
     <div class="popup__content">
       <img src="./assets/img/close.svg" alt="иконка закрытия"
-      (click)="urlBigPhoto='';" class="popup__close popup__close_image">
+      (click)="bigPhoto.photo='';" class="popup__close popup__close_image">
       <div>
-          <img src="{{urlBigPhoto}}" alt="" class="popup__image">
+          <img src="{{bigPhoto.photo}}" alt="" class="popup__image">
       </div>
     </div>
-    <p class="popup__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aspernatur commodi debitis architecto labore sunt! Quaerat, iusto? Ullam, libero delectus!</p>
+    <p class="popup__description">{{bigPhoto.description}}</p>
   </div>
 
 
