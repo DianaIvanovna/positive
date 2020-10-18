@@ -59,6 +59,10 @@
   letter-spacing: 0.17em;
   color: #FFFFFF;
   text-shadow: 0px -1.48275px 0.741375px rgba(109, 109, 109, 0.25);
+  &:hover{
+    background: darken($highlightColor, 10%);
+    cursor: pointer;
+  }
 }
 
 * {

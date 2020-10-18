@@ -45,6 +45,11 @@
   margin-bottom: 20px;
 
   &:focus {outline:none} // убрала рамку при нажатии
+  &:hover{
+    background: darken($highlightColor, 10%);
+    cursor: pointer;
+  }
+
 }
 .authorTours__link{
   text-decoration: none;
