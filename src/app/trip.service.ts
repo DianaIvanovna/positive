@@ -170,6 +170,7 @@ export class TripService {
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. `,
     }
   ];
+  indexTrip = 2; // переменная, отвечающая за количество показывающих поездок
   constructor() {
     this.trips.forEach((item, index)=>{
       item.id=index;
@@ -188,3 +189,4 @@ export class TripService {
     })
   }
 }
+

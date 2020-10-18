@@ -10,26 +10,24 @@ import { TripService } from '../trip.service';
 export class OurTripComponent implements OnInit {
   trips = [];
   tripsShown = [];
-  indexTrip;
   hideButton= false;
 
   constructor(private tripService:TripService) { }
 
   ngOnInit(): void {
     this.trips = this.tripService.getTrips();
-    this.tripsShown = this.trips.slice(0,2);
-    this.indexTrip = 2;
+    this.tripsShown = this.trips.slice(0,this.tripService.indexTrip);
   }
 
   showMore(){
-    if (this.indexTrip == this.trips.length-1){
-      this.indexTrip +=1;
+    if (this.tripService.indexTrip == this.trips.length-1){
+      this.tripService.indexTrip +=1;
     }
     else{
-      this.indexTrip +=2;
+      this.tripService.indexTrip +=2;
     }
-    this.tripsShown = this.trips.slice(0,this.indexTrip);
-    if (this.indexTrip == this.trips.length){
+    this.tripsShown = this.trips.slice(0,this.tripService.indexTrip);
+    if (this.tripService.indexTrip == this.trips.length){
       this.hideButton = true;
     }
   }

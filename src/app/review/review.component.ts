@@ -66,7 +66,7 @@ export class ReviewComponent implements OnInit {
       name: '',
       text: 'Больше отзывов о поездках читайте в нашей группе в Вконтакте  ↓',
       link: 'https://vk.com/topic-112512427_34660772',
-      img: './assets/img/logo.jpg',
+      img: './assets/img/logoBig.jpg',
       end: true,
     },
   ];
@@ -78,7 +78,7 @@ export class ReviewComponent implements OnInit {
 
 
   clickReview(event){
-    event.preventDefault();
+    // event.preventDefault();
 
     if (event.clientX < document.documentElement.clientWidth / 2 ) this. previousReview();
     else this.nextReview();
