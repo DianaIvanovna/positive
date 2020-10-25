@@ -101,25 +101,49 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.trip-info__button{
-  width: 275.8px;
+.button__background{
+  width: 240.64px;
   height: 77.57px;
-  border: none;
-  background: linear-gradient(184.46deg,$highlightColor 3.39%, $highlightColor 96.19%);
-  box-shadow: 0px 2.75659px 0px $highlightColor;
-  border-radius: 90px;
+  position: relative;
+  left: +25px;
+  background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
+  box-shadow: 0px 22.8983px 65.0195px #F1A22C;
+  border-radius: 91.8864px;
   margin: 20px 0px 20px;
+  &:hover{
+    cursor: pointer;
+    .trip-info__button{
+      background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
+    }
+  }
 
-  &:focus {outline:none} // убрала рамку при нажатии
+  .trip-info__button{
+    position: relative;
+    left: -25px;
+    width: 275.8px;
+    height: 77.57px;
+    border: none;
+    background: linear-gradient(184.46deg, #F1A22C 3.39%, #ECB21D 96.19%);
+    box-shadow: 0px 2.75659px 0px #D58C1F;
+    border-radius: 91.8864px;
+    &:focus {outline:none} // убрала рамку при нажатии
 
-  @include mainFont;
-  font-size: 14.2642px;
-  line-height: 17px;
-  text-align: center;
-  letter-spacing: 0.09em;
-  color: #FFFFFF;
-  text-shadow: 0px -1.2183px 2.4366px #C17B11;
+    @include mainFont;
+    font-size: 14.2642px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: 0.09em;
+    color: #FFFFFF;
+    text-shadow: 0px -1.2183px 2.4366px #C17B11;
+    &:hover{
+      cursor: pointer;
+    }
+
+
+  }
 }
+
+
 .trip-info__price{
   @include mainFont;
   font-size: 14px;
@@ -263,8 +287,22 @@
   .page{
     padding: 0px 20px;
   }
-  .trip-info__button{
-    width: 180px;
+  .button__background{
+    width: 145px;
     height: 40px;
+    background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
+    box-shadow: 0px 22.8983px 65.0195px #F1A22C;
+    border-radius: 91.8864px;
+    margin: 20px 0px 20px;
+
+
+    .trip-info__button{
+      position: relative;
+      left: -15px;
+      width: 180px;
+      height: 40px;
+      font-size: 12px;
+      line-height: 14px;
+    }
   }
 }

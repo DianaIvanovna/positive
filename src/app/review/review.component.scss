@@ -134,6 +134,9 @@
   justify-content: center;
   .review__hr{
     margin-left: 5px;
+    &:hover{
+      cursor: pointer;
+    }
   }
   .review__hr_active{
     rect{

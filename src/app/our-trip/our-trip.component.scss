@@ -21,16 +21,65 @@
   display: flex;
   flex-direction: column;
 }
-.our-trip__button{
-  width: 275.8px;
-  height: 77.57px;
-  border: none;
-  background: linear-gradient(184.46deg,$highlightColor 3.39%, $highlightColor 96.19%);
-  box-shadow: 0px 2.75659px 0px $highlightColor;
-  border-radius: 90px;
 
-  &:focus {outline:none} // убрала рамку при нажатии
+.button__background{
+  position: relative;
+  left: +25px;
+  width: 240.64px;
+  height: 77.57px;
+  background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
+  box-shadow: 0px 22.8983px 65.0195px #F1A22C;
+  border-radius: 91.8864px;
   margin: 0px auto;
+  margin-bottom: 40px;
+
+  &:hover{
+    cursor: pointer;
+    .button{
+      background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
+    }
+  }
+
+  .button{
+    &:hover{
+      cursor: pointer;
+    }
+    position: relative;
+    left: -25px;
+    width: 275.8px;
+    height: 77.57px;
+    border: none;
+    background: linear-gradient(184.46deg, #F1A22C 3.39%, #ECB21D 96.19%);
+    box-shadow: 0px 2.75659px 0px #D58C1F;
+    border-radius: 91.8864px;
+
+    &:focus {outline:none} // убрала рамку при нажатии
+
+  }
+  @media screen and (max-width: 500px){
+    &{
+      position: relative;
+      left: +15px;
+      width: 185px;
+      height: 50px;
+      background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
+      box-shadow: 0px 22.8983px 65.0195px #F1A22C;
+      border-radius: 91.8864px;
+
+      .button{
+        position: relative;
+        left: -15px;
+        width: 210px;
+        height: 50px;
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+  }
+}
+
+
+.our-trip__button{
   @include mainFont;
   font-size: 16px;
   line-height: 148.67%;
@@ -38,25 +87,7 @@
   letter-spacing: 0.17em;
   color: #FFFFFF;
   text-shadow: 0px -1.48275px 0.741375px rgba(109, 109, 109, 0.25);
-  @media screen and (max-width: 800px){
-    &{
-      font-size: 12px;
-      line-height: 14px;
-      width: 220px;
-      height: 50px;
-    }
-  }
-  @media screen and (max-width: 500px){
-    &{
-      width: 180px;
-      height: 40px;
-    }
-  }
-  margin-bottom: 40px;
-  &:hover{
-    background: darken($highlightColor, 10%);
-    cursor: pointer;
-  }
+
 }
 
 @media screen and (max-width: 700px){

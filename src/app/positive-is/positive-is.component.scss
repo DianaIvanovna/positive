@@ -31,34 +31,6 @@
 .positive-is__logo{
   border-radius: 106px;
 }
-
-@media screen and (max-width: 700px){
-  .positive-is__title{
-    font-size: 32px;
-  }
-  .positive-is__header{
-    padding: 0px;
-    margin: 20px 0px;
-  }
-  .positive-is__container{
-    grid-template-columns: 1fr 1fr ;
-  }
-}
-@media screen and (max-width: 450px){
-  .positive-is__title{
-    font-size: 28px;
-  }
-  .positive-is__header{
-    margin: 20px 0px;
-  }
-  .positive-is__container{
-    grid-template-columns: 1fr ;
-  }
-  .positive-is__logo{
-    width: 80px;
-  }
-}
-
 .advantage{
   display: flex;
   flex-direction: column;
@@ -86,4 +58,47 @@
     width: 141px;
   }
 }
+@media screen and (max-width: 700px){
+  .positive-is__title{
+    font-size: 32px;
+  }
+  .positive-is__header{
+    padding: 0px;
+    margin: 20px 0px;
+  }
+  .positive-is__container{
+    grid-template-columns: 1fr 1fr ;
+  }
+}
+@media screen and (max-width: 450px){
+  .positive-is__title{
+    font-size: 28px;
+  }
+  .positive-is__header{
+    margin: 20px 0px;
+  }
+  .advantage{
+    width: 130px;
+    height: 150px;
+    font-size: 12px;
+    .advantage__background{
+      width: 130px;
+      object-fit: fill;
+    }
+    .advantage__icon{
+      width: 48px;
+      margin: 22px 0px 12px;
+    }
+    .advantage__text{
+      width: 100px;
+    }
+  }
+
+
+  .positive-is__logo{
+    width: 80px;
+  }
+}
+
+
 

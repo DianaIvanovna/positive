@@ -60,8 +60,9 @@
   color: #FFFFFF;
   text-shadow: 0px -1.48275px 0.741375px rgba(109, 109, 109, 0.25);
   &:hover{
-    background: darken($highlightColor, 10%);
+    background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
     cursor: pointer;
+
   }
 }
 

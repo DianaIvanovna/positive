@@ -5,7 +5,10 @@
   </div>
   <div class="our-trip__container">
     <app-trip *ngFor="let trip of tripsShown" [trip]="trip" ></app-trip>
-    <button *ngIf="!hideButton" class="our-trip__button" (click)="showMore()">Показать еще</button>
+
+    <div class="button__background">
+      <button *ngIf="!hideButton" class="our-trip__button button" (click)="showMore()">Показать еще</button>
+    </div>
   </div>
 
 </section>

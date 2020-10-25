@@ -2,12 +2,12 @@
   <div class="background__mobile" *ngIf="mobule" (click)="mobule=!mobule"></div>
   <header class="header">
     <div class="header__container">
-      <img src="./assets/img/logo.jpg" alt="логотип" class="header__logo" [routerLink]="['/']">
+      <img src="./assets/img/logo.png" alt="логотип" class="header__logo" [routerLink]="['/']">
       <nav class="header__nav">
 
         <a  href="#ourTrip" class="header__link">Наши поездки</a>
         <a href="#review" class="header__link">Отзывы</a>
-        <a href="#positiveIs" class="header__link">Наши приемущества</a>
+        <a href="#positiveIs" class="header__link">Наши преимущества</a>
         <a  href="#photogallery" class="header__link">Фотогалерея</a>
 
       </nav>
@@ -29,9 +29,9 @@
 
     <div class="header__container-mobule" [class.header__container-mobule_active]="mobule">
       <nav class="header__nav">
-        <a href="#ourTrip" class="header__link header__link_active">Наши поездки</a>
+        <a href="#ourTrip" class="header__link">Наши поездки</a>
         <a href="#review" class="header__link">Отзывы</a>
-        <a href="#positiveIs" class="header__link">Наши приемущества</a>
+        <a href="#positiveIs" class="header__link">Наши преимущества</a>
         <a href="#photogallery" class="header__link">Фотогалерея</a>
       </nav>
 

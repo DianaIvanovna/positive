@@ -80,12 +80,7 @@
       height: 800px;
     }
   }
-  @media screen and (max-width: 450px){
-    &{
-      max-height: 1400px;
-      height: 1400px;
-    }
-  }
+
 }
 .pageContent{
   display: flex;

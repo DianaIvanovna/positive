@@ -1,6 +1,5 @@
 @import "../../assets/styles/variables.scss";
 .footer{
-
   position: relative;
 }
 .footer__container{
@@ -10,7 +9,6 @@
   margin-bottom: 40px;
 }
 .footer__logo{
-  border-radius: 50%;
   margin-bottom: 40px;
 }
 .footer__header{
@@ -99,13 +97,12 @@
   border: none;
   margin-bottom: 25px;
   &:focus {outline:none} // убрала рамку при нажатии
-  &.ng-invalid{
-    box-shadow: 0px 2px 10px rgba(190, 18, 18, 0.3);
-  }
   &.ng-valid{
-    box-shadow: 0px 2px 10px rgba(15, 224, 43, 0.3);
+    box-shadow: 0px 2px 10px rgb(241, 162, 44, );
   }
+
 }
+
 .form__text{
   @include mainFont;
   font-size: 13px;
@@ -134,11 +131,16 @@
   color: #FFFFFF;
   text-shadow: 0px -1.2183px 2.4366px #C17B11;
   &:focus {outline:none} // убрала рамку при нажатии
+  &:hover{
+    cursor: pointer;
+    background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
+  }
   &:disabled{
     background: linear-gradient(184.46deg,#e7ecf2 3.39%, #e7ecf2 96.19%);
     box-shadow: 0px 2.75659px 0px #e7ecf2;
     text-shadow: 0px -1.2183px 2.4366px  #e7ecf2;
   }
+
 }
 
 @media screen and (max-width: 800px){

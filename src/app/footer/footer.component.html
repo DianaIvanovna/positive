@@ -24,8 +24,8 @@
 
       <input class="form__input" type="text" name="name"
       placeholder="Введите свое имя" formControlName="name" required>
-      <input [textMask]="{mask: mask}" class="form__input form__input_tel"  name="tel"
-      placeholder="Введите номер телефона"  formControlName="tel" required minlength="10">
+      <input [textMask]="{mask: mask}"  class="form__input form__input_tel"  name="tel"
+      placeholder="+7(___) ___-__-__"  formControlName="tel" required >
       <button class="form__button" type="submit" [disabled]="form.invalid">ОТПРАВИТЬ</button>
 
       <p class="form__text">Отправляя заявку, вы даете согласие
@@ -35,5 +35,5 @@
 
 
   </div>
-  <img src="./assets/img/logo.jpg" alt="логтип positive" class="footer__logo" [routerLink]="['/']">
+  <img src="./assets/img/logo.png" alt="логтип positive" class="footer__logo" [routerLink]="['/']">
 </footer>
