@@ -1,8 +1,9 @@
 <section class="photogallery" #photogallery>
+  <div class="forlink" id="photogallery" ></div>
   <img src="./assets/img/snowboarder.png" alt="сноубордист" class="photogallery__snowboarder">
   <div class="photogallery__header">
     <!-- <img src="./assets/img/camera.jpg" alt="Иконка фотоаппарата" class="photogallery__img"> -->
-    <h2 class="photogallery__title" id="photogallery">Фотогалерея</h2>
+    <h2 class="photogallery__title">Фотогалерея</h2>
   </div>
   <div class="photogallery__grid">
     <img *ngFor="let item of photosActive; let i = index;" (click)="bigPhoto.photo = item.photo; bigPhoto.description= item.description"

@@ -1,4 +1,5 @@
-<section class="our-trip" id="ourTrip" #ourTrip>
+<section class="our-trip"  #ourTrip>
+  <div class="forlink" id="ourTrip"></div>
   <div class="our-trip__header">
     <!-- <img src="./assets/img/icon-calendar.jpg" alt="Иконка календаря" class="our-trip__img"> -->
     <h2 class="our-trip__title">Наши поездки</h2>
@@ -6,8 +7,8 @@
   <div class="our-trip__container">
     <app-trip *ngFor="let trip of tripsShown" [trip]="trip" ></app-trip>
 
-    <div class="button__background">
-      <button *ngIf="!hideButton" class="our-trip__button button" (click)="showMore()">Показать еще</button>
+    <div class="button__background" *ngIf="!hideButton">
+      <button  class="our-trip__button button" (click)="showMore()">Показать еще</button>
     </div>
   </div>
 

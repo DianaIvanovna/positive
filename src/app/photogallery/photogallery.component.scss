@@ -4,6 +4,15 @@
   align-items: center;
   margin-top: 50px;
 }
+.forlink{
+  position: relative;
+  top: -106px;
+  @media screen and (max-width: 450px){
+    &{
+      top: -80px;
+    }
+  }
+}
 .photogallery__title{
   @include titleFont;
   font-size: 48px;

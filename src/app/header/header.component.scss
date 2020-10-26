@@ -7,6 +7,9 @@
   z-index: 10;
   background-color: white;
 }
+.header__logo{
+  &:focus {outline:none}
+}
 .header{
  width: 100%;
   max-width: 1140px;

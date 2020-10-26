@@ -16,22 +16,15 @@ export class OurTripComponent implements OnInit {
 
   ngOnInit(): void {
     this.trips = this.tripService.getTrips();
-    this.tripsShown = this.trips.slice(0,this.tripService.indexTrip);
+    if (this.tripService.indexTrip == this.trips.length) this.hideButton = true;
+    this.tripsShown = this.trips.slice(0, this.tripService.indexTrip); // показать первые 2 поездки
   }
 
   showMore(){
-    if (this.tripService.indexTrip == this.trips.length-1){
-      this.tripService.indexTrip +=1;
-    }
-    else{
-      this.tripService.indexTrip +=2;
-    }
-    this.tripsShown = this.trips.slice(0,this.tripService.indexTrip);
-    if (this.tripService.indexTrip == this.trips.length){
-      this.hideButton = true;
-    }
+    this.hideButton = true;
+    this.tripsShown = this.trips;
+    this.tripService.indexTrip = this.trips.length;
   }
-
 }
 
 

@@ -71,8 +71,6 @@ export class ReviewComponent implements OnInit {
 
 
   clickReview(event){
-    // event.preventDefault();
-
     if (event.clientX < document.documentElement.clientWidth / 2 ) this. previousReview();
     else this.nextReview();
   }

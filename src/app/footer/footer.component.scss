@@ -10,6 +10,7 @@
 }
 .footer__logo{
   margin-bottom: 40px;
+  &:focus {outline:none}
 }
 .footer__header{
   margin: 40px 0px 0px;
