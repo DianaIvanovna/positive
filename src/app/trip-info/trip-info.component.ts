@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { TripService } from '../trip.service';
+import { HttpTripsService } from '../http-trips.service';
 
 @Component({
   selector: 'app-trip-info',
@@ -11,14 +11,30 @@ export class TripInfoComponent implements OnInit {
   @ViewChild ('tripUp') tripUp:ElementRef;
 
   trip;
+  readyForWork = false;
   numberActivePhoto:number;
-  constructor(private tripService:TripService,
+  constructor(private httpTripsService:HttpTripsService,
     private route: ActivatedRoute) {
    }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params)=>{
-      this.trip=this.tripService.searchByName(params.linkName);
+      if (this.httpTripsService.trips === undefined) {
+        this.httpTripsService.searchByName(params.linkName)
+        .subscribe(
+          data => {
+            this.trip = data;
+            this.readyForWork = true;
+          },
+          error => console.log(error)
+        );
+      }
+      else { // массив поедок уже загружен
+        this.trip = this.httpTripsService.trips.find((item)=>{
+          return item.linkName === params.linkName
+        })
+        this.readyForWork = true;
+      }
     })
     this.numberActivePhoto = 0;
   }

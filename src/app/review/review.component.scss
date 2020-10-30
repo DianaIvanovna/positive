@@ -44,7 +44,7 @@
   background: white;
   overflow: hidden;
   &::before{
-    content: url(../../assets/img/t-1.svg);
+    content: url(../../assets/img/Icon/t-1.svg);
     position: absolute;
     left: calc(50% - 81px);
     top: -35px;
@@ -74,7 +74,7 @@
   padding: 45px 20px ;
   position: relative;
   &::before{
-    content: url(../../assets/img/t-2.svg);
+    content: url(../../assets/img/Icon/t-2.svg);
     position: absolute;
     left: calc(50% - 81px);
     top: -45px;

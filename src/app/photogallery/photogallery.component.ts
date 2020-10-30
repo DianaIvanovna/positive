@@ -34,6 +34,10 @@ export class PhotogalleryComponent implements OnInit {
     }
     if (this.photoPagesActive===this.photoPages-1) this.activeButtonRight = false;
   }
+  nextBigPhoto(event){
+    event.preventDefault();
+
+  }
   previous(event){
     event.preventDefault();
     if (this.photoPagesActive!==0){

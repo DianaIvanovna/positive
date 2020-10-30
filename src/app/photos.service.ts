@@ -159,6 +159,8 @@ export class PhotosService {
       description: ''
     },
   ]
+
+  //массив photos - состоит из массивов по 8 фотографий
   photos = [this.photosWinter1, this.photosWinter2, this.photosWinter3, this.photosSummer1, this.photosDifferent]
   constructor() { }
 

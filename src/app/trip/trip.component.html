@@ -1,12 +1,13 @@
 <div class="trip" [class.trip_reverse]="trip.reverseTrip" id="{{trip.id}}">
   <div class="trip__img-background">
     <img src="{{trip.mainImg}}" alt="фото поездки" class="trip__img">
+
   </div>
   <div class="trip__info">
     <h3 class="trip__title">{{trip.title}}</h3>
     <p class="trip__description">{{trip.description}}</p>
     <div class="trip__date">
-      <img src="./assets/img/Calendar_for_trip.svg" alt="иконка календаря" class="trip__icon">
+      <img src="./assets/img/Icon/Calendar_for_trip.svg" alt="иконка календаря" class="trip__icon">
       <span class="">{{trip.date}}</span>
     </div>
     <div>
