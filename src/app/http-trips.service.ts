@@ -46,6 +46,7 @@ export class HttpTripsService {
       })
     );
   }
+
   searchByName(name){ // возвращает поездку по link
     return this.http.get("assets/trips.json").pipe(
       map(data=>{
