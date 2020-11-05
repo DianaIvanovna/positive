@@ -22,7 +22,7 @@
 
         </div>
         <div class="trip-info__discription">
-          <p class="trip-info__text">{{trip.description}}</p>
+          <p class="trip-info__text" [innerHtml]="trip.description"></p>
           <ul class="trip-info__icons">
             <li>
               <img src="./assets/img/Icon/Calendar_for_trip.svg" alt="иконка календаря" class="trip-info__icon">
@@ -59,10 +59,21 @@
       <section class="travel-plan">
         <div>
           <h3 class="travel-plan__title">План поездки</h3>
-          <p class="travel-plan__text">{{trip.travelPlan}}</p>
+          <p class="travel-plan__text" [innerHtml]="trip.travelPlan"></p>
         </div>
         <img src="{{trip.imgForTravelPlan}}" alt="фото поездки" class="travel-plan__img">
       </section>
+
+      <section class="travel-video" *ngIf="trip.video">
+        <div>
+          <h3 class="travel-plan__title">Видео</h3>
+          <div class="thumb-wrap">
+            <iframe width="607" height="360" [src]="tripVideo" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+        </div>
+      </section>
+
     </section>
   </div>
 </div>

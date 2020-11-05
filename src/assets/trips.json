@@ -1,61 +1,25 @@
 {
   "trips":[
-    {
-      "title": "Поездка на банное",
-      "linkName": "Поездка_на_банное",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.",
-      "date": "23.11.2020 - 27.11.2020",
+  	{
+      "title": "ШЕРЕГЕШ",
+      "linkName": "pozitiv_gesh",
+      "description": "ШЕРЕГЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕШ! Шерегеш, Шерегеш, Шерегеш. Ура, мы снова едем! Максимально пухлячная катка и гарантированно классные ребята (у нас только так).<br><br>В стоимость включено:<br>- классная организация отдыха✌🏻;<br>- проезд на поезде;<br>- проживание в гостинице Шориленд - 2-4 местные номера;<br>- питание (завтраки);<br>- страховка;<br>- все трансферы на автобусах;<br>- скидки на скипассы на сектор \"Е\" и \"фристайл\";<br>- трансфер до горы и обратно;<br>- жаркая банька;<br>- сопровождение;<br>- презент от организаторов😊;<br>- фото/видео на память;<br>- ежедневные впечатления от офигительного катания.",
+      "date": "5.12.2020 - 13.12.2020",
       "photos": [
-        "assets/img/фото поездки.jpg",
-        "./assets/img/фото7.jpg",
-        "./assets/img/фото7.jpg",
-        "./assets/img/фото7.jpg",
-        "./assets/img/фото7.jpg"
-      ],
-      "time": "10:00-17:00",
-      "numberOfPersons": 15,
-      "place": "Челябинская обл. Магнитогорск",
-      "price": "15 000",
-      "imgForTravelPlan": "./assets/img/фото7.jpg",
-      "travelPlan": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. "
-    },
-    {
-      "title": "Поездка на банное 2",
-      "linkName": "Поездка_на_банное_2",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.",
-      "date": "23.11.2020 - 27.11.2020",
-      "photos": [
-        "./assets/img/фото1.jpg",
-        "./assets/img/фото6.jpg",
-        "./assets/img/фото5.jpg",
-        "./assets/img/фото5.jpg",
-        "./assets/img/фото3.jpg"
-      ],
-      "time": "10:00-17:00",
-      "numberOfPersons": 10,
-      "place": "Челябинская обл. Магнитогорск",
-      "price": "10 000",
-      "imgForTravelPlan": "./assets/img/фото3.jpg",
-      "travelPlan": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. "
-    },
-    {
-      "title": "Поездка 3",
-      "linkName": "Поездка_3",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.",
-      "date": "23.11.2020 - 27.11.2020",
-      "photos": [
-        "./assets/img/фото5.jpg",
+        "./assets/img/фото2.jpg",
         "./assets/img/фото6.jpg",
         "./assets/img/фото1.jpg",
         "./assets/img/фото2.jpg",
         "./assets/img/фото3.jpg"
       ],
-      "time": "10:00-17:00",
-      "numberOfPersons": 10,
-      "place": "Челябинская обл. Магнитогорск",
-      "price": "10 000",
+      "time": "8 дней",
+      "numberOfPersons": 40,
+      "place": "Россия, Кемеровская область, горнолыжный курорт Шерегеш",
+      "price": "от 21000",
       "imgForTravelPlan": "./assets/img/фото1.jpg",
-      "travelPlan":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. Pharetra, lorem nulla cras malesuada auctor tincidunt pretium non ac. Lacus ipsum praesent eu, mi eu phasellus et. Ut ut augue arcu magna vel nunc tellus enim. Vel adipiscing diam convallis turpis. Quis dictum id sit commodo viverra ullamcorper consectetur non ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus nisl, ullamcorper rhoncus odio egestas. Cursus neque netus nulla eu ac. Massa augue duis urna donec. "
+      "travelPlan":"Незабываемый, снежный, твой - Шерегеш‼<br><br>5 декабря:<br>05:12 садимся в поезд в Челябинске и отправляемся на встречу приключениям. Для того, чтобы время пролетело незаметно веселимся, знакомимся, играем в настолки.<br><br>6 декабря:<br>В 14:33 местного времени прибываем в Новокузнецк (а оно на 2 часа больше, чем на нашем любимом Урале).<br>Примерно в 17:30 прибываем/заселяемся в нашу уютную гостиницу Шориленд. Отдыхаем с дороги.<br><br>7-12 декабря:<br>Катальные дни, по желанию можно отправиться на заброски на ратраках.<br><br>12 декабря<br>Катаемся до обеда, умываемся, собираемся, сдаем номера примерно в 17:00-18:00 местного времени.<br>В 18:30 выезжаем на жд вокзал<br>В 23:03 садимся в поезд и едем на поезде в Челябинск<br><br>14 декабря<br>04:46 прибытие в Челябинск (время местное)",
+      "video": "d39wXkhuU8w"
     }
+
   ]
 }

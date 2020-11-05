@@ -1,4 +1,5 @@
 @import "../../assets/styles/variables.scss";
+/* autoprefixer grid: autoplace */
 .section-header{
   width: 100%;
   position: fixed;
@@ -6,8 +7,12 @@
   left: 0px;
   z-index: 10;
   background-color: white;
+  border-bottom: 1px solid rgb(196, 196, 196); // убери потом
 }
 .header__logo{
+  &:hover{
+    cursor: pointer;
+  }
   &:focus {outline:none}
 }
 .header{
@@ -55,12 +60,19 @@
     margin: 0px;
     text-decoration: none;
   }
-  .header__message{
+  .header__container-message{
     display: block;
-    font-size: 16px;
-    line-height: 18px;
     margin: 0px;
     margin-top: 5px;
+    .header__message{
+      font-size: 16px;
+      line-height: 18px;
+      text-decoration: none;
+      color: black;
+      &:hover{
+        color: $highlightColor;
+      }
+    }
   }
 }
 .header__nav {
@@ -79,15 +91,12 @@
     text-transform: uppercase;
     text-decoration: none;
     color: $fontColor;
-  }
-  .header__link_active{
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    border-bottom: 1px solid $highlightColor;
-
-    color: $highlightColor;
+    &:hover{
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-bottom: 1px solid $highlightColor;
+      color: $highlightColor;
+    }
   }
 }
 
@@ -139,12 +148,18 @@
 .header__container-mobule_active{
   display: flex;
 }
+.header__menu{
+  display: block;
+}
 
 @media screen and (min-width: 915px){
-  .header__message{
+  .header__container-message{
     display: none;
   }
   .header__container-mobule{
+    display: none;
+  }
+  .header__menu{
     display: none;
   }
 }
@@ -163,10 +178,11 @@
       font-size: 14px;
       line-height: 16px;
     }
-    .header__message{
-      font-size: 12px;
-      line-height: 14px;
-
+    .header__container-message{
+      .header__message{
+        font-size: 12px;
+        line-height: 14px;
+      }
     }
   }
   .header__logo{

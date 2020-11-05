@@ -18,6 +18,7 @@ interface Trip {
   travelPlan: string,
   reverseTrip?: boolean,
   id?: number,
+  video?:string
 }
 
 @Injectable({

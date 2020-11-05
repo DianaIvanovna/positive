@@ -5,7 +5,7 @@
   </div>
   <div class="trip__info">
     <h3 class="trip__title">{{trip.title}}</h3>
-    <p class="trip__description">{{trip.description}}</p>
+    <p class="trip__description" [innerHtml]="trip.description"></p>
     <div class="trip__date">
       <img src="./assets/img/Icon/Calendar_for_trip.svg" alt="иконка календаря" class="trip__icon">
       <span class="">{{trip.date}}</span>
@@ -14,9 +14,10 @@
       <p class="trip__price">Цена:</p>
       <p class="trip__price-value">{{trip.price}} ₽</p>
     </div>
-    <button class="trip__button" [routerLink]="['/trip-info',trip.linkName]">ПОДРОБНЕЕ</button>
+    <button class="trip__button" [routerLink]="['/',trip.linkName]">ПОДРОБНЕЕ</button>
   </div>
 </div>
+
 
 
 

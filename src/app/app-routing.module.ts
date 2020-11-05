@@ -11,7 +11,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'trip-info/:linkName',
+    path: ':linkName',
     component: TripInfoComponent
   },
   {

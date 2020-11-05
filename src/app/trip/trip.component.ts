@@ -15,3 +15,4 @@ export class TripComponent implements OnInit {
   }
 
 }
+

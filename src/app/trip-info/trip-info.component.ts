@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HttpTripsService } from '../http-trips.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-trip-info',
@@ -13,8 +14,10 @@ export class TripInfoComponent implements OnInit {
   trip;
   readyForWork = false;
   numberActivePhoto:number;
+  tripVideo;
+  baseUrl:string = 'https://www.youtube.com/embed/';
   constructor(private httpTripsService:HttpTripsService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute, private sanitizer: DomSanitizer) {
    }
 
   ngOnInit(): void {
@@ -24,7 +27,10 @@ export class TripInfoComponent implements OnInit {
         .subscribe(
           data => {
             this.trip = data;
+            this.tripVideo = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this.trip.video);
             this.readyForWork = true;
+            console.log(this.baseUrl + this.trip.video);
+
           },
           error => console.log(error)
         );

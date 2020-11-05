@@ -4,8 +4,13 @@
   </div>
   <div class="footer__container">
     <nav class="footer__nav">
-      <a href="tel:+79999999999" class="footer__link">+7 (999) 999-99-99</a>
-      <a href="#" class="footer__link">nezovitin@ya.ru</a>
+      <a href="tel:+79226999898" class="footer__link">+7 (922) 699-98-98</a>
+      <p class="footer__container-message">
+        <a href="https://t.me/pozitivtour" class="footer__message">(Telegram / </a>
+        <a href="https://wa.me/79226999898" class="footer__message">WhatsApp / </a>
+        <a href="viber://chat?number=79226999898" class="footer__message">Viber)</a>
+      </p>
+      <a href="mailto:pozitiv-tour74@yandex.ru" class="footer__link">pozitiv-tour74@yandex.ru</a>
       <p class="footer__subtitle">Присоединяйтесь в соц. сетях:</p>
       <ul class="footer__links">
         <li><a href="https://vk.com/pozitiv74" target="_blank"><img src="./assets/img/Icon/vk-2.svg" alt="vk" class="footer__link"></a></li>
@@ -13,23 +18,36 @@
       </ul>
     </nav>
 
-    <form class="footer__form" ction="send.php" method="post" [formGroup]="form" (ngSubmit)="submit()">
+    <div *ngIf="!messageIsSent; else Message">
+      <form class="footer__form" ction="send.php" method="post" [formGroup]="form" (ngSubmit)="submit()"
+      #formNative>
+        <h3 class="form__title">Оставьте заявку</h3>
+        <p class="form__subtitle">и наш менеджер свяжется с Вами
+          в течение 5 минут</p>
 
-      <h3 class="form__title">Оставьте заявку</h3>
-      <p class="form__subtitle">и наш менеджер свяжется с Вами
-        в течение 5 минут</p>
+        <!-- Hidden Required Fields -->
+        <input type="hidden" name="project_name" formControlName="project_name" >
+        <input type="hidden" name="admin_email" formControlName="admin_email">
+        <input type="hidden" name="form_subject" formControlName="form_subject">
+        <!-- END Hidden Required Fields -->
 
-      <input class="form__input" type="text" name="name"
-      placeholder="Введите свое имя" formControlName="name" required>
-      <input [textMask]="{mask: mask}"  class="form__input form__input_tel"  name="tel"
-      placeholder="+7(___) ___-__-__"  formControlName="tel" required >
-      <button class="form__button" type="submit" [disabled]="form.invalid">ОТПРАВИТЬ</button>
+        <input class="form__input" type="text" name="name"
+        placeholder="Введите свое имя" formControlName="name" required>
+        <input [textMask]="{mask: mask}"  class="form__input form__input_tel"  name="tel"
+        placeholder="+7(___) ___-__-__"  formControlName="tel" required >
+        <button class="form__button" type="submit" [disabled]="form.invalid" >ОТПРАВИТЬ</button>
 
-      <p class="form__text">Отправляя заявку, вы даете согласие
-        на обработку персональных данных</p>
-    </form>
-
-
+        <p class="form__text">Отправляя заявку, вы даете согласие
+          на обработку персональных данных</p>
+      </form>
+    </div>
+    <ng-template #Message>
+      <form class="footer__form" ction="send.php" method="post" [formGroup]="form" (ngSubmit)="submit()"
+      #formNative>
+        <p class="form__subtitle">Заявка отправлена. Наш менеджер свяжется с Вами
+          в течение 5 минут.</p>
+      </form>
+    </ng-template>
 
   </div>
   <img src="./assets/img/logo.png" alt="логтип positive" class="footer__logo" [routerLink]="['/']">

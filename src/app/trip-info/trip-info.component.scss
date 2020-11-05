@@ -1,5 +1,5 @@
 @import "../../assets/styles/variables.scss";
-
+/* autoprefixer grid: autoplace */
 .page{
   width: 100%;
   position: relative;
@@ -66,6 +66,9 @@
   margin-right: 10px;
   &:last-of-type{
     margin-right: 0px;
+  }
+  &:hover{
+    cursor: pointer;
   }
 }
 .trip-info__img-small_active{
@@ -228,6 +231,24 @@
     font-size: 32px;
   }
 }
+
+
+.thumb-wrap {
+  position: relative;
+  padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+  height: 0;
+  overflow: hidden;
+}
+.thumb-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+  outline-width: 0;
+}
+
 @media screen and (max-width: 550px){
   .trip-info__img-small{
     width: calc(100% / 5 - 5px);
