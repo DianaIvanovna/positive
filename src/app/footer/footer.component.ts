@@ -18,12 +18,13 @@ export class FooterComponent implements OnInit {
   }
   messageIsSent = false;
 
+
   ngOnInit(): void {
     this.form = new FormGroup({
       // поля для php, чтобы отправить письмо
-      project_name: new FormControl('Site Name'),
+      project_name: new FormControl('Positive'),
       admin_email: new FormControl('pozitivtour74@pozitivtour74.ru'),
-      form_subject: new FormControl('Form Subject'),
+      form_subject: new FormControl('Заявка на обратный звонок'),
       name: new FormControl('', [
         Validators.required,
       ]),

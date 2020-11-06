@@ -250,6 +250,136 @@
   outline-width: 0;
 }
 
+
+// СТИЛИ ДЛЯ ПОПАПА РЕГИСТРАЦИИ
+
+.popup.popup_is-opened {
+  display: flex;
+}
+
+::placeholder { // стиль для плейсхолдера
+  color:#414141;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  z-index: 20;
+
+}
+
+.popup__close {
+  width: 26px;
+  position: absolute;
+  top: -26px;
+  right: -26px;
+  cursor: pointer;
+  @media screen and (max-width: 540px) {
+    &{
+      display: none;
+    }
+  }
+}
+
+.popup__content {
+  width: 430px;
+  min-height: 330px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 34px 36px;
+  @media screen and (max-width: 540px) {
+    &{
+      width: calc(100% - 60px);
+    }
+  }
+}
+
+.popup__title{
+  @include mainFont;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 24px;
+
+  color: #414141;
+  @media screen and (max-width: 540px) {
+    &{
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+}
+
+.popup__input {
+  width: 100%;
+  height: 47px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  font-size: 14px;
+  line-height: 17px;
+  box-sizing: border-box;
+  padding: 5px 6px 13px;
+  margin-bottom: 24px;
+  &:focus {outline:none} // убрала рамку при нажатии
+  &.ng-valid{
+    border-bottom: 1px solid  rgb(241, 162, 44, );
+  }
+
+}
+.popup__input:last-of-type {
+  margin-bottom: 0;
+}
+.popup__button{
+  // max-width: 317px;
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+
+  border: none;
+  background: linear-gradient(184.46deg,$highlightColor 3.39%, $highlightColor 96.19%);
+  box-shadow: 0px 2.75659px 0px $highlightColor;
+  border-radius: 90px;
+  margin-bottom: 20px;
+
+  @include mainFont;
+  font-size: 14.2642px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.09em;
+
+  color: #FFFFFF;
+  text-shadow: 0px -1.2183px 2.4366px #C17B11;
+  &:focus {outline:none} // убрала рамку при нажатии
+  &:hover{
+    cursor: pointer;
+    background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
+  }
+  &:disabled{
+    opacity: 0.5;
+  }
+
+}
+
+
+
+.popup_edit-profile .popup__button
+{
+  font-size: 18px;
+  line-height: 22px;
+}
+
+
+
 @media screen and (max-width: 550px){
   .trip-info__img-small{
     width: calc(100% / 5 - 5px);
@@ -270,9 +400,6 @@
     font-size: 24px;
   }
 }
-
-
-
 
 @media screen and (max-width: 700px){
   .trip-info__title{

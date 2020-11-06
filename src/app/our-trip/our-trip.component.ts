@@ -28,6 +28,7 @@ export class OurTripComponent implements OnInit {
       );
     } else { // массив поедок уже загружен
       this.trips = this.httpTripsService.trips;
+      if (this.trips.length <= this.httpTripsService.indexTrip) this.hideButton = true;
       this.readyForWork = true;
       if (this.httpTripsService.indexTrip == this.trips.length) this.hideButton = true;
       this.tripsShown = this.trips.slice(0, this.httpTripsService.indexTrip);

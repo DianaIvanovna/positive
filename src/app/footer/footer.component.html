@@ -18,12 +18,13 @@
       </ul>
     </nav>
 
+
     <div *ngIf="!messageIsSent; else Message">
-      <form class="footer__form" ction="send.php" method="post" [formGroup]="form" (ngSubmit)="submit()"
+      <form class="footer__form" action="send.php" method="post" [formGroup]="form" (ngSubmit)="submit()"
       #formNative>
         <h3 class="form__title">Оставьте заявку</h3>
         <p class="form__subtitle">и наш менеджер свяжется с Вами
-          в течение 5 минут</p>
+          в течение 12 минут</p>
 
         <!-- Hidden Required Fields -->
         <input type="hidden" name="project_name" formControlName="project_name" >
@@ -45,7 +46,7 @@
       <form class="footer__form" ction="send.php" method="post" [formGroup]="form" (ngSubmit)="submit()"
       #formNative>
         <p class="form__subtitle">Заявка отправлена. Наш менеджер свяжется с Вами
-          в течение 5 минут.</p>
+          в течение 12 минут.</p>
       </form>
     </ng-template>
 
