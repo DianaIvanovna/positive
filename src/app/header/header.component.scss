@@ -16,16 +16,13 @@
   &:focus {outline:none}
 }
 .header{
- width: 100%;
+  width: 100%;
   max-width: 1140px;
   box-sizing: border-box;
   margin: 0px auto;
   position: relative;
   z-index: 12;
-
   background-color: white;
-
-
   @media screen and (max-width: 1280px){
     &{padding: 0px 80px;}
   }
@@ -78,23 +75,26 @@
 .header__nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  grid-template-rows: 1fr 1fr;
+  // align-items: center;
   column-gap: 10px;
-  row-gap: 10px;
-  justify-items: center;
+  // row-gap: 10px;
+  // justify-items: center;
 
   @include mainFont;
   .header__link{
+    align-self: center ; //!!!
+    justify-self: center;
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
     color: $fontColor;
+    margin-bottom: 10px;
     &:hover{
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      border-bottom: 1px solid $highlightColor;
       color: $highlightColor;
     }
   }
@@ -189,4 +189,19 @@
     width: 80px;
     height: 80px;
   }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* только для IE10 IE11 */
+
+  .header__nav {
+    display: block;
+    max-width: 280px;
+    @include mainFont;
+    .header__link{
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+  }
+
 }

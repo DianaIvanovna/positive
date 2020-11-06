@@ -65,7 +65,7 @@
   display: grid;
   grid-template-columns: 200px auto;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   grid-template-areas:
   "avatar name"
   "avatar text"
@@ -90,6 +90,7 @@
   border-radius: 50%;
   object-fit: cover;
   margin-right: 30px;
+  align-self: center;
 
   grid-area: avatar;
 }
@@ -98,6 +99,7 @@
   font-weight: bold;
   font-size: 24px;
   line-height: 115.75%;
+  align-self: center;
 
   color: $mainColor;
   margin-bottom: 10px;
@@ -109,6 +111,7 @@
   font-size: 14px;
   line-height: 115.75%;
   max-width: 555px;
+  align-self: center;
 
   color: $secondaryColor;
   grid-area: text;
@@ -121,6 +124,7 @@
   font-size: 16px;
   line-height: 115.75%;
   color: #4A76A8;
+  align-self: center;//!!!
   .review__icon{
     margin-right: 10px;
   }

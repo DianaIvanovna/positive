@@ -41,7 +41,7 @@
 
   display: grid;
   width: 100%;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 200px 200px 200px;
   grid-gap: 20px 20px;
   grid-template-areas:
@@ -85,8 +85,8 @@
 
 @media screen and (max-width: 1024px){
   .photogallery__grid{
-    grid-template-columns: auto;
     grid-template-rows: 200px 200px 200px 200px;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px 20px;
     grid-template-areas:
     "item1 item1 item3"
@@ -104,7 +104,7 @@
     margin: 20px 0px;
   }
   .photogallery__grid{
-    grid-template-columns: auto;
+    grid-template-columns: 1fr 1fr ;
     grid-template-rows: 200px 200px 200px 200px 200px 200px;
     grid-gap: 20px 20px;
     grid-template-areas:
@@ -161,7 +161,7 @@
   .photogallery__grid{
     display: grid;
     width: 100%;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr ;
     grid-template-rows: repeat(8, 200px);
     grid-gap: 20px;
     grid-template-areas:
@@ -215,9 +215,9 @@
 }
 
 .popup__content {
-  width: 430px;
+  // width: 430px;
   min-height: 330px;
-  background-color: #fff;
+  // background-color: #fff;
   border-radius: 10px;
   position: relative;
   box-sizing: border-box;
@@ -245,6 +245,15 @@
   background-color: rgb(255, 255, 255, 0.5);
   border-radius: 5px;
   margin: 0px 10px;
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+.photogallery__arrow{
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 540px) {

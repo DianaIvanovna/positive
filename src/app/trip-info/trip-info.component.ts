@@ -27,7 +27,7 @@ export class TripInfoComponent implements OnInit {
         .subscribe(
           data => {
             this.trip = data;
-            this.tripVideo = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this.trip.video);
+            // this.tripVideo = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this.trip.video);
             this.readyForWork = true;
             console.log(this.baseUrl + this.trip.video);
 

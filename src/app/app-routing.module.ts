@@ -4,7 +4,6 @@ import { HomeComponent } from './home/home.component';
 import { TripInfoComponent } from './trip-info/trip-info.component';
 
 
-
 const routes: Routes = [
   {
     path: '',
@@ -26,5 +25,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule{
-
 }
