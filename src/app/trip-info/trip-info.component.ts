@@ -20,8 +20,7 @@ export class TripInfoComponent implements OnInit {
   tripVideo;
   baseUrl:string = 'https://www.youtube.com/embed/';
 
-  // bookTrip = false;
-  bookTrip = true;
+  bookTrip = false;
   formBook:FormGroup;
   mask = ['+','7','(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-', /\d/, /\d/];
   messageIsSent = false;
@@ -68,6 +67,9 @@ export class TripInfoComponent implements OnInit {
         Validators.required,
         Validators.pattern(/\+7\([0-9]{1}[0-9]{2}\) [0-9]{3}-[0-9]{2}-[0-9]{2}/),
       ]),
+      numberPerson: new FormControl('', [
+        Validators.required,
+      ]),
       date: new FormControl('', [
         Validators.required
       ]),
@@ -97,12 +99,14 @@ export class TripInfoComponent implements OnInit {
     data.append('дата', this.trip.date);
 
     console.log(new FormData(this.formBookNative.nativeElement));
-  //   fetch("assets/php/mail.php", {
-  //       method: "POST",
-  //       body: new FormData(this.formBookNative.nativeElement)
-  //     })
-  //     .then(data=>{})
-  //     .catch(function(error) { console.log(error); });
+    // fetch("assets/php/mail.php", {
+    //     method: "POST",
+    //     body: new FormData(this.formBookNative.nativeElement)
+    //   })
+    //   .then(data=>{
+
+    //   })
+    //   .catch(function(error) { console.log(error); });
   }
 
 }

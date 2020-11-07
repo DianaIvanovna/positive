@@ -257,10 +257,6 @@
   display: flex;
 }
 
-::placeholder { // стиль для плейсхолдера
-  color:#414141;
-}
-
 .popup {
   position: fixed;
   top: 0;
@@ -292,7 +288,7 @@
 
 .popup__content {
   width: 430px;
-  min-height: 330px;
+  // min-height: 330px;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
@@ -314,13 +310,21 @@
   color: #414141;
   @media screen and (max-width: 540px) {
     &{
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 18px;
+      line-height: 20px;
     }
   }
 }
-
+.popup__text{
+  @include mainFont;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 40px;
+  color: #414141;
+}
 .popup__input {
+  @include mainFont;
   width: 100%;
   height: 47px;
   border: 0;
@@ -330,12 +334,43 @@
   box-sizing: border-box;
   padding: 5px 6px 13px;
   margin-bottom: 24px;
+  color:#414141;
   &:focus {outline:none} // убрала рамку при нажатии
   &.ng-valid{
     border-bottom: 1px solid  rgb(241, 162, 44, );
   }
-
+  &.popup__input_number{
+    width: 45%;
+    margin-left: 5%;
+  }
+  &.popup__input_tel{
+    width: 50%;
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 5px 6px 5px;
+    margin-bottom: 12px;
+    &.popup__input_number{
+      width: 100%;
+      margin-left: 0%;
+    }
+    &.popup__input_tel{
+      width: 100%;
+    }
+  }
 }
+// убрала стрелки вверх вниз у инпут
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+::placeholder { // стиль для плейсхолдера
+  color:#414141;
+}
+
 .popup__input:last-of-type {
   margin-bottom: 0;
 }

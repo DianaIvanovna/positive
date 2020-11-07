@@ -1,5 +1,6 @@
 <div class="page" id="tripUp" *ngIf="readyForWork">
   <div class="pageContent">
+
     <section class="trip-info">
       <div class="trip-info__header">
         <a href="./#{{trip.id}}" class="">
@@ -7,7 +8,6 @@
             <path fill-rule="evenodd" clip-rule="evenodd" d="M50.1224 59.2716C51.1232 58.3071 51.1301 56.7434 50.1156 55.7788L35.1138 41.4848L34.8488 41.2646C33.8348 40.5308 32.3854 40.6075 31.4648 41.4947C30.9661 41.9754 30.7116 42.6074 30.7116 43.2362C30.7116 43.8683 30.9661 44.5036 31.4717 44.9843L46.4735 59.2815L46.7385 59.5017C47.7525 60.2355 49.2019 60.1588 50.1224 59.2716ZM50.3482 15.965C51.1223 14.9969 51.0401 13.6092 50.1227 12.725C49.1184 11.7605 47.4848 11.7572 46.4737 12.7217L23.8851 34.2516L23.6532 34.5038C23.3017 34.943 23.125 35.4702 23.125 35.9996C23.125 36.6284 23.3795 37.2605 23.8782 37.7411C24.8824 38.709 26.516 38.7123 27.5272 37.7477L50.1158 16.2179L50.3482 15.965Z" fill="#B7B7B7"/>
           </svg>
         </a>
-
         <h2 class="trip-info__title" >{{trip.title}}</h2>
       </div>
 
@@ -19,8 +19,8 @@
           <img *ngFor="let item of trip.photos; let i = index" (click)="changeActivePhoto(i)"
           [class.trip-info__img-small_active] ="i===numberActivePhoto"
           src="{{item}}" alt="фото поездки"  class="trip-info__img-small">
-
         </div>
+
         <div class="trip-info__discription">
           <p class="trip-info__text" [innerHtml]="trip.description"></p>
           <ul class="trip-info__icons">
@@ -32,11 +32,10 @@
               <img src="./assets/img/Icon/Time Circle.svg" alt="иконка часов" class="trip-info__icon">
               {{trip.time}}
             </li>
-            <li>
+            <!-- <li>
               <img src="./assets/img/Icon/numberPersons.svg" alt="иконка user" class="trip-info__icon">
               {{trip.numberOfPersons}} человек
-            </li>
-
+            </li> -->
             <li>
               <img src="./assets/img/Icon/Discovery_for_trip.svg" alt="иконка компас" class="trip-info__icon">
               {{trip.place}}
@@ -53,6 +52,13 @@
           </div>
         </div>
       </div>
+
+      <section class="">
+        <div class="trip__price">
+          <h4></h4>
+        </div>
+
+      </section>
 
       <section class="travel-plan">
         <div>
@@ -75,11 +81,11 @@
       <!-- ПОПАП РЕГИСТРАЦИЯ  -->
 
       <div class="popup popup_edit-profile" [class.popup_is-opened]="bookTrip" (click)="closePopup($event)">
-        <div class="popup__content">
+        <div class="popup__content" *ngIf="!messageIsSent; else Message">
           <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
           <h3 class="popup__title">Забронировать поездку</h3>
 
-          <form class="popup__form popup__form_editProfile" name="editProfile" [formGroup]="formBook" *ngIf="!messageIsSent; else Message" #formBookNative action="send.php" method="post" (ngSubmit)="submit()">
+          <form class="popup__form popup__form_editProfile" name="editProfile" [formGroup]="formBook"  #formBookNative action="send.php" method="post" (ngSubmit)="submit()">
               <!-- Hidden Required Fields -->
               <input type="hidden" name="project_name" formControlName="project_name" >
               <input type="hidden" name="admin_email" formControlName="admin_email">
@@ -88,7 +94,9 @@
 
               <input class="popup__input" type="text" name="name" placeholder="ФИО" formControlName="name" required>
 
-              <input [textMask]="{mask: mask}"  class="popup__input"  name="tel" placeholder="+7(___) ___-__-__"  formControlName="tel" required >
+              <input [textMask]="{mask: mask}"  class="popup__input popup__input_tel"  name="tel" placeholder="+7(___) ___-__-__"  formControlName="tel" required >
+
+              <input class="popup__input popup__input_number" type="number" name="numberPerson" formControlName="numberPerson" required placeholder="количество человек">
 
               <input class="popup__input" type="date" name="date" formControlName="date" required>
 
@@ -97,13 +105,16 @@
               <button type="submit" class="button popup__button" [disabled]="formBook.invalid">Забронировать</button>
 
           </form>
-
-          <ng-template #Message>
-            <p class="">Спасибо, что забронировали поездку! В ближайшее время с вами свяжется  наш менеджер и подтвердит бронирование.</p>
-
-          </ng-template>
-
         </div>
+
+        <ng-template #Message>
+          <div class="popup__content">
+            <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
+
+            <h3 class="popup__title">Спасибо, что забронировали поездку!</h3>
+            <p class="popup__text">В ближайшее время с вами свяжется  наш менеджер и подтвердит бронирование.</p>
+          </div>
+        </ng-template>
       </div>
 
 
