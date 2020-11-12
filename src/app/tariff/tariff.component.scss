@@ -1,0 +1,299 @@
+@import "../../assets/styles/variables.scss";
+/* autoprefixer grid: autoplace */
+.pageContent{
+  display: flex;
+  flex-direction: column;
+  max-width: 1140px;
+  margin: 0px auto;
+}
+.tariff__container{
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.tariff__header{
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 150px;
+}
+.tariff__title{
+  @include titleFont;
+  font-size: 48px;
+  line-height: 115.75%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: $mainColor;
+  margin: 0px;
+}
+
+.tariff-item{
+  width: 323px;
+  background: #FFFFFF;
+  border: 1px solid #EDEDED;
+  box-shadow: 0px 42px 34px rgba(154, 154, 154, 0.29);
+  border-radius: 26px;
+  padding: 33px;
+  position: relative;
+  box-sizing: border-box;
+
+  margin-left: 10px;
+  margin-bottom: 60px;
+}
+.tariff-item__title{
+  @include mainFont;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 34px;
+  color: #241534;
+  margin: 0px 0px 5px;
+}
+.tariff-item__subtitle{
+  @include mainFont;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #848199;
+  margin: 0px;
+}
+.tariff-item__img{
+  position: absolute;
+  top: 16px;
+  right: 20px;
+
+}
+.tariff-item__price{
+  @include mainFont;
+  font-weight: bold; // недостаточно толстая линия, подумая об этом.
+  font-size: 36px;
+  line-height: 46px;
+  margin: 34px 0px 47px;
+
+  color: #241534;
+}
+.tariff-item__advantages{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 50px;
+  li{
+    display: flex;
+    align-items: flex-start;
+
+    @include mainFont;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    color: #848199;
+    margin-bottom: 10px;
+    .tariff-item__icon{
+      margin-right: 10px;
+    }
+  }
+}
+
+.button__background{
+
+  width: 223.19px;
+  height: 70.43px;
+  position: relative;
+  left: +25px;
+  background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
+  box-shadow: 0px 22.8983px 65.0195px #F1A22C;
+  border-radius: 91.8864px;
+  margin: 20px 0px 50px;
+  &:hover{
+    cursor: pointer;
+    .tariff-item__button{
+      background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
+    }
+  }
+  .tariff-item__button{
+    position: relative;
+    left: -25px;
+    width: 255.8px;
+    height: 70.43px;
+    border: none;
+    background: linear-gradient(184.46deg, #F1A22C 3.39%, #ECB21D 96.19%);
+    box-shadow: 0px 2.75659px 0px #D58C1F;
+    border-radius: 91.8864px;
+    &:focus {outline:none} // убрала рамку при нажатии
+    @include mainFont;
+    font-size: 14.2642px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: 0.09em;
+    color: #FFFFFF;
+    text-shadow: 0px -1.2183px 2.4366px #C17B11;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.clientСhoice{
+  position: absolute;
+  top: -100px;
+  left: calc(50% - 122px);
+  background: $highlightColor;
+  border-radius: 45px;
+  width: 243px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .clientСhoice__text{
+    @include mainFont;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 10px;
+
+    color: #FFFFFF;
+  }
+  ::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 14px);
+    bottom: -24px;
+    z-index: -1;
+
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top:28px solid $highlightColor;
+   }
+}
+
+.tariff-item_accent.tariff-item{
+  background: $highlightColor;
+  .tariff-item__title{
+    color: #FFFFFF;
+  }
+  .tariff-item__subtitle{
+    color: #FFFFFF;
+  }
+  .tariff-item__price{
+    color: #FFFFFF;
+  }
+  .tariff-item__advantages{
+    li{
+      color: #FFFFFF;
+    }
+  }
+  .button__background{
+
+    background: linear-gradient(184.46deg, #FFFFFF 3.39%, #FFFFFF 96.19%);
+    box-shadow: 0px 22.8983px 65.0195px #BD750A;
+    border-radius: 91.8864px;
+
+    .tariff-item__button{
+      color: #F1A22C;
+      text-shadow: 0px -1.2183px 2.4366px rgba(255, 255, 255, 0.45);
+      background: linear-gradient(184.46deg, #FFFFFF 3.39%, #F0F0F0 96.19%);
+      box-shadow: 0px 2.75659px 0px #D5D5D5;
+      border-radius: 91.8864px;
+    }
+  }
+}
+
+@media screen and (max-width: 850px){
+  .tariff__title{
+    font-size: 32px;
+  }
+  .tariff__header{
+    margin: 50px 0px;
+  }
+}
+@media screen and (max-width: 450px){
+  .tariff__title{
+    font-size: 28px;
+  }
+  .tariff__header{
+    margin: 20px 0px;
+  }
+}
+
+@media screen and (max-width: 750px){
+  .tariff-item:first-of-type{
+    margin-bottom: 160px;
+  }
+  .tariff-item{
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 500px){
+
+  .page{
+    padding: 0px 20px;
+  }
+  .button__background{
+    width: 145px;
+    height: 40px;
+    background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
+    box-shadow: 0px 22.8983px 65.0195px #F1A22C;
+    border-radius: 91.8864px;
+    margin: 20px 0px 20px;
+
+
+    .tariff-item__button{
+      position: relative;
+      left: -15px;
+      width: 180px;
+      height: 40px;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+.tariff-item__title{
+  font-size: 24px;
+  line-height: 26px;
+}
+.tariff-item__subtitle{
+  font-size: 14px;
+  line-height: 16px;
+}
+.tariff-item__price{
+  font-size: 28px;
+  line-height: 32px;
+  margin: 25px 0px 30px;
+}
+.tariff-item__advantages{
+  margin-bottom: 30px;
+  li{
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+.tariff__container{
+  margin-bottom: 0px;
+}
+}
+
+// @media screen and (max-width: 500px){
+//   .button__background{
+//     width: 145px;
+//     height: 40px;
+//     background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
+//     box-shadow: 0px 22.8983px 65.0195px #F1A22C;
+//     border-radius: 91.8864px;
+//     margin: 20px 0px 20px;
+//     .tariff-item__button{
+//       position: relative;
+//       left: -15px;
+//       width: 180px;
+//       height: 40px;
+//       font-size: 12px;
+//       line-height: 14px;
+//     }
+//   }
+// }

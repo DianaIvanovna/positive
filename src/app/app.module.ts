@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { TripInfoComponent } from './trip-info/trip-info.component';
 import { TextMaskModule } from 'angular2-text-mask';
+import { TariffComponent } from './tariff/tariff.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { TextMaskModule } from 'angular2-text-mask';
     FooterComponent,
     HomeComponent,
     TripInfoComponent,
+    TariffComponent,
   ],
   imports: [
     BrowserModule,
