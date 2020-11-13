@@ -14,7 +14,6 @@ interface Trip {
   time:string;
   numberOfPersons: number,
   place: string,
-  minPrice: string,
   travelPlan: string,
   reverseTrip?: boolean,
   id?: number,

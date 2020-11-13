@@ -14,6 +14,7 @@ export class AppComponent {
   constructor() {
     window.addEventListener('scroll', ()=>{
       var scrolled = window.pageYOffset;
+
       if (scrolled > 500) {
         this.showButtonUp = true;
       }else {

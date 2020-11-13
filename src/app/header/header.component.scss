@@ -7,7 +7,8 @@
   left: 0px;
   z-index: 10;
   background-color: white;
-  border-bottom: 1px solid rgb(196, 196, 196); // убери потом
+
+  border-bottom: 1px solid rgb(196, 196, 196);
 }
 .header__logo{
   &:hover{
@@ -60,26 +61,19 @@
   .header__container-message{
     display: block;
     margin: 0px;
-    margin-top: 5px;
-    .header__message{
-      font-size: 16px;
-      line-height: 18px;
-      text-decoration: none;
-      color: black;
-      &:hover{
-        color: $highlightColor;
-      }
+    margin-top: 10px;
+    .header__icon{
+      margin-right: 5px;
+      width: 35px;
     }
   }
 }
 .header__nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  // align-items: center;
-  column-gap: 10px;
-  // row-gap: 10px;
-  // justify-items: center;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // grid-template-rows: 1fr 1fr;
+  // column-gap: 10px;
+  display: flex;
 
   @include mainFont;
   .header__link{
@@ -92,11 +86,13 @@
     text-decoration: none;
     color: $fontColor;
     margin-bottom: 10px;
+    text-align: center;
     &:hover{
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: $highlightColor;
     }
+    margin-right: 30px;
   }
 }
 
@@ -105,9 +101,12 @@
   display: flex;
   padding: 0px;
   .header__icon{
-    margin-right: 5px;
+    margin-right: 10px;
   }
   margin: 0px;
+}
+.header__icon{
+  margin-right: 5px;
 }
 
 .background__mobile{
@@ -126,9 +125,12 @@
   .header__nav{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    margin-left: 80px;
+    // align-items: center;
 
     .header__link{
+      align-self: start;
       font-size: 12px;
       line-height: 14px;
       margin-bottom: 10px;
@@ -179,11 +181,13 @@
       line-height: 16px;
     }
     .header__container-message{
-      .header__message{
-        font-size: 12px;
-        line-height: 14px;
+      .header__icon{
+        width: 25px;
       }
     }
+  }
+  .header__icon{
+    width: 25px;
   }
   .header__logo{
     width: 80px;
