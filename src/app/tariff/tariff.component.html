@@ -1,7 +1,5 @@
 <div class="page">
-  <img src="./assets/img/background-tariffs.png" alt="фоновая картинка сугробы снега" class="positive-is__background">
-
-
+  <img src="./assets/img/background-tariffs.png" alt="фоновая картинка горы" class="tariff__background">
 
   <div class="pageContent">
     <section class="">
@@ -16,10 +14,12 @@
           <p class="tariff-item__subtitle">Если хотите по лайту!</p>
           <img src="./assets/img/Icon/tariff-light.png" class="tariff-item__img" alt="лист">
 
-          <p class="tariff-item__price">10 000 ₽</p>
+          <p class="tariff-item__price">{{trip.tariff.light.price}} ₽</p>
           <ul class="tariff-item__advantages">
-            <li class=""><img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">  Трансфер</li>
-            <li class=""><img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">Cкипасс 5 часов</li>
+            <li *ngFor="let advantage of trip.tariff.light.advantages">
+              <img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">
+              {{advantage}}
+            </li>
           </ul>
           <div class="button__background">
             <button class="tariff-item__button" >ЗАБРОНИРОВАТЬ</button>
@@ -36,13 +36,12 @@
           <p class="tariff-item__subtitle">То что нужно!</p>
           <img src="./assets/img/Icon/logo-tariff.png" class="tariff-item__img" alt="логотип">
 
-          <p class="tariff-item__price">15 000 ₽</p>
+          <p class="tariff-item__price">{{trip.tariff.standard.price}} ₽</p>
           <ul class="tariff-item__advantages">
-            <li class=""><img src="./assets/img/Icon/Plus-accent.svg" class="tariff-item__icon" alt="иконка плюс">  Трансфер</li>
-            <li class=""><img src="./assets/img/Icon/Plus-accent.svg" class="tariff-item__icon" alt="иконка плюс">Cкипасс 5 часов</li>
-            <li class=""><img src="./assets/img/Icon/Plus-accent.svg" class="tariff-item__icon" alt="иконка плюс">Завтрак</li>
-            <li class=""><img src="./assets/img/Icon/Plus-accent.svg" class="tariff-item__icon" alt="иконка плюс">Страховка</li>
-            <li class=""><img src="./assets/img/Icon/Plus-accent.svg" class="tariff-item__icon" alt="иконка плюс">Выбор места в автобусе</li>
+            <li *ngFor="let advantage of trip.tariff.standard.advantages">
+              <img src="./assets/img/Icon/Plus-accent.svg" class="tariff-item__icon" alt="иконка плюс">
+              {{advantage}}
+            </li>
           </ul>
           <div class="button__background">
             <button class="tariff-item__button" >ЗАБРОНИРОВАТЬ</button>
@@ -55,29 +54,19 @@
           <p class="tariff-item__subtitle">Для королей этого мира</p>
           <img src="./assets/img/Icon/crown.png" class="tariff-item__img" alt="корона">
 
-          <p class="tariff-item__price">22 000 ₽</p>
+          <p class="tariff-item__price">{{trip.tariff.vip.price}} ₽</p>
           <ul class="tariff-item__advantages">
-
-
-            <li class=""><img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">  Трансфер Mersedes V-class <br> (6 мест)</li>
-            <li class=""><img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">Cкипасс 5 часов</li>
-            <li class=""><img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">  Завтрак</li>
-            <li class=""><img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">  Страховка</li>
-            <li class=""><img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">  Забор от дома</li>
-            <li class=""><img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">  Прохладительные напитки</li>
+            <li *ngFor="let advantage of trip.tariff.vip.advantages">
+              <img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">
+              {{advantage}}
+            </li>
           </ul>
           <div class="button__background">
             <button class="tariff-item__button" >ЗАБРОНИРОВАТЬ</button>
           </div>
         </div>
-
       </div>
-
-
     </section>
   </div>
-
-
-
 
 </div>

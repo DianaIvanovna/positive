@@ -3,7 +3,6 @@
 .page{
   width: 100%;
   position: relative;
-  overflow: hidden;
 }
 .pageContent{
   display: flex;
@@ -11,8 +10,36 @@
   max-width: 1140px;
   margin: 0px auto;
 }
+.page_positiveIs{
+  margin-bottom: 50px;
+}
 
+.positive-is__background{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
 
+  opacity: 0.3;
+  width: 100%;
+  top:0px;
+  max-height: 900px;
+  overflow: hidden;
+  object-fit: cover;
+
+  @media screen and (max-width: 1280px){
+    &{
+
+      height: 800px;
+    }
+  }
+  @media screen and (max-width: 650px){
+    &{
+      height: 800px;
+    }
+  }
+
+}
 .trip-info__header{
   margin-top: 40px;
   display: flex;

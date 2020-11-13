@@ -43,7 +43,7 @@
           <div class="trip-info__reserve">
             <div>
               <p class="trip-info__price">Цена:</p>
-              <p class="trip-info__price-value">{{trip.price}} ₽</p>
+              <p class="trip-info__price-value">от {{trip.minPrice}} ₽</p>
             </div>
             <div class="button__background">
               <button class="trip-info__button" (click)="bookTrip= !bookTrip">ЗАБРОНИРОВАТЬ</button>
@@ -120,6 +120,15 @@
   </div>
 </div>
   <!-- ТАРИФЫ -->
-  <app-tariff></app-tariff>
+  <app-tariff [trip]="trip" ></app-tariff>
+<!-- позитив это -->
+<div class="page page_positiveIs">
+  <img src="./assets/img/background-2.png" alt="фоновая картинка сугробы снега" class="page__background positive-is__background">
+  <div class="pageContent">
+    <app-positive-is></app-positive-is>
+  </div>
+</div>
+
+
 
 

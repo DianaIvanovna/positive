@@ -14,12 +14,27 @@ interface Trip {
   time:string;
   numberOfPersons: number,
   place: string,
-  price: string,
+  minPrice: string,
   travelPlan: string,
   reverseTrip?: boolean,
   id?: number,
-  video?:string
+  video?:string,
+  tariff: {
+    light: {
+      price: string,
+      advantages: string[],
+    },
+    standard: {
+      price: string,
+      advantages: string[],
+    },
+    vip: {
+      price: string,
+      advantages: string[],
+    }
+  }
 }
+
 
 @Injectable({
   providedIn: 'root'
