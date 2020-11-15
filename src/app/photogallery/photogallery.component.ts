@@ -25,6 +25,7 @@ export class PhotogalleryComponent implements OnInit {
   constructor(private httpPhotosService:HttpPhotosService) { }
 
   ngOnInit(): void {
+
     this.httpPhotosService.getPhotos()
     .subscribe(
       data => {

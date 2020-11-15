@@ -231,6 +231,7 @@
     border-right: 14px solid transparent;
     border-top:28px solid $highlightColor;
    }
+
 }
 
 .tariff-item_accent.tariff-item{
@@ -377,6 +378,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: scroll;
   background-color: rgba(0, 0, 0, .5);
   display: flex;
   flex-direction: column;

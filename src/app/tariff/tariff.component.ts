@@ -19,6 +19,7 @@ export class TariffComponent implements OnInit {
 
   formBook:FormGroup;
   mask = ['+','7','(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-', /\d/, /\d/];
+  maskDate=[/\d/, /\d/,'.',/\d/, /\d/,'.',/\d/, /\d/,/\d/, /\d/,];
   messageIsSent = false;
   tariff = '' ;
 
@@ -45,7 +46,8 @@ export class TariffComponent implements OnInit {
         Validators.required,
       ]),
       dateBirth: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/[0-9]{2}\.[0-9]{2}\.[0-9]{4}/),
       ]),
       comment:new FormControl(''),
     });

@@ -64,14 +64,15 @@
     background: linear-gradient(184.46deg, #F1A22C 3.39%, #ECB21D 96.19%);
     box-shadow: 0px 2.75659px 0px #D58C1F;
     border-radius: 91.8864px;
+    overflow: hidden;
 
     &:focus {outline:none} // убрала рамку при нажатии
     &:hover{
       cursor: pointer;
     }
-  }
-
 }
+}
+
 
 
 .authorTours__link{

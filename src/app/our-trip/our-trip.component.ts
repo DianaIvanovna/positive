@@ -23,6 +23,7 @@ export class OurTripComponent implements OnInit {
           this.readyForWork = true;
           if (this.trips.length <= this.httpTripsService.indexTrip) this.hideButton = true;
           this.tripsShown = this.trips.slice(0, this.httpTripsService.indexTrip); // показать первые 2 поездк
+
         },
         error => console.log(error)
       );

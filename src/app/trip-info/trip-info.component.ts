@@ -34,7 +34,6 @@ export class TripInfoComponent implements OnInit {
             this.tripVideo = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this.trip.video);
             this.readyForWork = true;
             console.log(this.baseUrl + this.trip.video);
-
           },
           error => console.log(error)
         );
