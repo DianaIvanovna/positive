@@ -63,6 +63,7 @@
     background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
     cursor: pointer;
   }
+  &:focus {outline:none} // убрала рамку при нажатии
 }
 
 * {

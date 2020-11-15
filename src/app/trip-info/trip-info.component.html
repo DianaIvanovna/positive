@@ -46,18 +46,12 @@
               <p class="trip-info__price-value">от {{trip.tariff.light.price}} ₽</p>
             </div>
             <div class="button__background">
-              <button class="trip-info__button"  (click)="scrollToBook($event)">ЗАБРОНИРОВАТЬ</button>
+              <button class="trip-info__button"  (click)="scrollToBook($event)">ТАРИФЫ</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- <section class="">
-        <div class="trip__price">
-          <h4></h4>
-        </div>
-
-      </section> -->
 
       <section class="travel-plan">
         <div>
@@ -67,14 +61,14 @@
         <img src="{{trip.imgForTravelPlan}}" alt="фото поездки" class="travel-plan__img">
       </section>
 
-      <section class="travel-video" *ngIf="readyForWork && trip.video">
+      <!-- <section class="travel-video" *ngIf="readyForWork && trip.video">
         <div>
           <h3 class="travel-plan__title">Видео</h3>
           <div class="thumb-wrap">
             <iframe width="607" height="360" [src]="tripVideo" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
-      </section>
+      </section> -->
 
     </section>
   </div>
@@ -84,10 +78,16 @@
 <!-- ТАРИФЫ -->
 <app-tariff [trip]="trip" *ngIf="readyForWork"></app-tariff>
 <!-- позитив это -->
-<div class="page page_positiveIs">
-  <img src="./assets/img/background-2.png" alt="фоновая картинка сугробы снега" class="page__background positive-is__background">
+<div class="page ">
   <div class="pageContent">
-    <app-positive-is></app-positive-is>
+    <section class="travel-video" *ngIf="readyForWork && trip.video">
+      <div>
+        <h3 class="travel-plan__title">Видео</h3>
+        <div class="thumb-wrap">
+          <iframe width="607" height="360" [src]="tripVideo" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
 

@@ -1,4 +1,4 @@
-<section class="section-header">
+<section class="section-header" [class.section-header_scroll]="showScroll">
   <div class="background__mobile" *ngIf="mobule" (click)="mobule=!mobule"></div>
   <header class="header">
     <div class="header__container">
@@ -12,11 +12,6 @@
 
       </nav>
 
-      <!-- <ul class="header__links">
-        <li><a href="https://vk.com/pozitiv74" target="_blank"><img src="./assets/img/Icon/vk-2.svg" alt="vk" class="header__icon"></a></li>
-        <li><a href="https://www.instagram.com/pozitivtour/" target="_blank"><img src="./assets/img/Icon/instagram.svg" alt="instagram" class="header__icon"></a></li>
-      </ul> -->
-
       <div class="header__tel">
         <a href="tel:+79226999898" class="header__number">+7 (922) 699-98-98</a>
         <p class="header__container-message">
@@ -27,10 +22,10 @@
 
           <a href="https://t.me/pozitivtour" target="_blank"><img src="./assets/img/Icon/telegram.svg" alt="telegram" class="header__icon"></a>
 
-          <a href="https://wa.me/79226999898" target="_blank"><img src="./assets/img/Icon/telegram.svg" alt="whatsapp" class="header__icon"></a>
+          <a href="https://wa.me/79226999898" target="_blank"><img  src="./assets/img/Icon/whatsapp.svg" class="header__icon" alt="whatsapp"></a>
 
-          <a href="viber://chat?number=79226999898" target="_blank"><img src="./assets/img/Icon/telegram.svg" alt="viber" class="header__icon"></a>
-        </p>
+          <a href="viber://chat?number=79226999898" target="_blank"><img src="./assets/img/Icon/viber.svg" alt="viber" class="header__icon"></a>
+
       </div>
       <img src="./assets/img/Icon/menu-button.svg" alt="иконка меню" class="header__menu"(click)="mobule=!mobule">
 
@@ -44,10 +39,6 @@
         <a href="#photogallery"   (click)="scrollTo($event)" class="header__link">Фотогалерея</a>
       </nav>
 
-      <ul class="header__links">
-        <li ><a href="https://vk.com/pozitiv74" target="_blank"><img src="./assets/img/Icon/vk-2.svg" alt="vk" class="header__icon"></a></li>
-        <li ><a href="https://www.instagram.com/pozitivtour/" target="_blank"><img src="./assets/img/Icon/instagram.svg" alt="instagram" class="header__icon"></a></li>
-      </ul>
     </div>
 
   </header>

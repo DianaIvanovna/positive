@@ -12,18 +12,12 @@ import { HttpClient  } from '@angular/common/http';
 })
 export class TripInfoComponent implements OnInit {
   @ViewChild ('tripUp') tripUp:ElementRef;
-  // @ViewChild('formBookNative') formBookNative:ElementRef;
 
   trip;
   readyForWork = false;
   numberActivePhoto:number;
   tripVideo;
   baseUrl:string = 'https://www.youtube.com/embed/';
-
-  // bookTrip = false;
-  // formBook:FormGroup;
-  // mask = ['+','7','(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-', /\d/, /\d/];
-  // messageIsSent = false;
 
   constructor(private httpTripsService:HttpTripsService,
     private route: ActivatedRoute, private sanitizer: DomSanitizer, private http: HttpClient) {
@@ -54,27 +48,7 @@ export class TripInfoComponent implements OnInit {
       }
     })
     this.numberActivePhoto = 0;
-    // // инициализирую форму бронирования поездки
-    // this.formBook = new FormGroup({
-    //   // поля для php, чтобы отправить письмо
-    //   project_name: new FormControl('Positive'),
-    //   admin_email: new FormControl('pozitivtour74@pozitivtour74.ru'),
-    //   form_subject: new FormControl('Бронирование поездки'),
-    //   name: new FormControl('', [
-    //     Validators.required,
-    //   ]),
-    //   tel: new FormControl('', [
-    //     Validators.required,
-    //     Validators.pattern(/\+7\([0-9]{1}[0-9]{2}\) [0-9]{3}-[0-9]{2}-[0-9]{2}/),
-    //   ]),
-    //   numberPerson: new FormControl('', [
-    //     Validators.required,
-    //   ]),
-    //   date: new FormControl('', [
-    //     Validators.required
-    //   ]),
-    //   comment:new FormControl(''),
-    // });
+
   }
   ngAfterViewInit(): void {
     window.scrollTo(pageXOffset, 0);
@@ -82,32 +56,6 @@ export class TripInfoComponent implements OnInit {
   changeActivePhoto(number){
     this.numberActivePhoto = number;
   }
-
-  // // форма забронировать поездку
-  // closePopup(event){
-  //   if (event.target.classList.contains('popup')){
-  //     this.bookTrip = false;
-  //   }
-  // }
-
-
-
-  // submit(){
-  //   this.messageIsSent = true;
-  //   let data = new FormData(this.formBookNative.nativeElement);
-  //   data.append('поездка', this.trip.title);
-  //   data.append('дата', this.trip.date);
-
-  //   console.log(new FormData(this.formBookNative.nativeElement));
-  //   // fetch("assets/php/mail.php", {
-  //   //     method: "POST",
-  //   //     body: new FormData(this.formBookNative.nativeElement)
-  //   //   })
-  //   //   .then(data=>{
-
-  //   //   })
-  //   //   .catch(function(error) { console.log(error); });
-  // }
 
   scrollToBook(event){ // функция только для перехода по ссылке забронировать
     event.preventDefault();

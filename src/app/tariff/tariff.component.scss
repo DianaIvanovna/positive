@@ -62,7 +62,6 @@
 
 
 .tariff__container{
-  margin-bottom: 100px;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
@@ -70,7 +69,6 @@
 }
 
 .tariff__header{
-  margin-top: 150px;
   display: flex;
   align-items: center;
   margin-bottom: 150px;
@@ -168,6 +166,7 @@
       background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
     }
   }
+
   .tariff-item__button{
     position: relative;
     left: -16px;
@@ -186,11 +185,11 @@
     color: #FFFFFF;
     text-shadow: 0px -1.2183px 2.4366px #C17B11;
      &:hover{
-    cursor: pointer;
-    .tariff-item__button{
-      background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
+      cursor: pointer;
+      .tariff-item__button{
+        background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
+      }
     }
-  }
   }
 }
 .button__background_popup{
@@ -264,14 +263,27 @@
       }
     }
 
+
     .tariff-item__button{
       color: #F1A22C;
       text-shadow: 0px -1.2183px 2.4366px rgba(255, 255, 255, 0.45);
       background: linear-gradient(184.46deg, #FFFFFF 3.39%, #F0F0F0 96.19%);
       box-shadow: 0px 2.75659px 0px #D5D5D5;
       border-radius: 91.8864px;
+
     }
   }
+}
+.button__background_popup{
+  .tariff-item__button_popup{
+    &:disabled{
+      background: linear-gradient(184.46deg, #F1A22C 3.39%, #ECB21D 96.19%);
+      box-shadow: 0px 2.75659px 0px #d4a865;
+      &{
+        background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
+      }
+    }
+}
 }
 
 @media screen and (max-width: 850px){
@@ -279,7 +291,7 @@
     font-size: 32px;
   }
   .tariff__header{
-    margin: 50px 0px;
+    margin: 0px 0px 50px;
   }
 }
 @media screen and (max-width: 450px){
@@ -287,7 +299,7 @@
     font-size: 28px;
   }
   .tariff__header{
-    margin: 20px 0px;
+    margin: 0px 0px 20px;
   }
 }
 

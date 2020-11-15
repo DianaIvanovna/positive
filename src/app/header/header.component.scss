@@ -1,5 +1,6 @@
 @import "../../assets/styles/variables.scss";
 /* autoprefixer grid: autoplace */
+
 .section-header{
   width: 100%;
   position: fixed;
@@ -7,9 +8,11 @@
   left: 0px;
   z-index: 10;
   background-color: white;
-
+}
+.section-header_scroll{
   border-bottom: 1px solid rgb(196, 196, 196);
 }
+
 .header__logo{
   &:hover{
     cursor: pointer;
@@ -69,10 +72,6 @@
   }
 }
 .header__nav {
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
-  // grid-template-rows: 1fr 1fr;
-  // column-gap: 10px;
   display: flex;
 
   @include mainFont;
@@ -128,6 +127,7 @@
     align-items: flex-start;
     margin-left: 80px;
     // align-items: center;
+    margin-bottom: 20px;
 
     .header__link{
       align-self: start;

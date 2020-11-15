@@ -43,7 +43,7 @@
             </li>
           </ul>
           <div class="button__background">
-            <button class="tariff-item__button" (click)="openPopup('standard')">ЗАБРОНИРОВАТЬ</button>
+            <button class="tariff-item__button" (click)="openPopup('standard')" >ЗАБРОНИРОВАТЬ</button>
           </div>
         </div>
 
@@ -59,7 +59,7 @@
             </li>
           </ul>
           <div class="button__background">
-            <button class="tariff-item__button" (click)="openPopup('vip')">ЗАБРОНИРОВАТЬ</button>
+            <button class="tariff-item__button" (click)="openPopup('vip')" >ЗАБРОНИРОВАТЬ</button>
           </div>
         </div>
       </div>
@@ -80,6 +80,10 @@
         <input type="hidden" name="project_name" formControlName="project_name" >
         <input type="hidden" name="admin_email" formControlName="admin_email">
         <input type="hidden" name="form_subject" formControlName="form_subject">
+
+        <input type="hidden" name="trip" formControlName="trip">
+        <input type="hidden" name="dateTrip" formControlName="dateTrip">
+        <input type="hidden" name="tariff" formControlName="tariff" [value]=tariff>
         <!-- END Hidden Required Fields -->
 
         <input class="popup__input" type="text" name="name" placeholder="ФИО" formControlName="name" required>
@@ -88,7 +92,7 @@
 
         <input class="popup__input popup__input_number" type="number" name="numberPerson" formControlName="numberPerson" required placeholder="количество человек">
 
-        <input class="popup__input" type="date" name="date" formControlName="date" required>
+        <input class="popup__input" type="date" name="dateBirth" formControlName="dateBirth" required>
 
         <input class="popup__input" type="text" name="comment" formControlName="comment" placeholder="Комментарии">
 

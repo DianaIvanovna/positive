@@ -6,12 +6,21 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  showScroll = false;
 
   mobule = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    // добавление линии у хедера при скролле
+    document.addEventListener('scroll',() => {
+      if (window.pageYOffset != 0){
+        this.showScroll = true;
+      }else{
+        this.showScroll = false;
+      }
 
+    })
   }
 
   scrollTo(event){
@@ -29,9 +38,8 @@ export class HeaderComponent implements OnInit {
       })
     }else {
       document.location.href = event.target.getAttribute('href');
-
     }
-
   }
+
 
 }

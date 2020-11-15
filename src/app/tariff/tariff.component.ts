@@ -31,6 +31,9 @@ export class TariffComponent implements OnInit {
       project_name: new FormControl('Positive'),
       admin_email: new FormControl('pozitivtour74@pozitivtour74.ru'),
       form_subject: new FormControl('Бронирование поездки'),
+      trip: new FormControl(this.trip.title),
+      dateTrip: new FormControl(this.trip.date),
+      tariff: new FormControl(''),
       name: new FormControl('', [
         Validators.required,
       ]),
@@ -41,7 +44,7 @@ export class TariffComponent implements OnInit {
       numberPerson: new FormControl('', [
         Validators.required,
       ]),
-      date: new FormControl('', [
+      dateBirth: new FormControl('', [
         Validators.required
       ]),
       comment:new FormControl(''),
@@ -58,26 +61,20 @@ export class TariffComponent implements OnInit {
 
   submit(){
     this.messageIsSent = true;
-    let data = new FormData(this.formBookNative.nativeElement);
-    data.append('поездка', this.trip.title);
-    data.append('дата', this.trip.date);
-    data.append('тариф', this.tariff );
-
-    console.log(this.tariff);
-    // fetch("assets/php/mail.php", {
-    //     method: "POST",
-    //     body: new FormData(this.formBookNative.nativeElement)
-    //   })
-    //   .then(data=>{
-
-    //   })
-    //   .catch(function(error) { console.log(error); });
+    // let data = new FormData(this.formBookNative.nativeElement);
+    fetch("assets/php/mail.php", {
+        method: "POST",
+        body: new FormData(this.formBookNative.nativeElement)
+      })
+      .then(data=>{
+      })
+      .catch(function(error) { console.log(error); });
   }
 
   openPopup(tarif){
     this.tariff = tarif;
     // очищает форму
-    this.formBook.reset();
+    // this.formBook.reset();
     this.messageIsSent = false;
     this.bookTrip = true;
   }
