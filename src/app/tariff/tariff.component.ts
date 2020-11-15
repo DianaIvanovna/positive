@@ -16,7 +16,6 @@ export class TariffComponent implements OnInit {
 
   bookTrip = false; // открытия попапа забронировать
 
-
   formBook:FormGroup;
   mask = ['+','7','(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-', /\d/, /\d/];
   maskDate=[/\d/, /\d/,'.',/\d/, /\d/,'.',/\d/, /\d/,/\d/, /\d/,];
