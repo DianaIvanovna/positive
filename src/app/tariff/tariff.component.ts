@@ -61,7 +61,7 @@ export class TariffComponent implements OnInit {
 
   submit(){
     this.messageIsSent = true;
-    // let data = new FormData(this.formBookNative.nativeElement);
+    this.formBookNative.nativeElement.tariff.value = this.tariff;
     fetch("assets/php/mail.php", {
         method: "POST",
         body: new FormData(this.formBookNative.nativeElement)

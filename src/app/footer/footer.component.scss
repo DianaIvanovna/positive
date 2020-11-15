@@ -54,6 +54,11 @@
     color: $highlightColor;
   }
 }
+.footer__icon{
+  &:hover{
+    transform: translate(0%,-10%);
+  }
+}
 .footer__links{
   list-style: none;
   display: flex;

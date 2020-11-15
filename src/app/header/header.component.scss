@@ -68,6 +68,7 @@
     .header__icon{
       margin-right: 5px;
       width: 35px;
+
     }
   }
 }
@@ -106,6 +107,9 @@
 }
 .header__icon{
   margin-right: 5px;
+  &:hover{
+    transform: translate(0%,-10%);
+  }
 }
 
 .background__mobile{
