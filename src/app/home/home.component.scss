@@ -8,12 +8,18 @@
 .background-container{
   width: 100%;
   height: calc(100vh - 106px);
+  min-height: 550px;
   position: absolute;
   top: 0px;
   left: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 800px){
+    &{
+      min-height: 400px;
+    }
+  }
   .page__background{
     @media screen and (min-width: 320px){
       &{

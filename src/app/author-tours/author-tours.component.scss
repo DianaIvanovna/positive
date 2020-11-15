@@ -4,6 +4,7 @@
   position: relative;
   box-sizing: content-box;
 
+  min-height: 550px;
   height: calc( 100vh - 106px ) ;
   max-height: calc(1080px - 106px);
   box-sizing: border-box;
@@ -104,6 +105,10 @@
   }
 }
 @media screen and (max-width: 800px){
+
+  .authorTours{
+    min-height: 400px;
+  }
   .authorTours__title{
     font-size: 64px;
     line-height: 115.75%;
