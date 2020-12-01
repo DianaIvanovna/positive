@@ -9,7 +9,7 @@
 
       <div class="tariff__container">
 
-        <div class="tariff-item">
+        <div class="tariff-item" *ngIf="trip.tariff.light">
           <h3 class="tariff-item__title">Лайт</h3>
           <p class="tariff-item__subtitle">Если хотите по лайту!</p>
           <img src="./assets/img/Icon/tariff-light.png" class="tariff-item__img" alt="лист">
@@ -26,7 +26,7 @@
         </div>
 
 
-        <div class="tariff-item tariff-item_accent">
+        <div class="tariff-item tariff-item_accent" *ngIf="trip.tariff.standard">
           <div class="clientСhoice">
             <img src="./assets/img/Icon/Heart.svg" class="tariff-item__icon" alt="иконка плюс">
             <p class="clientСhoice__text">Выбор клиентов</p>
@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <div class="tariff-item">
+        <div class="tariff-item" *ngIf="trip.tariff.vip">
           <h3 class="tariff-item__title">VIP <img src="./assets/img/Icon/Star.svg" alt="звездочка"></h3>
           <p class="tariff-item__subtitle">Для королей этого мира</p>
           <img src="./assets/img/Icon/crown.png" class="tariff-item__img" alt="корона">
