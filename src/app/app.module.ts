@@ -18,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { TripInfoComponent } from './trip-info/trip-info.component';
 import { TextMaskModule } from 'angular2-text-mask';
 import { TariffComponent } from './tariff/tariff.component';
+import { EquipmentRentalComponent } from './equipment-rental/equipment-rental.component';
+import { WelcomeSectionComponent } from './welcome-section/welcome-section.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { TariffComponent } from './tariff/tariff.component';
     HomeComponent,
     TripInfoComponent,
     TariffComponent,
+    EquipmentRentalComponent,
+    WelcomeSectionComponent,
   ],
   imports: [
     BrowserModule,
