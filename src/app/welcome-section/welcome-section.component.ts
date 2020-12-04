@@ -8,7 +8,9 @@ interface Data {
   img: string,
   img800: string,
   img500: string,
+  img1280?: string,
   imgForButton?:string,
+  link:string
 }
 
 @Component({

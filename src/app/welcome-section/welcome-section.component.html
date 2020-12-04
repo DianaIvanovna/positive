@@ -4,7 +4,9 @@
 
     <picture>
       <source srcset="{{data.img500}}" media="(max-width: 500px) ">
-      <source srcset="{{data.img800}}" media="(max-width: 800px)and (orientation: portrait)">
+      <source srcset="{{data.img800}}" media="(max-width: 800px) ">
+      <source  srcset="{{data.img1280}}" media="(max-width: 1280px)">
+
       <img srcset="{{data.img}}" alt="фоновая картинка">
     </picture>
 
@@ -20,7 +22,7 @@
 
       <div class="button__background">
         <button class="welcome__button button">
-          <a href="#ourTrip" class="welcome__link">
+          <a href="{{data.link}}" class="welcome__link">
             <img *ngIf="data.imgForButton" src="{{data.imgForButton}}" alt="Иконка календаря" class="button__icon">
             {{data.textForButton}}
           </a>

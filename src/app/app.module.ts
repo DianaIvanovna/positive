@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
-import { AuthorToursComponent } from './author-tours/author-tours.component';
 import { OurTripComponent } from './our-trip/our-trip.component';
 import { TripComponent } from './trip/trip.component';
 import { PhotogalleryComponent } from './photogallery/photogallery.component';
@@ -26,7 +25,6 @@ import { WelcomeSectionComponent } from './welcome-section/welcome-section.compo
   declarations: [
     AppComponent,
     HeaderComponent,
-    AuthorToursComponent,
     OurTripComponent,
     TripComponent,
     PhotogalleryComponent,
