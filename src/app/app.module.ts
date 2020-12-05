@@ -19,6 +19,9 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { TariffComponent } from './tariff/tariff.component';
 import { EquipmentRentalComponent } from './equipment-rental/equipment-rental.component';
 import { WelcomeSectionComponent } from './welcome-section/welcome-section.component';
+import { RentalBrandsComponent } from './rental-brands/rental-brands.component';
+import { EquipmentComponent } from './equipment/equipment.component';
+import { EquipmentContainerComponent } from './equipment-container/equipment-container.component';
 
 
 @NgModule({
@@ -36,6 +39,9 @@ import { WelcomeSectionComponent } from './welcome-section/welcome-section.compo
     TariffComponent,
     EquipmentRentalComponent,
     WelcomeSectionComponent,
+    RentalBrandsComponent,
+    EquipmentComponent,
+    EquipmentContainerComponent,
   ],
   imports: [
     BrowserModule,

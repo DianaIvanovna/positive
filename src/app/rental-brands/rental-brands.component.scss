@@ -1,0 +1,17 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/sectionTitle/sectionTitle.scss";
+
+
+.rental-brands__container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 170px;
+}
+.rental-brands__img{
+  width: 144px;
+  height: 156px;
+}
+.rental-brands__title{
+  margin-bottom: 70px;
+  margin-top: 50px;
+}
