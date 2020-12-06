@@ -1,14 +1,126 @@
 @import "../../assets/styles/variables.scss";
-
+/* autoprefixer grid: autoplace */
+.equipment{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 273.24px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 25px;
+  .equipment__shadow{
+    position: absolute;
+    height: 283px;
+    top: 0px;
+    left: 10px;
+    width: calc( 100% - 20px);
+    background: #E6E6E6;
+    box-shadow: 0px 14px 74px rgba(0, 0, 0, 0.11);
+    border-radius: 10px;
+    z-index: -1;
+  }
+}
+.equipment__firstPart{
+  display: flex;
+}
 .equipment__title{
 
-  @include mainFont;
   font-weight: bold;
   font-size: 24px;
   line-height: 115.75%;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-
   color: $mainColor;
 
+  margin: 38px 0px 10px;
+}
+.equipment__description{
+  @include mainFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 115.75%;
+  color: #7B7B7B;
+
+  width: 267px;
+  margin: 0px 0px 57px;
+}
+.equipment__img{
+  width: 280px;
+  height: 274px;
+}
+
+
+.button__background{
+  @include button(227px, 77px);
+}
+
+.equipment__prices{
+  // display: flex;
+  // flex-wrap: wrap;
+  // max-width: 465px;
+  // margin-top: 38px;
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: 1fr  1fr;
+  grid-template-rows: 68px 68px;
+  column-gap: 10px;
+  row-gap: 25px;
+  margin-right: 20px;
+}
+
+
+
+
+.price__title{
+  @include mainFont;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 115.75%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #241534;
+  .price__title_disabled{
+    font-size: 16px;
+    font-weight: 500;
+    color: #919191;
+  }
+  margin: 0px;
+}
+.price__value{
+  display: flex;
+  align-items: center;
+  .price__value_withUs{
+    height: 35px;
+    width: 120px;
+    background: $highlightColor;
+    border-radius: 5px;
+
+    @include mainFontValue (normal, 600, 22px, 115.75%);
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .price__value_withoutUs{
+    @include mainFontValue (normal, 600, 18px, 115.75%);
+    text-transform: uppercase;
+    color: #919191;
+    margin-left: 12px;
+  }
+
+}
+
+.equipment__footnote{
+  @include mainFontValue (normal, normal, 16px, 115.75%);
+  display: flex;
+  align-items: center;
+  color: #7B7B7B;
+  .equipment__footnote-icon{
+    margin-right: 15px;
+  }
 }

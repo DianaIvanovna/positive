@@ -11,24 +11,32 @@ export class EquipmentContainerComponent implements OnInit {
     {
       title: "полный Комплект",
       description: "Сноуборд или Горные лыжи, крепление, ботинки",
-      price: {
-        weekdays: {
+      price: [
+        {
+          title: "будние дни",
+          titleDisabled: "(сутки)",
           withUs: 300,
           withoutUs:400,
         },
-        twoDays: {
+        {
+          title: "2 дня",
+          titleDisabled: "(сб-вск)",
           withUs: 1100,
           withoutUs:900,
         },
-        weekends: {
+        {
+          title: "выходные",
+          titleDisabled: "(сутки)",
           withUs: 600,
           withoutUs:500,
         },
-        holidays: {
+        {
+          title: "праздничные дни",
+          titleDisabled: "(сутки)",
           withUs: 700,
           withoutUs:600,
         },
-      },
+      ],
       img: "./assets/img/equipments/1.png",
     }
   ];
