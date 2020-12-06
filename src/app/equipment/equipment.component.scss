@@ -4,31 +4,41 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 273.24px;
+  height: 100%;
   background: #FFFFFF;
   border-radius: 10px;
   position: relative;
-  margin-bottom: 25px;
-  .equipment__shadow{
-    position: absolute;
-    height: 283px;
-    top: 0px;
-    left: 10px;
-    width: calc( 100% - 20px);
-    background: #E6E6E6;
-    box-shadow: 0px 14px 74px rgba(0, 0, 0, 0.11);
-    border-radius: 10px;
-    z-index: -1;
-  }
+  margin-bottom: 35px;
+
 }
+.equipment__shadow{
+  position: absolute;
+  height: calc(100% + 10px);
+  top: 0px;
+  left: 10px;
+  width: calc( 100% - 20px);
+  background: #E6E6E6;
+  box-shadow: 0px 14px 74px rgba(0, 0, 0, 0.11);
+  border-radius: 10px;
+  z-index: -1;
+}
+
 .equipment__firstPart{
   display: flex;
+  position: relative;
+  .equipment__shadow{
+    display: none;
+  }
+}
+.equipment__secondPart{
+  .button__background{
+    display: none;
+  }
 }
 .equipment__title{
 
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 115.75%;
+  width: 270px;
+  @include mainFontValue (normal, bold, 24px, 115.75%);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: $mainColor;
@@ -36,31 +46,31 @@
   margin: 38px 0px 10px;
 }
 .equipment__description{
-  @include mainFont;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 115.75%;
+  @include mainFontValue (normal, 500, 18px, 115.75%);
   color: #7B7B7B;
 
   width: 267px;
-  margin: 0px 0px 57px;
+  margin: 0px 0px 0px;
 }
 .equipment__img{
   width: 280px;
   height: 274px;
 }
+.equipment__main{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 
 .button__background{
   @include button(227px, 77px);
+  margin-left: 17px;
+  margin-bottom: 35px;
 }
 
 .equipment__prices{
-  // display: flex;
-  // flex-wrap: wrap;
-  // max-width: 465px;
-  // margin-top: 38px;
+  min-width: 510px;
   margin-top: 38px;
   display: grid;
   grid-template-columns: 1fr  1fr;
@@ -74,11 +84,8 @@
 
 
 .price__title{
-  @include mainFont;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 115.75%;
+  @include mainFontValue (normal, 600, 18px, 115.75%);
+
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #241534;
@@ -124,3 +131,209 @@
     margin-right: 15px;
   }
 }
+
+
+@media screen and (max-width: 1280px){
+
+  .equipment{
+    width: 100%;
+    justify-content:flex-start;
+    .equipment__shadow{
+      display: none;
+    }
+    background: none;
+  }
+  .equipment-reverse{
+    flex-flow: row-reverse;
+    justify-content:flex-end;
+  }
+
+  .equipment__firstPart{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    .button__background{
+      display: none;
+    }
+  }
+  .equipment__secondPart{
+    margin-left: 30px;
+    position: relative;
+    .button__background{
+      display: block;
+      position: absolute;
+      bottom: 0px;
+
+    }
+  }
+  .equipment__title{
+    margin: 14px 0px 10px;
+    text-align: center;
+  }
+  .equipment__description{
+    margin: 0px 0px 20px;
+    text-align: center;
+  }
+
+}
+
+
+
+
+
+
+  @media screen and (max-width: 930px){
+
+    .equipment{
+      justify-content: center;
+      background: none;
+      .equipment__shadow{
+        display: none;
+      }
+    }
+
+    .equipment__firstPart{
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      .button__background{
+        display: block;
+        @include button(227px, 77px);
+      }
+
+    }
+    .equipment__secondPart{
+      margin-left: 30px;
+      position: relative;
+      .button__background{
+        display: none;
+
+      }
+    }
+    .equipment__img{
+      width: 240px;
+      height: 234px;
+    }
+    .equipment__title{
+      margin: 14px 0px 10px;
+      text-align: center;
+      width: 230px;
+      @include mainFontValue (normal, bold, 20px, 115.75%);
+    }
+    .equipment__description{
+      margin: 0px 0px 20px;
+      text-align: center;
+      width: 230px;
+      @include mainFontValue (normal, 500, 16px, 115.75%);
+    }
+    .equipment__prices{
+      display: flex;
+      flex-direction: column;
+      margin: 0px;
+      margin-left:30px;
+      width: 227px;
+
+      min-width: max-content;
+
+      .price__title{
+        margin-bottom: 15px;
+        max-width: 200px;
+      }
+      .price{
+        margin-top: 25px;
+      }
+    }
+
+    .equipment__footnote{
+      width: 200px;
+      margin-left: 30px;
+      margin-top: 25px;
+    }
+
+    .button__background{
+      margin: 0px auto;
+    }
+
+
+  }
+
+
+
+  @media screen and (max-width: 630px){
+    .equipment{
+      flex-direction: column;
+      justify-content: center;
+      background: #FFFFFF;
+      .equipment__shadow{
+        display: block;
+      }
+    }
+
+    .equipment__firstPart{
+      padding: 20px 0px 0px ;
+      box-shadow: none;
+      background: none;
+      border-radius: 0px;
+      .button__background{
+        display: none;
+      }
+
+    }
+
+    .equipment__secondPart{
+      margin-left: 0px;
+      position: relative;
+      align-items: center;
+      .button__background{
+        display: block;
+        position: relative;
+
+        margin: 40px auto 40px;
+      }
+    }
+    .equipment__prices{
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      width: 100%;
+      align-items: center;
+      margin: 0px;
+      .price__title{
+        @include mainFontValue (normal, 600, 16px, 115.75%);
+        margin-bottom: 10px;
+        max-width: 100%;
+        min-width: 218px;
+        .price__title_disabled{
+          font-size: 14px;
+        }
+      }
+      .price{
+        margin-top: 15px;
+      }
+    }
+
+    .equipment__footnote{
+      display: block;
+      width: 90%;
+      text-align: center;
+      margin-left: 5%;
+      margin-top: 25px;
+    }
+
+
+
+
+  }
+

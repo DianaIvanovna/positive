@@ -19,6 +19,7 @@ interface Equipment {
 })
 export class EquipmentComponent implements OnInit {
   @Input() equipment:Equipment;
+  @Input() equipmentIndex;
   constructor() { }
 
   ngOnInit(): void {

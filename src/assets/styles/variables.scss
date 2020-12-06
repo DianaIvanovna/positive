@@ -25,15 +25,15 @@ $bsckgroundColor:#E5E5E5;
 
 @mixin button ($width, $height) {
   position: relative;
-  left: +25px;
+  left: 0px;
   width: $width - 35px;
   height: $height;
   background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
   box-shadow: 0px 22.8983px 65.0195px #F1A22C;
   border-radius: 91.8864px;
-  margin: 20px 0px 20px;
+  // margin: 20px 0px 20px;
   border-radius: 90px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 
   &:hover{
     cursor: pointer;
@@ -44,7 +44,7 @@ $bsckgroundColor:#E5E5E5;
 
   .button{
     position: relative;
-    left: -25px;
+    left: -17px;
     width: $width ;
     height: $height;
     border: none;

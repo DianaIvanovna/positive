@@ -1,13 +1,15 @@
-<div class="equipment">
+<div class="equipment"  [class.equipment-reverse]="equipmentIndex%2">
   <div class="equipment__shadow"></div>
 
   <div class="equipment__firstPart">
 
     <img src="{{equipment.img}}" alt="фотография {{equipment.title}}" class="equipment__img">
 
-    <div>
-      <h3 class="equipment__title">{{equipment.title}}</h3>
-      <p class="equipment__description">{{equipment.description}}</p>
+    <div class="equipment__main">
+      <div >
+        <h3 class="equipment__title">{{equipment.title}} </h3>
+        <p  class="equipment__description">{{equipment.description}}</p>
+      </div>
       <div class="button__background">
         <button class="button">
           <a href="" class="button__link"> ЗАБРОНИРОВАТЬ</a>
@@ -17,7 +19,7 @@
 
   </div>
 
-  <div >
+  <div class="equipment__secondPart">
     <div class="equipment__prices">
       <div class="price" *ngFor="let price of equipment.price">
         <p class="price__title">{{price.title}}<span class="price__title_disabled">{{price.titleDisabled}}</span></p>
@@ -33,6 +35,13 @@
     </div>
 
     <p class="equipment__footnote"><img src="../../assets/img/Icon/Heart_invect.svg" alt="иконка сердца" class="equipment__footnote-icon">Тариф для тех, кто едет нашим автобусным туром</p>
+
+    <div class="button__background">
+      <button class="button">
+        <a href="" class="button__link"> ЗАБРОНИРОВАТЬ</a>
+      </button>
+    </div>
+
   </div>
 
 

@@ -3,7 +3,7 @@
 
   <div class="equipmentContainer__container">
 
-    <app-equipment *ngFor="let equipment of equipments" [equipment]="equipment" ></app-equipment>
+    <app-equipment *ngFor="let equipment of equipments; let equipmentIndex = index" [equipment]="equipment" [equipmentIndex]="equipmentIndex"></app-equipment>
 
 
   </div>
