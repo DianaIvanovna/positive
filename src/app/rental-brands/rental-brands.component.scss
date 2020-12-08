@@ -5,14 +5,35 @@
 .rental-brands__container{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-bottom: 170px;
 }
 .rental-brands__img{
   width: 144px;
   height: 156px;
+  object-fit: contain; /* Вписываем фотографию в область */
+  margin-right: 25px;
+  margin-bottom: 25px;
 }
 .rental-brands__title{
   margin-bottom: 70px;
   margin-top: 50px;
+}
+@media screen and (max-width: 630px){
+  .rental-brands__title{
+    margin-bottom: 40px;
+  }
+  .rental-brands__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 70px;
+  }
+  .rental-brands__img{
+    width: 120px;
+    height: 136px;
+    object-fit: contain; /* Вписываем фотографию в область */
+    margin-right: 5px;
+    margin-bottom: 15px;
+  }
 }
