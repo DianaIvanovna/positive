@@ -5,3 +5,25 @@
   right: -100px;
   z-index: -1;
 }
+.equipmentContainer__img{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+  width: 50%;
+}
+@media screen and (max-width: 900px){
+  .equipmentContainer__img{
+    width: 70%;
+    left: -20%;
+  }
+
+}
+@media screen and (max-width: 500px){
+  .equipmentContainer__img{
+    width: 90%;
+    left: -20%;
+  }
+
+}
+

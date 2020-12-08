@@ -55,6 +55,7 @@
 .equipment__img{
   width: 280px;
   height: 274px;
+  object-fit: contain;
 }
 .equipment__main{
   display: flex;
@@ -141,7 +142,7 @@
     .equipment__shadow{
       display: none;
     }
-    background: none;
+
   }
   .equipment-reverse{
     flex-flow: row-reverse;

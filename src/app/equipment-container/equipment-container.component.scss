@@ -1,7 +1,39 @@
 @import "../../assets/styles/variables.scss";
 @import "../../assets/styles/sectionTitle/sectionTitle.scss";
 
+.equipmentContainer{
+  position: relative;
+}
 .equipmentContainer__title{
   margin-bottom: 68px;
 }
 
+.equipmentContainer__footer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 100px;
+
+}
+
+
+.equipmentContainer__downtitle{
+  @include mainFontValue (normal, 600, 22px, 115.75%);
+  margin: 0px;
+  margin-bottom: 20px;
+  text-align: right;
+  color: #241534;
+}
+.equipmentContainer__text{
+  @include mainFontValue (normal, 500, 16px, 115.75%);
+  text-align: right;
+  color: #241534;
+  }
+
+@media screen and (max-width: 500px){
+  .equipmentContainer__footer{
+    margin-bottom: 220px;
+  }
+  .equipmentContainer__text{
+    }
+}

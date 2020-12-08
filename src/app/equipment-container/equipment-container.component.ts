@@ -100,6 +100,37 @@ export class EquipmentContainerComponent implements OnInit {
         },
       ],
       img: "./assets/img/equipments/3.png",
+    },
+    {
+      title: "Защита",
+      description: "Маска, шлем, шорты",
+      price: [
+        {
+          title: "будние дни",
+          titleDisabled: "(сутки)",
+          withUs: 300,
+          withoutUs:400,
+        },
+        {
+          title: "2 дня",
+          titleDisabled: "(сб-вск)",
+          withUs: 1100,
+          withoutUs:900,
+        },
+        {
+          title: "выходные",
+          titleDisabled: "(сутки)",
+          withUs: 600,
+          withoutUs:500,
+        },
+        {
+          title: "праздничные дни",
+          titleDisabled: "(сутки)",
+          withUs: 700,
+          withoutUs:600,
+        },
+      ],
+      img: "./assets/img/equipments/4.png",
     }
   ];
   constructor() { }
