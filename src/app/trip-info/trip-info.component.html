@@ -81,6 +81,7 @@
 <!-- позитив это -->
 <div class="page ">
   <div class="pageContent">
+
     <section class="travel-video" *ngIf="readyForWork && trip.video">
       <div>
         <h3 class="travel-plan__title">Видео</h3>
@@ -89,6 +90,8 @@
         </div>
       </div>
     </section>
+    <app-equipment-container [equipmentSmall]="equipmentSmall" ></app-equipment-container>
   </div>
 </div>
+
 

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipmentRentalComponent implements OnInit {
 
+  equipmentSmall = false;
+
   dataForWelcomeSection = {
     title: "Прокат",
     titleDark: "горнолыжного оборудования",

@@ -23,7 +23,6 @@ import { RentalBrandsComponent } from './rental-brands/rental-brands.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { EquipmentContainerComponent } from './equipment-container/equipment-container.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

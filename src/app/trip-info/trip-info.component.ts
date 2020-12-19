@@ -12,6 +12,7 @@ import { HttpClient  } from '@angular/common/http';
 })
 export class TripInfoComponent implements OnInit {
   @ViewChild ('tripUp') tripUp:ElementRef;
+  equipmentSmall = true;
 
   trip;
   readyForWork = false;

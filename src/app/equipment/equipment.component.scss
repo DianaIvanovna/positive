@@ -340,3 +340,74 @@
 
   }
 
+
+.equipment.equipment_small{ // для вставки на главную страницу
+  width: 320px;
+  min-width: 320px;
+  margin: 0px 40px;
+
+  flex-direction: column;
+  justify-content: center;
+  background: #FFFFFF;
+  .equipment__shadow{
+    display: block;
+  }
+
+  .equipment__firstPart{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: none;
+    background: none;
+    border-radius: 0px;
+    .button__background{
+      display: none;
+    }
+    .equipment__main{
+      .equipment__title{
+        margin: 14px 0px 10px;
+        text-align: center;
+      }
+      .equipment__description{
+        margin: 0px 0px 20px;
+        text-align: center;
+      }
+    }
+  }
+
+
+
+  .equipment__secondPart{
+    margin-left: 0px;
+    position: relative;
+    align-items: center;
+    .button__background{
+      display: block;
+      position: relative;
+
+      margin: 0px auto 40px;
+    }
+
+    .equipment__prices{
+      display: none;
+    }
+    .equipment__footnote{
+      display: none;
+    }
+
+  }
+
+  .equipment__footnote{
+    //display: block;
+    display: flex;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 25px;
+    align-items: center;
+  }
+
+}

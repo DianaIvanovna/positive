@@ -6,7 +6,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  equipmentSmall = true;
   dataForWelcomeSection = {
     title: "Горнолыжные",
     titleDark: "туры",

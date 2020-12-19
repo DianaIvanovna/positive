@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-equipment-container',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./equipment-container.component.scss']
 })
 export class EquipmentContainerComponent implements OnInit {
+  @Input() equipmentSmall;
 
   equipments =[
     {

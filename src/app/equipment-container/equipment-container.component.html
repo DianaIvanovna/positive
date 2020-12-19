@@ -1,11 +1,11 @@
-<section class="equipmentContainer">
+<section class="equipmentContainer" [class.equipmentContainer_small]="equipmentSmall">
   <h2 class="sectionTitle equipmentContainer__title">забронировать прокат</h2>
 
   <div class="equipmentContainer__container">
-    <app-equipment *ngFor="let equipment of equipments; let equipmentIndex = index" [equipment]="equipment" [equipmentIndex]="equipmentIndex"></app-equipment>
+    <app-equipment *ngFor="let equipment of equipments; let equipmentIndex = index" [equipment]="equipment" [equipmentIndex]="equipmentIndex" [equipmentSmall]="equipmentSmall"></app-equipment>
   </div>
 
-  <div class="equipmentContainer__footer">
+  <div class="equipmentContainer__footer" *ngIf="!equipmentSmall else footerSmall">
     <h3 class="equipmentContainer__downtitle">Залог за прокат одного комплекта снаряжения:</h3>
     <p class="equipmentContainer__text">
       Паспорт или водительское удостоверение + 5 000 р
@@ -16,5 +16,14 @@
       Если вы едете нашим автобусным туром
     </p>
   </div>
+
+  <ng-template #footerSmall>
+    <h3 class="equipmentContainer__downtitle">*Скидки для тех, кто едет нашим автобусным туром</h3>
+  </ng-template>
+
 </section>
+
+
+
+
 
