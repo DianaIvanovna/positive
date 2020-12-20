@@ -10,7 +10,7 @@ export class EquipmentContainerComponent implements OnInit {
 
   equipments =[
     {
-      title: "полный Комплект",
+      title: "полный комплект",
       description: "Сноуборд или Горные лыжи, крепление, ботинки",
       price: [
         {
@@ -38,10 +38,17 @@ export class EquipmentContainerComponent implements OnInit {
           withoutUs:600,
         },
       ],
+      form: {
+        footSize: true,
+        height: true,
+        weight: true,
+        clothingSize: false,
+        headCircumference: false,
+      },
       img: "./assets/img/equipments/1.png",
     },
     {
-      title: "Сноуборд или Горные лыжи",
+      title: "сноуборд или горные лыжи",
       description: "С креплениями",
       price: [
         {
@@ -69,10 +76,17 @@ export class EquipmentContainerComponent implements OnInit {
           withoutUs:600,
         },
       ],
+      form: {
+        footSize: false,
+        height: false,
+        weight: true,
+        clothingSize: false,
+        headCircumference: false,
+      },
       img: "./assets/img/equipments/2.png",
     },
     {
-      title: "горнолыжныe Ботинки",
+      title: "ботинки",
       description: "",
       price: [
         {
@@ -100,10 +114,17 @@ export class EquipmentContainerComponent implements OnInit {
           withoutUs:600,
         },
       ],
+      form: {
+        footSize: true,
+        height: false,
+        weight: false,
+        clothingSize: false,
+        headCircumference: false,
+      },
       img: "./assets/img/equipments/3.png",
     },
     {
-      title: "Защита",
+      title: "защита",
       description: "Маска, шлем, шорты",
       price: [
         {
@@ -131,6 +152,13 @@ export class EquipmentContainerComponent implements OnInit {
           withoutUs:600,
         },
       ],
+      form: {
+        footSize: false,
+        height: false,
+        weight: false,
+        clothingSize: true,
+        headCircumference:true,
+      },
       img: "./assets/img/equipments/4.png",
     }
   ];
