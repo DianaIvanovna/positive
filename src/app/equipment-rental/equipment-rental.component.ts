@@ -13,12 +13,12 @@ export class EquipmentRentalComponent implements OnInit {
     title: "Прокат",
     titleDark: "горнолыжного оборудования",
     subtitle: "Дёшево, кайфово, только у нас",
-    textForButton: "ПОСМОТРЕТЬ ОБОРУДОВАНИЕ",
+    textForButton: "ПОДОБРАТЬ",
     img: "./assets/img/background/backgroundRental.png",
     img800: "./assets/img/background/backgroundRental_800.png",
     img500: "./assets/img/background/backgroundRental_500.png",
     img1280: "./assets/img/background/backgroundRental_1280.png",
-    link: "#"
+    link: ".equipmentContainer"
   }
 
   constructor() { }

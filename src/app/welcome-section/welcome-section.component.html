@@ -18,8 +18,8 @@
       </div>
 
       <div class="button__background">
-        <button class="welcome__button button">
-          <a href="{{data.link}}" class="welcome__link">
+        <button class="welcome__button button" (click)="scrollToBook($event, data.link)">
+          <a href="" class="welcome__link">
             <img *ngIf="data.imgForButton" src="{{data.imgForButton}}" alt="Иконка календаря" class="button__icon">
             {{data.textForButton}}
           </a>

@@ -16,10 +16,11 @@ export class TariffComponent implements OnInit {
 
   bookTrip = false; // открытия попапа забронировать
 
+
   formBook:FormGroup;
   mask = ['+','7','(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-', /\d/, /\d/];
   maskDate=[/\d/, /\d/,'.',/\d/, /\d/,'.',/\d/, /\d/,/\d/, /\d/,];
-  messageIsSent = false;
+  messageIsSent = 1;
   tariff = '' ;
 
   constructor() { }
@@ -61,7 +62,7 @@ export class TariffComponent implements OnInit {
 
 
   submit(){
-    this.messageIsSent = true;
+    this.messageIsSent = 2;
     this.formBookNative.nativeElement.tariff.value = this.tariff;
     fetch("assets/php/mail.php", {
         method: "POST",
@@ -76,7 +77,7 @@ export class TariffComponent implements OnInit {
     this.tariff = tarif;
     // очищает форму
     // this.formBook.reset();
-    this.messageIsSent = false;
+    this.messageIsSent = 1; // !!!!!!!!!!!!!!!!!!!!!!!!!!
     this.bookTrip = true;
   }
 

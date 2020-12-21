@@ -25,4 +25,19 @@ export class WelcomeSectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  scrollToBook(event, link){ // функция только для перехода по ссылке забронировать
+    event.preventDefault();
+    const element:HTMLElement = document.querySelector(link);
+    let rect = element.getBoundingClientRect();
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let elementTop = rect.top + scrollTop;
+    window.scroll({
+      left:0,
+      top: elementTop,
+      behavior: 'smooth'
+    })
+
+  }
+
 }

@@ -432,8 +432,27 @@
   font-weight: bold;
   font-size: 16px;
   line-height: 18px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   color: #414141;
+}
+.popup__link_active{
+  @include mainFont;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  color: #F1A22C;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.popup__link{
+  @include mainFont;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  color: #414141;
+  &:hover{
+    cursor: pointer;
+  }
 }
 .popup__input {
   @include mainFont;

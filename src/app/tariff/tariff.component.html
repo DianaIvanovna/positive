@@ -71,7 +71,7 @@
  <!-- ПОПАП РЕГИСТРАЦИЯ  -->
 
  <div class="popup popup_edit-profile" [class.popup_is-opened]="bookTrip" (click)="closePopup($event)">
-  <div class="popup__content" *ngIf="!messageIsSent; else Message">
+  <div class="popup__content" *ngIf="messageIsSent==1">
     <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
     <h3 class="popup__title">Забронировать поездку</h3>
 
@@ -104,13 +104,17 @@
     </form>
   </div>
 
-  <ng-template #Message>
-    <div class="popup__content">
-      <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
+  <div class="popup__content" *ngIf="messageIsSent==2">
+    <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
+    <p class="popup__text">Вам нужен прокат оборудования?</p>
+    <a href="./rent" class="popup__link_active">ДА</a> <span class="popup__link" (click)="messageIsSent = 3">нет</span>
+  </div>
 
-      <h3 class="popup__title">Спасибо, что забронировали поездку!</h3>
-      <p class="popup__text">В ближайшее время с вами свяжется  наш менеджер и подтвердит бронирование.</p>
+  <div class="popup__content" *ngIf="messageIsSent==3">
+    <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
 
-    </div>
-  </ng-template>
+    <h3 class="popup__title">Спасибо, что забронировали поездку!</h3>
+    <p class="popup__text">В ближайшее время с вами свяжется наш менеджер и подтвердит бронирование.</p>
+  </div>
 </div>
+
