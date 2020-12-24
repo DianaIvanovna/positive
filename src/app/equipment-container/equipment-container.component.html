@@ -1,11 +1,12 @@
-<section class="equipmentContainer" [class.equipmentContainer_small]="equipmentSmall" #ourRent>
+<!-- <section class="equipmentContainer" [class.equipmentContainer_small]="equipmentSmall" #ourRent> -->
+<section class="equipmentContainer" *ngIf="!equipmentSmall; else small" #ourRent>
   <h2 class="sectionTitle equipmentContainer__title">забронировать прокат</h2>
 
   <div class="equipmentContainer__container">
-    <app-equipment *ngFor="let equipment of equipments; let equipmentIndex = index" [equipment]="equipment" [equipmentIndex]="equipmentIndex" [equipmentSmall]="equipmentSmall"></app-equipment>
+    <app-equipment *ngFor="let equipment of equipments; let equipmentIndex = index" [equipment]="equipment" [equipmentIndex]="equipmentIndex" ></app-equipment>
   </div>
 
-  <div class="equipmentContainer__footer" *ngIf="!equipmentSmall else footerSmall">
+  <div class="equipmentContainer__footer" >
     <h3 class="equipmentContainer__downtitle">Залог за прокат одного комплекта снаряжения:</h3>
     <p class="equipmentContainer__text">
       Паспорт или водительское удостоверение + 5 000 р
@@ -16,11 +17,44 @@
     </p>
   </div>
 
-  <ng-template #footerSmall>
-    <h3 class="equipmentContainer__downtitle">*Скидки для тех, кто едет нашим автобусным туром</h3>
-  </ng-template>
+
 
 </section>
+
+
+
+<ng-template #small> <!--  ДЛЯ ВСТАВКИ НА ДРУГИЕ СТРАНИЦЫ -->
+  <section class="equipmentContainer equipmentContainer_for-insert">
+    <h2 class="sectionTitle equipmentContainer__title">забронировать прокат</h2>
+
+    <div class="equipmentContainer__container_for-insert">
+
+      <svg svg class="button-arrow__left" [class.button_active]="activeButtonLeft" ng-disabled="!activeButtonLeft" (click)="previousEquipment()" alt="стрелка влево" width="74" height="72" viewBox="0 0 74 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path fill-rule="evenodd" clip-rule="evenodd" d="M50.1224 59.2716C51.1232 58.3071 51.1301 56.7434 50.1156 55.7788L35.1138 41.4848L34.8488 41.2646C33.8348 40.5308 32.3854 40.6075 31.4648 41.4947C30.9661 41.9754 30.7116 42.6074 30.7116 43.2362C30.7116 43.8683 30.9661 44.5036 31.4717 44.9843L46.4735 59.2815L46.7385 59.5017C47.7525 60.2355 49.2019 60.1588 50.1224 59.2716ZM50.3482 15.965C51.1223 14.9969 51.0401 13.6092 50.1227 12.725C49.1184 11.7605 47.4848 11.7572 46.4737 12.7217L23.8851 34.2516L23.6532 34.5038C23.3017 34.943 23.125 35.4702 23.125 35.9996C23.125 36.6284 23.3795 37.2605 23.8782 37.7411C24.8824 38.709 26.516 38.7123 27.5272 37.7477L50.1158 16.2179L50.3482 15.965Z" fill="#B7B7B7"/>
+     </svg>
+
+
+     <app-equipment
+     [equipment]="equipments[indexActive]" [equipmentSmall]="equipmentSmall"
+     ></app-equipment>
+     <app-equipment *ngIf="screenWidth>1024 && ((indexActive+1) < equipments.length)"
+     [equipment]="equipments[indexActive+1]" [equipmentSmall]="equipmentSmall"
+     ></app-equipment>
+
+
+
+     <svg class="button-arrow__right" [class.button_active]="activeButtonRight" ng-disabled="!activeButtonRight" (click)="nextEquipment()" alt="стрелка вправо" width="74" height="72" viewBox="0 0 74 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path fill-rule="evenodd" clip-rule="evenodd" d="M23.8776 12.7284C22.8768 13.6929 22.8699 15.2566 23.8844 16.2212L38.8862 30.5152L39.1512 30.7354C40.1652 31.4692 41.6146 31.3925 42.5352 30.5053C43.0339 30.0247 43.2884 29.3926 43.2884 28.7638C43.2884 28.1317 43.0339 27.4964 42.5283 27.0157L27.5265 12.7185L27.2615 12.4983C26.2475 11.7645 24.7981 11.8412 23.8776 12.7284ZM23.6518 56.035C22.8777 57.0031 22.9599 58.3908 23.8773 59.275C24.8816 60.2395 26.5152 60.2428 27.5263 59.2782L50.1149 37.7484L50.3468 37.4962C50.6983 37.057 50.875 36.5298 50.875 36.0004C50.875 35.3716 50.6205 34.7395 50.1218 34.2589C49.1176 33.291 47.484 33.2877 46.4728 34.2523L23.8842 55.7821L23.6518 56.035Z" fill="#B7B7B7"/>
+     </svg>
+
+    </div>
+
+    <h3 class="equipmentContainer__downtitle">*Скидки для тех, кто едет нашим автобусным туром</h3>
+
+  </section>
+</ng-template>
+
+
 
 
 

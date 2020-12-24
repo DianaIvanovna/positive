@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-equipment-container',
@@ -8,34 +8,37 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EquipmentContainerComponent implements OnInit {
   @Input() equipmentSmall;
 
+
+  indexActive = 0;
+  screenWidth;
   equipments =[
     {
-      title: "полный комплект",
+      title: "Полный комплект",
       description: "Сноуборд или Горные лыжи, крепление, ботинки",
       price: [
         {
           title: "будние дни",
           titleDisabled: "(сутки)",
-          withUs: 300,
+          withUs: 400,
           withoutUs:400,
         },
         {
           title: "2 дня",
           titleDisabled: "(сб-вск)",
-          withUs: 1100,
-          withoutUs:900,
+          withUs: 1000,
+          withoutUs:1200,
         },
         {
           title: "выходные",
           titleDisabled: "(сутки)",
-          withUs: 600,
-          withoutUs:500,
+          withUs: 500,
+          withoutUs:600,
         },
         {
           title: "праздничные дни",
           titleDisabled: "(сутки)",
-          withUs: 700,
-          withoutUs:600,
+          withUs: 800,
+          withoutUs:1000,
         },
       ],
       form: {
@@ -48,32 +51,32 @@ export class EquipmentContainerComponent implements OnInit {
       img: "./assets/img/equipments/1.png",
     },
     {
-      title: "сноуборд или горные лыжи",
+      title: "Сноуборд или горные лыжи",
       description: "С креплениями",
       price: [
         {
           title: "будние дни",
           titleDisabled: "(сутки)",
           withUs: 300,
-          withoutUs:400,
+          withoutUs:350,
         },
         {
           title: "2 дня",
           titleDisabled: "(сб-вск)",
-          withUs: 1100,
-          withoutUs:900,
+          withUs: 700,
+          withoutUs:800,
         },
         {
           title: "выходные",
           titleDisabled: "(сутки)",
-          withUs: 600,
-          withoutUs:500,
+          withUs: 400,
+          withoutUs:450,
         },
         {
           title: "праздничные дни",
           titleDisabled: "(сутки)",
-          withUs: 700,
-          withoutUs:600,
+          withUs: 500,
+          withoutUs:700,
         },
       ],
       form: {
@@ -86,32 +89,32 @@ export class EquipmentContainerComponent implements OnInit {
       img: "./assets/img/equipments/2.png",
     },
     {
-      title: "ботинки",
+      title: "Ботинки",
       description: "",
       price: [
         {
           title: "будние дни",
           titleDisabled: "(сутки)",
-          withUs: 300,
-          withoutUs:400,
+          withUs: 200,
+          withoutUs:250,
         },
         {
           title: "2 дня",
           titleDisabled: "(сб-вск)",
-          withUs: 1100,
-          withoutUs:900,
+          withUs: 400,
+          withoutUs:500,
         },
         {
           title: "выходные",
           titleDisabled: "(сутки)",
-          withUs: 600,
-          withoutUs:500,
+          withUs: 250,
+          withoutUs:300,
         },
         {
           title: "праздничные дни",
           titleDisabled: "(сутки)",
-          withUs: 700,
-          withoutUs:600,
+          withUs: 400,
+          withoutUs:500,
         },
       ],
       form: {
@@ -124,32 +127,32 @@ export class EquipmentContainerComponent implements OnInit {
       img: "./assets/img/equipments/3.png",
     },
     {
-      title: "защита",
+      title: "Защита",
       description: "Маска, шлем, шорты",
       price: [
         {
           title: "будние дни",
           titleDisabled: "(сутки)",
-          withUs: 300,
-          withoutUs:400,
+          withUs: 100,
+          withoutUs:150,
         },
         {
           title: "2 дня",
           titleDisabled: "(сб-вск)",
-          withUs: 1100,
-          withoutUs:900,
+          withUs: 300,
+          withoutUs:450,
         },
         {
           title: "выходные",
           titleDisabled: "(сутки)",
-          withUs: 600,
-          withoutUs:500,
+          withUs: 200,
+          withoutUs:250,
         },
         {
           title: "праздничные дни",
           titleDisabled: "(сутки)",
-          withUs: 700,
-          withoutUs:600,
+          withUs: 250,
+          withoutUs:300,
         },
       ],
       form: {
@@ -162,9 +165,39 @@ export class EquipmentContainerComponent implements OnInit {
       img: "./assets/img/equipments/4.png",
     }
   ];
-  constructor() { }
+  constructor() { this.onResize(); }
+
+
+  activeButtonRight = false;
+  activeButtonLeft = false;
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    this.screenWidth = window.innerWidth;
+  }
+
 
   ngOnInit(): void {
+    if (this.equipments.length > 2 && this.screenWidth >1024) this.activeButtonRight = true;
+    else if (this.equipments.length > 1 && this.screenWidth <=1024) this.activeButtonRight = true;
   }
+  previousEquipment(){
+    if (this.indexActive !== 0){
+      this.indexActive--;
+      this.activeButtonRight=true;
+    }
+    if (this.indexActive === 0){
+      this.activeButtonLeft = false;
+    }
+  }
+  nextEquipment(){
+    if (this.indexActive !== this.equipments.length - 1){
+      this.indexActive++;
+      this.activeButtonLeft = true;
+    }
+    if (this.indexActive === this.equipments.length - 1){
+      this.activeButtonRight=false;
+    }
+  }
+
 
 }

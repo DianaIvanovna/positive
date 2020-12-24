@@ -5,31 +5,7 @@
   position: relative;
   margin-top: 100px;
 }
-.equipmentContainer.equipmentContainer_small{
 
-  .equipmentContainer__container{
-    padding: 40px 0px;
-    min-width: 100%;
-    overflow-x: auto;
-    display: flex;
-    margin-bottom: 70px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color:white;
-  }
-  ::-webkit-scrollbar{
-    height: 4px;
-  }
-  ::-webkit-scrollbar-thumb {
-    width: 2px;
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
-      background-color:#F1A22C;
-  }
-  .equipmentContainer__downtitle{
-    text-align: left;
-  }
-}
 
 .equipmentContainer__title{
   margin-bottom: 68px;
@@ -42,8 +18,56 @@
   margin-bottom: 100px;
 
 }
+ // ДЛЯ ВСТАВКИ НА ДРУГИЕ СТРАНИЦЫ
+.equipmentContainer_for-insert{
+  .equipmentContainer__downtitle{
+    text-align: left;
+  }
+}
+.equipmentContainer__container_for-insert{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 70px;
+  position: relative;
+  .button-arrow__left{
+    position: absolute;
+    top:50%;
+    left: 0px;
+    z-index: 2;
+    &:hover{
+      cursor: pointer;
+    }
+    @media screen and (max-width: 555px){
+      &{
+        left: -25px;
+        width: 50px;
+      }
+    }
+  }
+  .button-arrow__right{
+    position: absolute;
+    top:50%;
+    right: 0px;
+    z-index: 2;
+    &:hover{
+      cursor: pointer;
+    }
+    @media screen and (max-width: 555px){
+      &{
+        right: -25px;
+        width: 50px;
+      }
+    }
+  }
+}
+.button_active{
+  path{
+    fill: #F1A22C;
+  }
+}
 
-
+ // ДЛЯ ВСТАВКИ НА ДРУГИЕ СТРАНИЦЫ
 
 .equipmentContainer__downtitle{
   @include mainFontValue (normal, 600, 22px, 115.75%);

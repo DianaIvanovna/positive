@@ -62,7 +62,7 @@
 <div class="popup popup_edit-profile" [class.popup_is-opened]="openPopupRent" (click)="closePopup($event)">
   <div class="popup__content" *ngIf="!messageIsSent; else Message">
     <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="openPopupRent = false" class="popup__close popup__close_edit-profile">
-    <h3 class="popup__title">Прокат {{equipment.title}}</h3>
+    <h3 class="popup__title">{{equipment.title}}</h3>
 
     <form class="popup__form popup__form_editProfile" name="editProfile" [formGroup]="formRent"  #formRentNative action="send.php" method="post" (ngSubmit)="submit()">
         <!-- Hidden Required Fields -->
