@@ -51,12 +51,26 @@
   margin-bottom: 20px;
   text-align: right;
   color: #241534;
+  @media screen and (max-width: 630px){
+    &{
+      @include mainFontValue (normal, 600, 18px, 115.75%);
+      width: 280px;
+      margin-bottom: 10px;
+    }
+  }
 }
 .equipmentContainer__text{
   @include mainFontValue (normal, 500, 16px, 115.75%);
   text-align: right;
   color: #241534;
+  width: 400px;
+  @media screen and (max-width: 630px){
+    &{
+      @include mainFontValue (normal, 500, 14px, 115.75%);
+      width: 270px;
+    }
   }
+}
 
 @media screen and (max-width: 500px){
   .equipmentContainer{

@@ -78,7 +78,7 @@ export class EquipmentContainerComponent implements OnInit {
       ],
       form: {
         footSize: false,
-        height: false,
+        height: true,
         weight: true,
         clothingSize: false,
         headCircumference: false,

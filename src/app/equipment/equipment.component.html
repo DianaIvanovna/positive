@@ -76,12 +76,13 @@
         <input class="popup__input" type="text" name="name" placeholder="ФИО" formControlName="name" required>
 
         <input [textMask]="{mask: mask}"  class="popup__input popup__input_tel"  name="tel" placeholder="+7(___) ___-__-__"  formControlName="tel" required >
+        <input *ngIf="equipment.form.weight" class="popup__input  popup__input_second-half" type="number" name="weight" placeholder="вес"  formControlName="weight"  >
 
-        <input *ngIf="equipment.form.footSize" class="popup__input popup__input_second-half" type="number" name="footSize" formControlName="footSize"  placeholder="размер ноги">
 
         <input *ngIf="equipment.form.height" class="popup__input popup__input_half" type="number" name="height" placeholder="рост"  formControlName="height"  >
 
-        <input *ngIf="equipment.form.weight" class="popup__input  popup__input_second-half" type="number" name="weight" placeholder="вес"  formControlName="weight"  >
+
+        <input *ngIf="equipment.form.footSize" class="popup__input popup__input_second-half" type="number" name="footSize" formControlName="footSize"  placeholder="размер ноги">
 
         <input  *ngIf="equipment.form.clothingSize"  class="popup__input  popup__input_second-half" type="number" name="clothingSize" placeholder="размер одежды"  formControlName="clothingSize"  >
 
