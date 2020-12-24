@@ -1,8 +1,9 @@
-<div class="equipment"  [class.equipment-reverse]="equipmentIndex%2" [class.equipment_small]="equipmentSmall">
+
+<div class="equipment"  [class.equipment-reverse]="equipmentIndex%2" [class.equipment_small]="equipmentSmall" >
   <div class="equipment__shadow"></div>
+  <div class="forlink" id="{{equipmentIndex}}" ></div>
 
   <div class="equipment__firstPart">
-
     <img src="{{equipment.img}}" alt="фотография {{equipment.title}}" class="equipment__img">
 
     <div class="equipment__main">
@@ -46,7 +47,7 @@
     <ng-template #buttonSmall>
       <div class="button__background" >
         <button class="button">
-          <a routerLink="/rent" class="button__link"> ПОДРОБНЕЕ</a>
+          <a href="/rent#{{equipmentIndex}}" class="button__link"> ПОДРОБНЕЕ</a>
         </button>
       </div>
     </ng-template>

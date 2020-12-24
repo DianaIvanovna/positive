@@ -35,10 +35,10 @@
 
 
      <app-equipment
-     [equipment]="equipments[indexActive]" [equipmentSmall]="equipmentSmall"
+     [equipment]="equipments[indexActive]" [equipmentSmall]="equipmentSmall" [equipmentIndex]="indexActive"
      ></app-equipment>
      <app-equipment *ngIf="screenWidth>1024 && ((indexActive+1) < equipments.length)"
-     [equipment]="equipments[indexActive+1]" [equipmentSmall]="equipmentSmall"
+     [equipment]="equipments[indexActive+1]" [equipmentSmall]="equipmentSmall"  [equipmentIndex]="indexActive+1"
      ></app-equipment>
 
 
