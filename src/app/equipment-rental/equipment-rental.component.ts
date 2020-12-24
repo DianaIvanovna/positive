@@ -12,7 +12,7 @@ export class EquipmentRentalComponent implements OnInit {
   dataForWelcomeSection = {
     title: "Прокат",
     titleDark: "горнолыжного оборудования",
-    subtitle: "Дёшево, кайфово, только у нас",
+    subtitle: "",
     textForButton: "ПОДОБРАТЬ",
     img: "./assets/img/background/backgroundRental.png",
     img800: "./assets/img/background/backgroundRental_800.png",
@@ -24,6 +24,9 @@ export class EquipmentRentalComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  ngAfterViewInit(): void {
+    window.scrollTo(pageXOffset, 0);
   }
 
 }

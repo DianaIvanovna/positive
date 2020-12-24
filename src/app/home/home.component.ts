@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     img: "./assets/img/background/background.jpg",
     img1280: "./assets/img/background/background_1280.jpg",
     img800: "./assets/img/background/background_800.jpg",
-    img500: "./assets/img/background/background_500.jpg",
+    img500: "./assets/img/background/background_5002.jpg",
     link: ".our-trip__title",
   }
 
