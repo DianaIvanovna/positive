@@ -163,6 +163,46 @@ export class EquipmentContainerComponent implements OnInit {
         headCircumference:true,
       },
       img: "./assets/img/equipments/4.png",
+    },
+
+
+    {
+      title: "Защита222",
+      description: "Маска, шлем, шорты",
+      price: [
+        {
+          title: "будние дни",
+          titleDisabled: "(сутки)",
+          withUs: 100,
+          withoutUs:150,
+        },
+        {
+          title: "2 дня",
+          titleDisabled: "(сб-вск)",
+          withUs: 300,
+          withoutUs:450,
+        },
+        {
+          title: "выходные",
+          titleDisabled: "(сутки)",
+          withUs: 200,
+          withoutUs:250,
+        },
+        {
+          title: "праздничные дни",
+          titleDisabled: "(сутки)",
+          withUs: 250,
+          withoutUs:300,
+        },
+      ],
+      form: {
+        footSize: false,
+        height: false,
+        weight: false,
+        clothingSize: true,
+        headCircumference:true,
+      },
+      img: "./assets/img/equipments/4.png",
     }
   ];
   constructor() { this.onResize(); }
@@ -181,17 +221,27 @@ export class EquipmentContainerComponent implements OnInit {
     else if (this.equipments.length > 1 && this.screenWidth <=1024) this.activeButtonRight = true;
   }
   previousEquipment(){
+    let numberScrollableElements = 1;
+    if (this.screenWidth >1024){
+      numberScrollableElements = 2;
+    }
+
     if (this.indexActive !== 0){
-      this.indexActive--;
+      this.indexActive-=numberScrollableElements;
       this.activeButtonRight=true;
     }
     if (this.indexActive === 0){
       this.activeButtonLeft = false;
     }
+
   }
   nextEquipment(){
+    let numberScrollableElements = 1;
+    if (this.screenWidth >1024){
+      numberScrollableElements = 2;
+    }
     if (this.indexActive !== this.equipments.length - 1){
-      this.indexActive++;
+      this.indexActive+=numberScrollableElements;
       this.activeButtonLeft = true;
     }
     if (this.indexActive === this.equipments.length - 1){

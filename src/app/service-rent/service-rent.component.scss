@@ -14,7 +14,7 @@
   margin-bottom: 20px;
   .service__name{
     @include mainFontValue (normal, 600, 18px, 115.75%);
-    max-width: 500px;
+    max-width: 550px;
     text-transform: uppercase;
     margin: 0px;
     margin-bottom: 5px;
@@ -36,6 +36,8 @@
   .service__price{
     @include mainFontValue (normal, 600, 18px, 115.75%);
     margin: 0px;
+    min-width: 76px;
+    text-align: right;
     @media screen and (max-width: 630px){
       @include mainFontValue (normal, 600, 14px, 115.75%);
       min-width: 60px;
