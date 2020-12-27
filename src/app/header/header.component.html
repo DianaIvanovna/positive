@@ -33,7 +33,7 @@
     <div class="header__container-mobule" [class.header__container-mobule_active]="mobule">
       <nav class="header__nav">
         <a href="#ourTrip" (click)="scrollTo($event)"  class="header__link" >Наши поездки</a>
-        <a routerLink="/rent"  class="header__link">Прокат снаряжения</a>
+        <a routerLink="/rent" (click)="goToPage()"  class="header__link">Прокат снаряжения</a>
         <a href="#photogallery"   (click)="scrollTo($event)" class="header__link">Фотогалерея</a>
         <a href="#review" (click)="scrollTo($event)"  class="header__link">Отзывы</a>
       </nav>

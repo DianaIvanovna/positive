@@ -41,5 +41,9 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  goToPage(){
+    this.mobule = false;
+  }
+
 
 }
