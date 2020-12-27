@@ -89,4 +89,8 @@ export class EquipmentComponent implements OnInit {
     }
   }
 
+  goToPage(){
+    window.location.href= `/rent#${this.equipmentIndex}`;
+  }
+
 }

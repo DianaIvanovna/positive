@@ -12,8 +12,8 @@
         <p  class="equipment__description">{{equipment.description}}</p>
       </div>
       <div class="button__background ">
-        <button class="button">
-          <a href="" class="button__link" (click)="openPopup($event)"> ЗАБРОНИРОВАТЬ</a>
+        <button class="button"(click)="openPopup($event)">
+          <a href="" class="button__link" > ЗАБРОНИРОВАТЬ</a>
         </button>
       </div>
     </div>
@@ -39,14 +39,14 @@
       <img src="../../assets/img/Icon/Heart_invect.svg" alt="иконка сердца" class="equipment__footnote-icon">Тариф для тех, кто едет нашим автобусным туром</p>
 
     <div class="button__background " *ngIf="!equipmentSmall; else buttonSmall">
-      <button class="button">
-        <a href="" class="button__link" (click)="openPopup($event)"> ЗАБРОНИРОВАТЬ</a>
+      <button class="button" (click)="openPopup($event)">
+        <a href="" class="button__link"> ЗАБРОНИРОВАТЬ</a>
       </button>
     </div>
 
     <ng-template #buttonSmall>
       <div class="button__background" >
-        <button class="button">
+        <button class="button" (click)="goToPage()">
           <a href="/rent#{{equipmentIndex}}" class="button__link"> ПОДРОБНЕЕ</a>
         </button>
       </div>
