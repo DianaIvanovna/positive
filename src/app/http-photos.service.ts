@@ -16,14 +16,6 @@ export class HttpPhotosService {
 
   getPhotos(): Observable<any>{ // возвращает массив всех поездок
 
-    this.http.get("http://positive/wp-json/wp/v2/trips-summer")
-    .subscribe(
-      data => {
-        console.log(data)
-      },
-      error => console.log(error)
-    );
-
     return this.http.get("assets/photos.json").pipe(
       map(data=>{
         let photos = data["photos"];

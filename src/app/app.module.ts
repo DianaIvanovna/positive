@@ -23,6 +23,7 @@ import { RentalBrandsComponent } from './rental-brands/rental-brands.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { EquipmentContainerComponent } from './equipment-container/equipment-container.component';
 import { ServiceRentComponent } from './service-rent/service-rent.component';
+import { PreviewComponent } from './preview/preview.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ServiceRentComponent } from './service-rent/service-rent.component';
     EquipmentComponent,
     EquipmentContainerComponent,
     ServiceRentComponent,
+    PreviewComponent,
   ],
   imports: [
     BrowserModule,
