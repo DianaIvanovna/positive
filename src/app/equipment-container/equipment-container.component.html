@@ -34,11 +34,9 @@
      </svg>
 
 
-     <app-equipment
-     [equipment]="equipments[indexActive]" [equipmentSmall]="equipmentSmall" [equipmentIndex]="indexActive"
+     <app-equipment [equipment]="equipments[indexActive]" [equipmentSmall]="equipmentSmall" [equipmentIndex]="indexActive"
      ></app-equipment>
-     <app-equipment *ngIf="screenWidth>1024 && ((indexActive+1) < equipments.length)"
-     [equipment]="equipments[indexActive+1]" [equipmentSmall]="equipmentSmall"  [equipmentIndex]="indexActive+1"
+     <app-equipment *ngIf="screenWidth>1024 && equipments[indexActive+1]!=undefined" [equipment]="equipments[indexActive+1]" [equipmentSmall]="equipmentSmall"  [equipmentIndex]="indexActive+1"
      ></app-equipment>
 
 

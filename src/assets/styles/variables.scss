@@ -15,7 +15,7 @@ $bsckgroundColor:#E5E5E5;
   font-style: $style;
   font-weight: $weight;
   font-size:  $size;
-  line-height: height;
+  line-height: $height;
 }
 @mixin titleFont {
   font-family: Oranienbaum;

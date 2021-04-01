@@ -22,7 +22,7 @@ export class TripInfoComponent implements OnInit {
 
   constructor(private httpTripsService:HttpTripsService,
     private route: ActivatedRoute, private sanitizer: DomSanitizer, private http: HttpClient) {
-   }
+  }
 
   ngOnInit(): void {
     // загружаю данные о поездке
