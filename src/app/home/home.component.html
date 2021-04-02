@@ -1,36 +1,15 @@
-<div class="main">
-  <app-header></app-header>
-  <div class="main__contant">
-
-    <!-- content start -->
-    <app-welcome-section [data] = "dataForWelcomeSection"></app-welcome-section>
-    <div class="page">
-      <div class="pageContent">
-        <app-our-trip></app-our-trip>
-        <app-equipment-container [equipmentSmall]="equipmentSmall" ></app-equipment-container>
-        <app-photogallery></app-photogallery>
-      </div>
-    </div>
-    <div class="page">
-      <img src="./assets/img/background-2.png" alt="фоновая картинка сугробы снега" class="page__background positive-is__background">
-      <div class="pageContent">
-        <app-positive-is></app-positive-is>
-        <app-review></app-review>
-      </div>
-    </div>
-    <!-- content end -->
-
-    <!-- footer start -->
-    <div class="page">
-      <div class="pageContent">
-        <app-footer></app-footer>
-        <img src="./assets/img/background-3.png" alt="фоновая картинка сноубордист" class="page__background_footer">
-      </div>
-    </div>
-    <!-- footer end -->
+<app-welcome-section [data] = "dataForWelcomeSection"></app-welcome-section>
+<div class="page">
+  <div class="pageContent">
+    <app-our-trip></app-our-trip>
+    <app-equipment-container [equipmentSmall]="equipmentSmall" ></app-equipment-container>
+    <app-photogallery></app-photogallery>
   </div>
-  <!-- кнопка вверх -->
-  <app-go-up></app-go-up>
 </div>
-
-
+<div class="page">
+  <img src="./assets/img/background-2.png" alt="фоновая картинка сугробы снега" class="page__background positive-is__background">
+  <div class="pageContent">
+    <app-positive-is></app-positive-is>
+    <app-review></app-review>
+  </div>
+</div>

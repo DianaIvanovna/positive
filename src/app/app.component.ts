@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-  title = 'positive';
+export class AppComponent{
+
+  isPreview = true;
+
+  constructor( ){
+    if (location.pathname !='/') this.isPreview = false;
+  }
+
 }
