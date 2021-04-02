@@ -2,7 +2,15 @@
   <div class="background__mobile" *ngIf="mobule" (click)="mobule=!mobule"></div>
   <header class="header">
     <div class="header__container">
-      <img src="./assets/img/logo.png" alt="логотип" class="header__logo" [routerLink]="['/']">
+
+      <picture class="header__logo">
+        <source srcset="./assets/images/logo/logo-big_a1b.webp" type="image/webp">
+        <img  width="106px" height="106px"
+            src="./assets/images/logo/logo-big.png"
+            [routerLink]="['/']"
+            alt="логтип positive">
+      </picture>
+
       <nav class="header__nav">
 
         <a  (click)="scrollTo($event)" href="#ourTrip" class="header__link">Наши поездки</a>
@@ -15,18 +23,23 @@
         <a href="tel:+79226999898" class="header__number">+7 (922) 699-98-98</a>
         <p class="header__container-message">
 
-          <a href="https://vk.com/pozitiv74" target="_blank"><img src="./assets/img/soc-icon/vk.svg" alt="vk" class="header__icon"></a>
+          <a href="https://vk.com/pozitiv74" target="_blank">
+            <img width="30px" height="30px" src="./assets/img/soc-icon/vk.svg" alt="vk" class="header__icon"></a>
 
-          <a href="https://www.instagram.com/pozitivtour/" target="_blank"><img src="./assets/img/soc-icon/instagram.svg" alt="instagram" class="header__icon"></a>
+          <a href="https://www.instagram.com/pozitivtour/" target="_blank">
+            <img width="30px" height="30px" src="./assets/img/soc-icon/instagram.svg" alt="instagram" class="header__icon"></a>
 
-          <a href="https://t.me/pozitivtour" target="_blank"><img src="./assets/img/soc-icon/telegram.svg" alt="telegram" class="header__icon"></a>
+          <a href="https://t.me/pozitivtour" target="_blank">
+            <img width="30px" height="30px" src="./assets/img/soc-icon/telegram.svg" alt="telegram" class="header__icon"></a>
 
-          <a href="https://wa.me/79226999898" target="_blank"><img  src="./assets/img/soc-icon/whatsapp.svg" class="header__icon" alt="whatsapp"></a>
+          <a href="https://wa.me/79226999898" target="_blank">
+            <img width="30px" height="30px"  src="./assets/img/soc-icon/whatsapp.svg" class="header__icon" alt="whatsapp"></a>
 
-          <a href="viber://chat?number=79226999898" target="_blank"><img src="./assets/img/soc-icon/viber.svg" alt="viber" class="header__icon"></a>
+          <a href="viber://chat?number=79226999898" target="_blank">
+            <img width="30px" height="30px" src="./assets/img/soc-icon/viber.svg" alt="viber" class="header__icon"></a>
 
       </div>
-      <img src="./assets/img/Icon/menu-button.svg" alt="иконка меню" class="header__menu"(click)="mobule=!mobule">
+      <img width="20px" height="25px" src="./assets/img/Icon/menu-button.svg" alt="иконка меню" class="header__menu"(click)="mobule=!mobule">
 
     </div>
 
