@@ -9,17 +9,88 @@
   overflow: hidden;
 }
 
-.preview__img {
-  position: relative;
+.preview__container {
   width: 50%;
   height: 100%;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+
+    .preview__img{
+      img{
+        filter: none;
+        transition: filter 0.5s ease-in-out;
+      }
+    }
+  }
+}
+
+.preview__title {
+  @include titleFont;
+  font-size: 48px;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-align: center;
+
+  color: $mainColor;
+  margin: 0;
+
+  @media screen and (max-width: 600px){
+    font-size: 28px;
+  }
+}
+
+.preview__title-container{
+  position: relative;
+  max-width: 500px;
+  width: 70%;
+  &::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    background: #fff;
+    opacity: 0.68;
+    filter: blur(42px);
+  }
+}
+
+.preview__text {
+  @include mainFontValue(normal,normal, 24px, 120%);
+  text-align: center;
+  margin: 0;
+
+  @media screen and (max-width: 600px){
+    @include mainFontValue(normal,normal, 16px, 120%);
+  }
+}
+
+
+.preview__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 0% 0%;
+    object-position: 15% 0%;
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     -ms-filter: grayscale(100%);
@@ -28,14 +99,6 @@
     filter: gray; /* IE 6-9 */
     transition: filter 0.5s ease-in-out;
   }
-
-  &:hover{
-    img{
-      filter: none;
-      transition: filter 0.5s ease-in-out;
-    }
-  }
-
 }
 .preview__img_summer {
   img {
@@ -49,6 +112,11 @@
   height: 186px;
   top: calc(50% - 93px);
   left: calc(50% - 93px);
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
 }
 
 
@@ -58,21 +126,26 @@
     flex-direction: column;
   }
 
-  .preview__img {
+  .preview__container {
     width: 100%;
     height: 50%;
+    &:hover {
+      .preview__img {
+        img{
+          filter: none;
+          transition: none;
+        }
+      }
+    }
+  }
+
+  .preview__img {
     img {
       filter: none;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: 0% 20%;
-    }
-    &:hover{
-      img{
-        filter: none;
-        transition: none;
-      }
     }
   }
 

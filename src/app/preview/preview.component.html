@@ -1,39 +1,43 @@
 <section class="preview">
-  <!-- <div class="preview__img preview__img_summer">
-    <img src="./assets/img/preview-summer.png" width="960px" height="1080px" alt="летние поездки">
+
+  <div class="preview__container">
+    <picture class="preview__img preview__img_summer">
+      <source media="(min-width: 1440px)" srcset="./assets/images/preview/preview-summer_4f7.webp" type="image/webp">
+      <source media="(min-width: 600px)" srcset="./assets/images/preview/preview-summer_58a.webp" type="image/webp">
+      <source srcset="./assets/images/preview/preview-summer_edb.webp" type="image/webp">
+      <img width="960px" height="1080px"
+          src="./assets/images/preview/preview-summer_062.jpg"
+          srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAtACgDASIAAhEBAxEB/8QAHAAAAQQDAQAAAAAAAAAAAAAAAAQGBwgCAwUB/8QAKhAAAgEDAwMEAgIDAAAAAAAAAQIDBAURABIhBjFRBxMiYUFxCBQjMvH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMEAP/EAB4RAQACAgIDAQAAAAAAAAAAAAEAAgMREiETMYFB/9oADAMBAAIRAxEAPwC3TVLmMqFXd5x20jVjEC+4k5862ytx8RknsNJmXn3HJPBOMcaVjEz9yoeCRYpFEjD47xkA/rSe3LXJTl654WnZycx/6bfxwdZMx2j2yoOMkt+NY3GqWjtUtQVaWRR8UXuT5+h5P4GkXXcIb6kJ9e+stwoupbvYLMGjmoZvbY1EAJL9gIwp5Bx3Pn70aZH8guo7YaWa59OkxmvuqxxsCyu606ne4VuCpd3XIOMro0a42wO4LWOSalsm2gEAqT2Gk1UyqgDZzg5GNeVoeQ4jQjHc9tc2qiq0ZCtQAndl2k5/Rzrl1BFLyDYuEB3cEY7aZCepfT1Xe6+0UuWqbfOBUe+AiFd20kEnB5BH/ddrqS4vaLNJcTTvVLGVUr7wiGSQMs7HCqMjJ5PgHVXPWG301ll/s2uaS1T1ldNFdI4cyASn5bwzNkd9vGcEHgHUjIWymP7KmN8Tf4RmdYzV3XHXkjQJLDQ26F5IYSvwWJZiTtwABncPP7OjXVtUtVeLBSV9FBLUtDWvb5poiP8AKZCGAYDsPiMEDnk6NTvmtyR/Ixh63U6l+oKdWU7w2e3OtjUkRUKRkDW/dwONG761s0TPuMz1E6Tu1/tUdvs1yo7cvvJLJLPTmblW3ABcgHkA8+NRJ6p+g3XHWF7aEdW2wWBZzUQxyUzCoR2QK/I4Oe/fn96sdu+tG760pjqPI9x+dk0+pBPQf8eY+mumobO/VVS+y4rcZZaenWKSaRQAqMxJ+C4OMYPPOjU7FuDxo0HFRdpCZbhoZ//Z"
+          alt="летние поездки">
+    </picture>
+    <div class="preview__title-container">
+      <h2 class="preview__title">лето</h2>
+      <p class="preview__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex temporibus facere beatae. Inventore, sequi nostrum.</p>
+    </div>
   </div>
-  <div class="preview__img">
-    <img src="./assets/img/preview-winter.png" width="960px" height="1080px" alt="зимние поездки">
-  </div> -->
+
+  <div class="preview__container">
+    <picture class="preview__img">
+      <source media="(min-width: 1440px)" srcset="./assets/images/preview/preview-winter_13d.webp" type="image/webp">
+      <source media="(min-width: 600px)" srcset="./assets/images/preview/preview-winter_7d2.webp" type="image/webp">
+      <source srcset="./assets/images/preview/preview-winter_e9b.webp" type="image/webp">
+      <img width="960px" height="1080px"
+          src="./assets/images/preview/preview-winter_59e.jpg"
+          srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAtACgDASIAAhEBAxEB/8QAGQABAQEBAQEAAAAAAAAAAAAAAAgGBAcB/8QALBAAAQMDAwIFAwUAAAAAAAAAAQIDBAAFEQYHEiExExQiQVEII1IyM2GBkf/EABcBAAMBAAAAAAAAAAAAAAAAAAIDBAH/xAAmEQABBAIBAwMFAAAAAAAAAAABAAIDEQQhEhMxcQVhkTJCgbHR/9oADAMBAAIRAxEAPwCy6Vy3efHtdrlXGUVBiM0p1ziMkhIzgD3NeByN2b3t/otnUGpX2Lu1KkusMREI8N0qwVJXzGRj8s9s9KiyfUMfGlZFI6nO7DwnQwPmcGsFkqhqVFmi949wN1N0rZb13JVmtyp6PKt29xTSEkdfudcvDGcpJwcjpVpjsKqZI1/0puVhS4vHqfdseAav5B+EpSlGpFPv1Ebs3jR2o7fYZmlXH7U635oyyVBiS4kEoZ5AYwlYSVA9SMADBJrEqi33dHRUnTF2jWpu4uxFXqzraaPN1wKVlJHLCOWFJxn4qorhYoV3jrj35hi5sKP7DzQLWPY8TkEj5/zFYW3aLg7cIuU3TdlXNhuveOGEnk/HCv1hsk+psdwnv379MJmxYJDzc23DsUcMro3tcNbUn7Wov21msI2pNV6SuLsG3k8I4Rwy8scU8cjiDk59uo/irpst8YusOPJYQ42l9pDqUODCkhSQcEfIzXnDupLVqht62rahzo4U2uYyXVLDbowpJOT6cYBHatWzYrjLgpMKc5bgtHodQkFYGMAjkDj+xWx5mEIg1rT1L3QNfm9A17/tDm5mXlZXEgcWihZF1vsBurOjS1apjCCA6rwyeozSs7A0i6mQw7cbzLlpZAw1nAUR+Su6hnrilUyNa2uJtTwSSSXzZxo6sg376v8AvhaqlKUtPXMmBCS8p5MRhLiiSpQQASfk10ISlCQlIAA9hX2laST3QhjWmwEpSlYiX//Z"
+          alt="зимние поездки">
+    </picture>
+    <div class="preview__title-container">
+      <h2 class="preview__title">зима</h2>
+      <p class="preview__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, dignissimos!</p>
+    </div>
+  </div>
 
 
-  <picture class="preview__img preview__img_summer">
-    <source media="(min-width: 1440px)" srcset="./assets/images/preview/preview-summer_4f7.webp" type="image/webp">
-    <source media="(min-width: 600px)" srcset="./assets/images/preview/preview-summer_58a.webp" type="image/webp">
-    <source srcset="./assets/images/preview/preview-summer_edb.webp" type="image/webp">
-    <img width="960px" height="1080px"
-        src="./assets/images/preview/preview-summer_062.jpg"
-        srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAtACgDASIAAhEBAxEB/8QAHAAAAQQDAQAAAAAAAAAAAAAAAAQGBwgCAwUB/8QAKhAAAgEDAwMEAgIDAAAAAAAAAQIDBAURABIhBjFRBxMiYUFxCBQjMvH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMEAP/EAB4RAQACAgIDAQAAAAAAAAAAAAEAAgMREiETMYFB/9oADAMBAAIRAxEAPwC3TVLmMqFXd5x20jVjEC+4k5862ytx8RknsNJmXn3HJPBOMcaVjEz9yoeCRYpFEjD47xkA/rSe3LXJTl654WnZycx/6bfxwdZMx2j2yoOMkt+NY3GqWjtUtQVaWRR8UXuT5+h5P4GkXXcIb6kJ9e+stwoupbvYLMGjmoZvbY1EAJL9gIwp5Bx3Pn70aZH8guo7YaWa59OkxmvuqxxsCyu606ne4VuCpd3XIOMro0a42wO4LWOSalsm2gEAqT2Gk1UyqgDZzg5GNeVoeQ4jQjHc9tc2qiq0ZCtQAndl2k5/Rzrl1BFLyDYuEB3cEY7aZCepfT1Xe6+0UuWqbfOBUe+AiFd20kEnB5BH/ddrqS4vaLNJcTTvVLGVUr7wiGSQMs7HCqMjJ5PgHVXPWG301ll/s2uaS1T1ldNFdI4cyASn5bwzNkd9vGcEHgHUjIWymP7KmN8Tf4RmdYzV3XHXkjQJLDQ26F5IYSvwWJZiTtwABncPP7OjXVtUtVeLBSV9FBLUtDWvb5poiP8AKZCGAYDsPiMEDnk6NTvmtyR/Ixh63U6l+oKdWU7w2e3OtjUkRUKRkDW/dwONG761s0TPuMz1E6Tu1/tUdvs1yo7cvvJLJLPTmblW3ABcgHkA8+NRJ6p+g3XHWF7aEdW2wWBZzUQxyUzCoR2QK/I4Oe/fn96sdu+tG760pjqPI9x+dk0+pBPQf8eY+mumobO/VVS+y4rcZZaenWKSaRQAqMxJ+C4OMYPPOjU7FuDxo0HFRdpCZbhoZ//Z"
-        alt="летние поездки">
-</picture>
+  <picture class="preview__logo">
+    <source srcset="./assets/images/logo/logo-big_a1b.webp" type="image/webp">
+    <img  width="186px" height="186px"
+        src="./assets/images/logo/logo-big.png"
+        alt="логотип">
+  </picture>
 
-<picture class="preview__img">
-    <source media="(min-width: 1440px)" srcset="./assets/images/preview/preview-winter_13d.webp" type="image/webp">
-    <source media="(min-width: 600px)" srcset="./assets/images/preview/preview-winter_7d2.webp" type="image/webp">
-    <source srcset="./assets/images/preview/preview-winter_e9b.webp" type="image/webp">
-    <img width="960px" height="1080px"
-        src="./assets/images/preview/preview-winter_59e.jpg"
-        srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAtACgDASIAAhEBAxEB/8QAGQABAQEBAQEAAAAAAAAAAAAAAAgGBAcB/8QALBAAAQMDAwIFAwUAAAAAAAAAAQIDBAAFEQYHEiExExQiQVEII1IyM2GBkf/EABcBAAMBAAAAAAAAAAAAAAAAAAIDBAH/xAAmEQABBAIBAwMFAAAAAAAAAAABAAIDEQQhEhMxcQVhkTJCgbHR/9oADAMBAAIRAxEAPwCy6Vy3efHtdrlXGUVBiM0p1ziMkhIzgD3NeByN2b3t/otnUGpX2Lu1KkusMREI8N0qwVJXzGRj8s9s9KiyfUMfGlZFI6nO7DwnQwPmcGsFkqhqVFmi949wN1N0rZb13JVmtyp6PKt29xTSEkdfudcvDGcpJwcjpVpjsKqZI1/0puVhS4vHqfdseAav5B+EpSlGpFPv1Ebs3jR2o7fYZmlXH7U635oyyVBiS4kEoZ5AYwlYSVA9SMADBJrEqi33dHRUnTF2jWpu4uxFXqzraaPN1wKVlJHLCOWFJxn4qorhYoV3jrj35hi5sKP7DzQLWPY8TkEj5/zFYW3aLg7cIuU3TdlXNhuveOGEnk/HCv1hsk+psdwnv379MJmxYJDzc23DsUcMro3tcNbUn7Wov21msI2pNV6SuLsG3k8I4Rwy8scU8cjiDk59uo/irpst8YusOPJYQ42l9pDqUODCkhSQcEfIzXnDupLVqht62rahzo4U2uYyXVLDbowpJOT6cYBHatWzYrjLgpMKc5bgtHodQkFYGMAjkDj+xWx5mEIg1rT1L3QNfm9A17/tDm5mXlZXEgcWihZF1vsBurOjS1apjCCA6rwyeozSs7A0i6mQw7cbzLlpZAw1nAUR+Su6hnrilUyNa2uJtTwSSSXzZxo6sg376v8AvhaqlKUtPXMmBCS8p5MRhLiiSpQQASfk10ISlCQlIAA9hX2laST3QhjWmwEpSlYiX//Z"
-        alt="зимние поездки">
-</picture>
-
-
-
-
-
-
-
-
-
-  <img class="preview__logo" src="./assets/img/logo-big.png" width="186px" height="186px" alt="логотип">
 </section>
