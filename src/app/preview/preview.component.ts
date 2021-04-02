@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-preview',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreviewComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goPage(season){
+    this.router.navigate(
+        ['/trips'],
+        {
+          queryParams:{
+            'season': season,
+        }
+      }
+    );
   }
 
 }

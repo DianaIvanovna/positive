@@ -13,12 +13,17 @@
       <a href="mailto:pozitiv-tour74@yandex.ru" class="footer__link">pozitiv-tour74@yandex.ru</a>
       <p class="footer__subtitle">Присоединяйтесь в соц. сетях:</p>
       <ul class="footer__links">
-        <li><a href="https://vk.com/pozitiv74" target="_blank"><img src="./assets/img/soc-icon/vk.svg" alt="vk" class="footer__link footer__icon "></a></li>
-        <li><a href="https://www.instagram.com/pozitivtour/" target="_blank"><img src="./assets/img/soc-icon/instagram.svg" alt="instagram" class="footer__link footer__icon"></a></li>
+        <li><a href="https://vk.com/pozitiv74" target="_blank">
+          <img width="30px" height="30px" src="./assets/img/soc-icon/vk.svg" alt="vk" class="footer__link footer__icon "></a></li>
+        <li><a href="https://www.instagram.com/pozitivtour/" target="_blank">
+          <img width="30px" height="30px" src="./assets/img/soc-icon/instagram.svg" alt="instagram" class="footer__link footer__icon"></a></li>
 
-        <li><a href="https://t.me/pozitivtour" target="_blank"><img src="./assets/img/soc-icon/telegram.svg" alt="telegram" class="footer__link footer__icon"></a></li>
-        <li><a href="https://wa.me/79226999898" target="_blank"><img  src="./assets/img/soc-icon/whatsapp.svg" class="footer__link footer__icon" alt="whatsapp"></a></li>
-        <li><a href="viber://chat?number=79226999898" target="_blank"><img src="./assets/img/soc-icon/viber.svg" alt="viber" class="footer__link footer__icon"></a></li>
+        <li><a href="https://t.me/pozitivtour" target="_blank">
+          <img width="30px" height="30px" src="./assets/img/soc-icon/telegram.svg" alt="telegram" class="footer__link footer__icon"></a></li>
+        <li><a href="https://wa.me/79226999898" target="_blank">
+          <img width="30px" height="30px"  src="./assets/img/soc-icon/whatsapp.svg" class="footer__link footer__icon" alt="whatsapp"></a></li>
+        <li><a href="viber://chat?number=79226999898" target="_blank">
+          <img width="30px" height="30px" src="./assets/img/soc-icon/viber.svg" alt="viber" class="footer__link footer__icon"></a></li>
 
 
       </ul>
@@ -57,5 +62,13 @@
     </ng-template>
 
   </div>
-  <img src="./assets/img/logo.png" alt="логтип positive" class="footer__logo" [routerLink]="['/']">
+  <!-- <img src="./assets/img/logo.png" alt="логтип positive" class="footer__logo" [routerLink]="['/']"> -->
+
+  <picture class="footer__logo">
+    <source srcset="./assets/images/logo/logo-big_a1b.webp" type="image/webp">
+    <img  width="106px" height="106px"
+        src="./assets/images/logo/logo-big.png"
+        [routerLink]="['/']"
+        alt="логтип positive">
+  </picture>
 </footer>

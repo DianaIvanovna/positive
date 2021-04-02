@@ -1,15 +1,60 @@
-<app-welcome-section [data] = "dataForWelcomeSection"></app-welcome-section>
-<div class="page">
-  <div class="pageContent">
-    <app-our-trip></app-our-trip>
-    <app-equipment-container [equipmentSmall]="equipmentSmall" ></app-equipment-container>
-    <app-photogallery></app-photogallery>
+<div class="main">
+  <app-header></app-header>
+  <div class="main__contant">
+
+    <!-- content start -->
+    <!-- <app-welcome-section [data] = "dataForWelcomeSection"></app-welcome-section>
+    <div class="page">
+      <div class="pageContent">
+        <app-our-trip></app-our-trip>
+        <app-equipment-container [equipmentSmall]="equipmentSmall" ></app-equipment-container>
+        <app-photogallery></app-photogallery>
+      </div>
+    </div>
+    <div class="page">
+      <img src="./assets/img/background-2.png" alt="фоновая картинка сугробы снега" class="page__background positive-is__background">
+      <div class="pageContent">
+        <app-positive-is></app-positive-is>
+        <app-review></app-review>
+      </div>
+    </div> -->
+    <!-- content end -->
+
+    <!-- footer start -->
+    <div class="page">
+      <!-- <div style="height: 2000px;"></div> -->
+      <div class="pageContent">
+        <app-footer></app-footer>
+        <!-- фоновые картинки footer -->
+        <picture *ngIf="season=='summer'" class="page__background_footer lazy-image">
+          <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-footer-summer_065.webp" type="image/webp">
+          <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-footer-summer_d1d.webp" type="image/webp">
+          <source media="(min-width: 600px)" data-srcset="./assets/images/background/back-footer-summer_bf9.webp" type="image/webp">
+          <source data-srcset="./assets/images/background/back-footer-summer_b51.webp" type="image/webp">
+          <img width="1980px" height="1080px"
+              src="./assets/images/background/back-footer-summer_4be.jpg"
+              data-srcset="./assets/images/background/back-footer-summer_4be.jpg"
+              srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAIDBQcIAf/EACcQAAEDAwQBAwUAAAAAAAAAAAECAwQAERIFBgchQRMxUSIzQmGB/8QAGQEAAwADAAAAAAAAAAAAAAAAAAEDAgQF/8QAIBEAAgICAQUBAAAAAAAAAAAAAAECAxEhEgUTFDFx0f/aAAwDAQACEQMRAD8A7LpWsdy8lTIO/wDU9rwtNC16VEbmOkgr9dpZRkRb7eAJPd8uh1Wyo7inWQ4tpTRP4qIuB4vageNZLKUqDrzTISXXEN5GwyUBc/HdAidK8BBFwQR+qUAcFK5H1SZNdmTEylTfSDKpCHylxTWQukqBuRe3RNWzucN0NMFK9Q1NAUMsRKUe79Ad2telK51ttsIxkpvfz8LOEWksCLzruktZyNa1nIpIXhJ69wL/AD5/lYydyfPflLkFzUZUlK8wuRKUfqt83PjzSlay6jfHSZh2IP2ZNnnLdMRj0mZTjbBTjipal3B6t7gilKVDyb3vmy3CC1g//9k="
+              alt="фоновая картинка горы">
+        </picture>
+        <picture *ngIf="season=='winter'"
+        class="page__background_footer page__background_footer-winter lazy-image">
+            <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-footer-winter_0e0.webp" type="image/webp">
+            <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-footer-winter_7c9.webp" type="image/webp">
+            <source media="(min-width: 600px)" data-srcset="./assets/images/background/back-footer-winter_be1.webp" type="image/webp">
+            <source data-srcset="./assets/images/background/back-footer-winter_ca8.webp" type="image/webp">
+            <img width="1980px" height="1080px"
+              src="./assets/images/background/back-footer-winter_db4.jpg"
+              data-srcset="./assets/images/background/back-footer-winter_db4.jpg"
+              srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAATACgDASIAAhEBAxEB/8QAGwABAAEFAQAAAAAAAAAAAAAAAAgCAwQFCQf/xAAqEAACAQQBAwIGAwEAAAAAAAABAgMABAURBgcSIRMxCBQyQVFhIkJxof/EABcBAQADAAAAAAAAAAAAAAAAAAEAAgP/xAAaEQACAwEBAAAAAAAAAAAAAAAAAQIREiEi/9oADAMBAAIRAxEAPwCJ97w3l9jcpbXvFs5bTSP2JHLj5VZm/ABXyf8AKkN0z+FKc8cPI+qV7kcTBNGvyuNxcLTXvcw2PUARu06/oATv3K61U5IvA213s/gCtRynL5WPA5BeL23z+ZETLaJLEyRer7Aux0O0HydH7VZRtldETOI/Dj006jXXrYHkOS4/Lj7iS3yuJYieUhGIDxtIFZN/fuU6O/A8byOp3wYuizXfTzkBkdQzjH5PwWHjQSZRrfv9QH281ITpJ04s+EB8xfzy3WdvIQbyXsX0llch5imhv+T7Oyf0ABXoQvVbxHFI5/S6FM4q/JFLnTlTnuk3UzBzyxZLgnIYvTdkZ0sJJEJX3IdQVI/YOjSuqTyyOR3GFNHYBYk/8pRljpGmRm7R5PtVYkff1GlK3MC8lzOvtIwqma4nfw0rEUpRSGyyWb8mlKVAP//Z"
+              alt="фоновая картинка сноубордист">
+        </picture>
+        <!-- фоновые картинки footer -->
+
+      </div>
+    </div>
+    <!-- footer end -->
   </div>
-</div>
-<div class="page">
-  <img src="./assets/img/background-2.png" alt="фоновая картинка сугробы снега" class="page__background positive-is__background">
-  <div class="pageContent">
-    <app-positive-is></app-positive-is>
-    <app-review></app-review>
-  </div>
+  <!-- кнопка вверх -->
+  <app-go-up></app-go-up>
 </div>

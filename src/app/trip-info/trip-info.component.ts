@@ -2,7 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HttpTripsService } from '../http-trips.service';
 import {DomSanitizer} from '@angular/platform-browser';
-// import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient  } from '@angular/common/http';
 
 @Component({
