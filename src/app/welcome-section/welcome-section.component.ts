@@ -4,13 +4,6 @@ interface Data {
   title: string,
   titleDark?: string,
   subtitle: string,
-  textForButton: string,
-  img: string,
-  img800: string,
-  img500: string,
-  img1280?: string,
-  imgForButton?:string,
-  link:string
 }
 
 @Component({
@@ -20,9 +13,11 @@ interface Data {
 })
 export class WelcomeSectionComponent implements OnInit {
   @Input() data: Data;
+  @Input() season:string;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 

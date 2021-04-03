@@ -10,17 +10,17 @@ export class HomeComponent implements OnInit, AfterViewInit{
   season = "summer"
 
   equipmentSmall = true;
-  dataForWelcomeSection = {
+  dataForWelcomeSection = {}
+
+  dataForWelcomeSectionWinter = {
     title: "Горнолыжные",
     titleDark: "туры",
     subtitle: "Челябинск, Екатеринбург",
-    textForButton: "БЛИЖАЙШИЕ ПОЕЗДКИ",
-    imgForButton: "./assets/img/Icon/Calendar.svg",
-    img: "./assets/img/background/background.jpg",
-    img1280: "./assets/img/background/background_1280.jpg",
-    img800: "./assets/img/background/background_800.jpg",
-    img500: "./assets/img/background/background_500.jpg",
-    link: ".our-trip__title",
+  }
+  dataForWelcomeSectionSummer = {
+    title: "активный",
+    titleDark: "отдых на урале",
+    subtitle: "Челябинск, Екатеринбург",
   }
 
   constructor(private route: ActivatedRoute) {
@@ -29,9 +29,10 @@ export class HomeComponent implements OnInit, AfterViewInit{
     this.route.queryParams.subscribe( params => {
       if (params.season){
         this.season = params.season;
+        if (params.season == 'summer') this.dataForWelcomeSection = this.dataForWelcomeSectionSummer;
+        else this.dataForWelcomeSection = this.dataForWelcomeSectionWinter;
       }
     })
-
   }
 
   ngAfterViewInit() {

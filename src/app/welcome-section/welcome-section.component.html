@@ -1,12 +1,44 @@
 <div class="page">
+
   <div class="background-container">
-    <picture>
-      <source srcset="{{data.img500}}" media="(max-width: 500px) ">
-      <source srcset="{{data.img800}}" media="(max-width: 800px) ">
-      <source  srcset="{{data.img1280}}" media="(max-width: 1280px)">
-      <img srcset="{{data.img}}" alt="фоновая картинка">
+    <picture *ngIf="season=='summer'"
+      class="lazy-image welcome__back-img">
+
+      <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-main-summer_864.webp" type="image/webp">
+
+      <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-main-summer_5aa.webp" type="image/webp">
+
+      <source media="(min-width: 600px)" data-srcset="./assets/images/background/back-main-summer_ef3.webp" type="image/webp">
+
+      <source data-srcset="./assets/images/background/back-main-summer_75c.webp" type="image/webp">
+
+      <img width="1980px" height="800px"
+          src="./assets/images/background/back-main-summer_157.jpg"
+          data-srcset="./assets/images/background/back-main-summer_157.jpg"
+          srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAXACgDASIAAhEBAxEB/8QAGwABAAEFAQAAAAAAAAAAAAAAAAUDBAYHCAn/xAAqEAABAwMDAgYCAwAAAAAAAAABAgMEAAYRBRIhMWEHExQiQXEygVGRwf/EABkBAAIDAQAAAAAAAAAAAAAAAAADAQIEBf/EACERAAMAAAQHAAAAAAAAAAAAAAABAhESQVETITFSYZHB/9oADAMBAAIRAxEAPwDsda8cDGaj5jqykpUokE9BV3IVhQ+ajpz3lr9rSiTyQOv7qGwKDpW6nyy66jcoH2K/j4PatJeOlz3DFuhjSNIuP00SW2pkMxiAtDiW1qcLijwE7QPoHNbEvfXZumW5JlaaiONQKSIqJQIbUvrhWOgAyf8Aa5MvvXnrzuV2533FsFpsxWmAAlLKsDepeODuH74waRVrB+Biltci1uvWLmFlR1JuDUWYziVsz2g8VJcSokklJODkEHv1pWNavPadhOaWG93qV5bRvwUqB4PJzzkjvSsPF76w9fRznN0PSVbS1kZ28D+6JjNjO4bvulK6xlIe5rU03X2EMynJbCUBe0xny0cqSU7uOpAPHesVtXwTsG3IzzMGDLdL7hdeckSlOKcWU7SVA8HjjGMcmlKq4l6FlTWpk8CyrVgNJbi29pgAz7lx0qX1z+RBNKUoyTsRme5//9k="
+          alt="фоновая картинка туристы">
+
+          >
+    </picture>
+    <picture *ngIf="season=='winter'"
+      class="lazy-image welcome__back-img welcome__back-img_winter">
+      <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-main-winter_192.webp" type="image/webp">
+
+      <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-main-winter_13b.webp" type="image/webp">
+
+      <source media="(min-width: 600px)" data-srcset="./assets/images/background/back-main-winter_a49.webp" type="image/webp">
+
+      <source data-srcset="./assets/images/background/back-main-winter_851.webp" type="image/webp">
+
+
+      <img width="1980px" height="800px"
+        src="./assets/images/background/back-main-winter_79b.jpg"
+        data-srcset="./assets/images/background/back-main-winter_79b.jpg"
+        srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQGBwII/8QAJRAAAQQCAwACAQUAAAAAAAAAAQACAxEEBgUSIQcToUFRUmKB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAIB/8QAIBEAAgEDBAMAAAAAAAAAAAAAAAERAgNBEiExkXHB8P/aAAwDAQACEQMRAD8A9looodkGQOa9pbXrSPza5M2c1/V2M1wN05h8/wBv0flATFn+0fLeq6vv8WnbAcrBy8qBkuHOY+0M5cSAwEetdYodgAf3Vry5+biLTFg4+S1w96TdHNN/2Hqx3ctExdl+T4Of2Lk8+bk8VvXiMKDEH1RFrbaXkC39ZCX2SALFmlNyVTtUk8Tnr6CrF2y63TdTjfhZ569mz69ysHNcRDyOPHJEyTsDHJQexzXFpa4AmiCCiqXxHqezazhZQ2TZcjlpMpzZI4PPrxKu2h9B0jjYtx/iPB+pZbVapWuJzHBPgvqIisBKF2iIAiIgP//Z"
+        alt="фоновая картинка сноубордисты">
     </picture>
   </div>
+
   <div class="pageContent">
     <section class="welcome">
       <div>
@@ -17,10 +49,15 @@
       </div>
 
       <div class="button__background">
-        <button class="welcome__button button" (click)="scrollToBook($event, data.link)">
+        <button class="welcome__button button" (click)="scrollToBook($event, '.our-trip__title')">
           <a href="" class="welcome__link">
-            <img *ngIf="data.imgForButton" src="{{data.imgForButton}}" alt="Иконка календаря" class="button__icon">
-            {{data.textForButton}}
+            <img
+            width="24px"
+            height="28px"
+            src="../../assets/images/Icon/Calendar.svg"
+            alt="Иконка календаря"
+            class="button__icon">
+            БЛИЖАЙШИЕ ПОЕЗДКИ
           </a>
         </button>
       </div>
