@@ -9,10 +9,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .footer__logo{
+  width: 106px;
+  height: 106px;
   img{
     margin-bottom: 40px;
     &:focus {outline:none}
