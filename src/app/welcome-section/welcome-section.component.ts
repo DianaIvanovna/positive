@@ -4,6 +4,9 @@ interface Data {
   title: string,
   titleDark?: string,
   subtitle: string,
+  link: string,
+  page: string,
+  btnText: string
 }
 
 @Component({
@@ -19,7 +22,6 @@ export class WelcomeSectionComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
 
   scrollToBook(event, link){ // функция только для перехода по ссылке забронировать
     event.preventDefault();

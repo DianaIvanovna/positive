@@ -1,16 +1,15 @@
 <div class="page">
 
   <div class="background-container">
-    <picture *ngIf="season=='summer'"
+    <picture *ngIf="season=='summer' && data.page=='home'"
       class="lazy-image welcome__back-img">
 
       <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-main-summer_864.webp" type="image/webp">
 
       <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-main-summer_5aa.webp" type="image/webp">
 
-      <source media="(min-width: 600px)" data-srcset="./assets/images/background/back-main-summer_ef3.webp" type="image/webp">
+      <source data-srcset="./assets/images/background/back-main-summer_ef3.webp" type="image/webp">
 
-      <source data-srcset="./assets/images/background/back-main-summer_75c.webp" type="image/webp">
 
       <img width="1980px" height="800px"
           src="./assets/images/background/back-main-summer_157.jpg"
@@ -20,16 +19,13 @@
 
           >
     </picture>
-    <picture *ngIf="season=='winter'"
+    <picture *ngIf="season=='winter' && data.page=='home'"
       class="lazy-image welcome__back-img welcome__back-img_winter">
       <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-main-winter_192.webp" type="image/webp">
 
       <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-main-winter_13b.webp" type="image/webp">
 
-      <source media="(min-width: 600px)" data-srcset="./assets/images/background/back-main-winter_a49.webp" type="image/webp">
-
-      <source data-srcset="./assets/images/background/back-main-winter_851.webp" type="image/webp">
-
+      <source  data-srcset="./assets/images/background/back-main-winter_a49.webp" type="image/webp">
 
       <img width="1980px" height="800px"
         src="./assets/images/background/back-main-winter_79b.jpg"
@@ -37,12 +33,44 @@
         srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQGBwII/8QAJRAAAQQCAwACAQUAAAAAAAAAAQACAxEEBgUSIQcToUFRUmKB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAIB/8QAIBEAAgEDBAMAAAAAAAAAAAAAAAERAgNBEiExkXHB8P/aAAwDAQACEQMRAD8A9looodkGQOa9pbXrSPza5M2c1/V2M1wN05h8/wBv0flATFn+0fLeq6vv8WnbAcrBy8qBkuHOY+0M5cSAwEetdYodgAf3Vry5+biLTFg4+S1w96TdHNN/2Hqx3ctExdl+T4Of2Lk8+bk8VvXiMKDEH1RFrbaXkC39ZCX2SALFmlNyVTtUk8Tnr6CrF2y63TdTjfhZ569mz69ysHNcRDyOPHJEyTsDHJQexzXFpa4AmiCCiqXxHqezazhZQ2TZcjlpMpzZI4PPrxKu2h9B0jjYtx/iPB+pZbVapWuJzHBPgvqIisBKF2iIAiIgP//Z"
         alt="фоновая картинка сноубордисты">
     </picture>
+
+    <picture *ngIf="season=='winter' && data.page=='rent'"
+    class="lazy-image welcome__back-img welcome__back-img_rent-winter">
+      <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-rent-is-winter_555.webp" type="image/webp">
+
+      <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-rent-is-winter_a5d.webp" type="image/webp">
+
+      <source  data-srcset="./assets/images/background/back-rent-is-winter_0cf.webp" type="image/webp">
+
+      <img width="1980px" height="800px"
+      src="./assets/images/background/back-rent-is-winter_573.png"
+      data-srcset="./assets/images/background/back-rent-is-winter_573.png"
+      srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAXCAIAAAD2sJpCAAAACXBIWXMAAAsTAAALEwEAmpwYAAACwklEQVRIx+2VSW/TQBSA/RP4ORUIuKAKBIhIJRU9IUSFWA4gFQ6V+g8QHKjUIjiA4ERbQSsEBErUA0s3UBeU0qZZvMR2XCexHcfbeGzzMtOGINJSqemJPlmjWZ7f97axmaitEoZhEAQwNja202TawguINPEaVHjwPoIbYplm6kcK44CscBAUtwu6PeDHww/7rvRGGL0dnzhz8lwyOVV3wloUlcum9bwlmtljRUmew3isq/Nwx5fJd7PTM9d7Ym9GnsF+Pjfzfe6lYY63LDaz9+rCODQ42N3Vdeva1ShE3NcxS8nWbPRp6vPywrLjoH1JNQUvLS6d6uzsicfz6dXIVCC++fmFoQfDH94nG4lpf42p3YH+/uNHj02MjkQ1ObB0Ls8+HX3NicVWd2wLvFWqoKVruwx6MpG40B2/c/NGVOE0iZXkDbm4QRVc1xUEXhAEVd3Qdc00q+AJ4/s+HJjVqiiKHMdRK9QbKjB3iDSOMMYekVqtVi6X4cjzXEO3zsc6YmcPTX9MWJoqCgUdjmynVC7l8/n19bQsS4ahgzK8DmYZhBAswIRpmjzP60Rs21YUpVAolEolwzA0TQMF0IR5JpNhwVA6ncvlYCJJkqqq2WymXNFePHl0+sSR+3fviaJUNYyiLP9cWeFYVuD5SqUCEf6RaqBCxLALEcAEHABDAAYSy7JiQeRYrqSq4BY4BJ5BYmACDkGssizzHFclYphmenlx4HZf78VLqqK4ngdewr5j23/dpfoXbROMPFR/ECL5hAGTj2A9pUBNpVJrq2sAg9A91wMvaQlotmGJfB/s2Jb1anRsbvab63q0Wjt0BmNbNmWDFQBj7FNqSHotjDb7jhamzkCIUpvNbnZlSDsgQMhvbpSWV4FxXKeO9AkSY9rbRHvnDg+bfgO/BRMLu7kLDCEF/8K0pO5J2vx3OgAfgP9n8C+TgmfgV401awAAAABJRU5ErkJggg=="
+      alt="фон горнолыжное оборудование">
+    </picture>
+
+    <picture *ngIf="season=='summer' && data.page=='rent'"
+    class="lazy-image welcome__back-img welcome__back-img_rent-summer">
+        <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-rent-is-summer_847.webp" type="image/webp">
+
+        <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-rent-is-summer_d01.webp" type="image/webp">
+
+        <source  data-srcset="./assets/images/background/back-rent-is-summer_fe5.webp" type="image/webp">
+
+        <img width="1980px" height="800px"
+        src="./assets/images/background/back-rent-is-summer_abf.png"
+        data-srcset="./assets/images/background/back-rent-is-summer_abf.png"
+        srcset="data:image/png;base64,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"
+        alt="фон горы и рюкзак">
+    </picture>
+
   </div>
+
 
   <div class="pageContent">
     <section class="welcome">
-      <div>
-        <h1 class="welcome__title">{{data.title}}
+      <div [class.welcome__back-title_rent]="data.page=='rent'">
+        <h1 class="welcome__title" >{{data.title}}
           <p class="welcome__title_dark">{{data.titleDark}}</p>
         </h1>
         <p class="welcome__subtitle">{{data.subtitle}}</p>
@@ -52,12 +80,13 @@
         <button class="welcome__button button" (click)="scrollToBook($event, '.our-trip__title')">
           <a href="" class="welcome__link">
             <img
+            *ngIf="data.page=='home'"
             width="24px"
             height="28px"
             src="../../assets/images/Icon/Calendar.svg"
             alt="Иконка календаря"
             class="button__icon">
-            БЛИЖАЙШИЕ ПОЕЗДКИ
+            {{data.btnText}}
           </a>
         </button>
       </div>

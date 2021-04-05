@@ -16,11 +16,17 @@ export class HomeComponent implements OnInit, AfterViewInit{
     title: "Горнолыжные",
     titleDark: "туры",
     subtitle: "Челябинск, Екатеринбург",
+    link: ".our-trip__title",
+    page: "home",
+    btnText: "БЛИЖАЙШИЕ ПОЕЗДКИ"
   }
   dataForWelcomeSectionSummer = {
     title: "активный",
     titleDark: "отдых на урале",
     subtitle: "Челябинск, Екатеринбург",
+    link: ".our-trip__title",
+    page: "home",
+    btnText: "БЛИЖАЙШИЕ ПОЕЗДКИ"
   }
 
   constructor(private route: ActivatedRoute) {
