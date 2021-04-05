@@ -1,13 +1,26 @@
 <section class="photogallery" #photogallery>
   <div class="forlink" id="photogallery" ></div>
-  <img src="./assets/img/snowboarder.png" alt="сноубордист" class="photogallery__snowboarder">
+
+  <picture class="photogallery__snowboarder" *ngIf="season=='winter'">
+    <source media="(min-width: 700px)" data-srcset="./assets/images/background/snowboarder_a25.webp" type="image/webp">
+
+    <source data-srcset="./assets/images/background/snowboarder_043.webp" type="image/webp">
+
+    <img width="571px" height="438px"
+        src="./assets/images/background/snowboarder_22f.png"
+        alt="сноубордист">
+  </picture>
+
+
+
   <div class="photogallery__header">
     <h2 class="photogallery__title">Фотогалерея</h2>
   </div>
   <div class="photogallery__grid">
-    <img *ngFor="let item of photosActive; let i = index;" (click)="openBigPhoto(item, i)"
+    <img width="270px" height="200px"  *ngFor="let item of photosActive; let i = index;" (click)="openBigPhoto(item, i)"
     src="{{item.photo}}" alt="" class="grid__item item-{{i+1}}">
   </div>
+
 
   <div class="photogallery__footer">
     <p class="photogallery__ps">Любуйтесь и радуйтесь пейзажами из нашей галлереи</p>
@@ -27,11 +40,12 @@
   <!-- ПОПАП ДЛЯ БОЛЬШОГО ФОТО -->
   <div class="popup popup_image" [class.popup_is-opened]="bigPhoto.photo" (click)="closePopup($event)">
     <div class="popup__content">
-      <img src="./assets/img/Icon/close.svg" alt="иконка закрытия"
+
+      <img width="26px" height="26px" src="./assets/images/Icon/close.svg" alt="иконка закрытия"
       (click)="bigPhoto.photo='';" class="popup__close popup__close_image">
 
       <div>
-          <img src="{{bigPhoto.photo}}" alt="" class="popup__image">
+          <img  src="{{bigPhoto.photo}}" alt="" class="popup__image">
       </div>
     </div>
     <div class="popup__footer">
@@ -46,7 +60,7 @@
       <div>
         <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg"
         [class.photogallery__button_active]="activeButtonBigPhotoRight" (click)="nextBigPhoto($event)"
-         ng-disabled="!activeButtonBigPhotoRight" class="popup__arrow" alt="стрелка вправо">
+        ng-disabled="!activeButtonBigPhotoRight" class="popup__arrow" alt="стрелка вправо">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9388 6.40174C11.4384 6.88687 11.4349 7.67334 11.9422 8.15848L19.4431 15.3477L19.5756 15.4585C20.0826 15.8275 20.8073 15.7889 21.2676 15.3427C21.5169 15.101 21.6442 14.7831 21.6442 14.4668C21.6442 14.1489 21.5169 13.8294 21.2642 13.5876L13.7633 6.39677L13.6308 6.28601C13.1238 5.91694 12.3991 5.95552 11.9388 6.40174ZM11.8259 28.183C11.4388 28.6699 11.48 29.3679 11.9387 29.8126C12.4408 30.2977 13.2576 30.2994 13.7632 29.8142L25.0575 18.9857L25.1734 18.8588C25.3491 18.6379 25.4375 18.3728 25.4375 18.1065C25.4375 17.7902 25.3102 17.4723 25.0609 17.2306C24.5588 16.7438 23.742 16.7422 23.2364 17.2273L11.9421 28.0558L11.8259 28.183Z" fill="black"/>
         </svg>
       </div>

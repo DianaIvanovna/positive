@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, Input, OnInit, } from '@angular/core';
 import { HttpPhotosService } from "../http-photos.service";
 
 @Component({
@@ -7,6 +7,7 @@ import { HttpPhotosService } from "../http-photos.service";
   styleUrls: ['./photogallery.component.scss']
 })
 export class PhotogalleryComponent implements OnInit {
+  @Input() season;
   urlBigPhoto = "";
   bigPhoto = {
     photo: '',
@@ -95,6 +96,7 @@ export class PhotogalleryComponent implements OnInit {
     }
 
   }
+
 }
 
 

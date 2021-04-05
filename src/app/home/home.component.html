@@ -5,13 +5,17 @@
     <!-- content start -->
     <app-welcome-section [data] = "dataForWelcomeSection" [season]="season"></app-welcome-section>
 
-    <!-- <div class="page">
+    <div class="page">
       <div class="pageContent">
-        <app-our-trip></app-our-trip>
-        <app-equipment-container [equipmentSmall]="equipmentSmall" ></app-equipment-container>
-        <app-photogallery></app-photogallery>
+
+        <!-- <app-our-trip></app-our-trip>
+        <app-equipment-container [equipmentSmall]="equipmentSmall" ></app-equipment-container> -->
+
+        <app-photogallery [season]="season"></app-photogallery>
       </div>
-    </div> -->
+    </div>
+
+
     <div class="page">
       <picture *ngIf="season=='winter'" class="page__background positive-is__background lazy-image">
           <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-positive-is-winter_ba4.webp" type="image/webp">
@@ -50,8 +54,8 @@
         <app-review></app-review>
       </div>
     </div>
-
     <!-- content end -->
+
 
     <!-- footer start -->
     <div class="page">
