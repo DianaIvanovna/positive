@@ -1,20 +1,71 @@
-<div class="main">
+<div class="main main_rent">
   <app-header></app-header>
   <div class="main__contant">
 
     <!-- content start -->
     <app-welcome-section [data] = "dataForWelcomeSection" [season]="season"></app-welcome-section>
 
-    <!-- <div class="page">
-      <div class="equipmentRental__background-container">
-        <picture class="">
-          <img srcset="./assets/img/background/backgroundBrand.png" alt="фоновая картинка">
-        </picture>
+    <div class="page page_rent">
+      <div class="equipmentRental__background-container" *ngIf="season=='winter'">
+        <picture class="lazy-image ">
+          <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-rent-winter_3d9.webp" type="image/webp">
+
+          <source media="(min-width: 900px)" data-srcset="./assets/images/background/back-rent-winter_2c6.webp" type="image/webp">
+
+          <source  data-srcset="./assets/images/background/back-rent-winter_83e.webp" type="image/webp">
+
+          <img width="1980px" height="800px"
+          src="./assets/images/background/back-rent-winter_234.png"
+          data-srcset="./assets/images/background/back-rent-winter_234.png"
+          srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAASCAYAAAApH5ymAAAACXBIWXMAAAsTAAALEwEAmpwYAAADZ0lEQVRIx+1Vy04UQRStnmE3xkQ0cWncuPD1A0piYly40JUmunbjL7hxaYyGrSv4AKPGxIVLWBmNJGgILzUDRBCHGRmmp7urH/Xy3OqpoYEBAZGVRQ7VVX3r3nPPvdXDtNbm0OD+Nq9Nb3sazBzE0Huw0z3WuocPrIkkO1QF94H/BLfrrV0TVErpzjCF+Z8CMXdPUGRC4sFBFbCV9B4cb0tOKpOlKZAZKUQvm6JgihQ0aZIYHoY4LIuGjujGQyoP8jdkLcksy5VUG3xtIGc/MzB6CrxEVl+Q0TcQmMd6Sq0fFJYoEYPYcRTpKAhMGsfrCakdCPVIREA5HnGrInySTU5LdUlmFD+KolX6Dl4GLgEDaN+reHkdGIDBIGANlSOKh5RzHfq+idptkA2NRBBtFUXgJO0S6tVntEcjQcVSlFkpm5wuJCmdGCDXbq6t3aFbfBG4QMDdOofzZwGaT8HBDTh9BNS6KmFTpKkEMQ3FdV6ivBmop1A+qwWGKLYIXUYiJ1DaEBVIUIEEycrMJqg7laIktJTyA+f8LsxPEsHjeOjHvBm0XwE8KdV5HHwOzDmiGBIllmmc4L90pZF4L53qTnlHrtls6snJSTNfrerajyUZ+i1qGYkykyvqy/dSyCt+GHgwL6MVKqzzc9cFHHZnOPYAMrR7UcSPwBGV/3Xe7NIEKHfMeZb3UN63eD8Nu8fAL1tWvIrjOBv7OKZGR0bl19lZvdqo24sp7G2WpOgDigGSFMtbXFzyiMMWgkUgHEPJGBxQRqV2OyDSDD1UQfB7eL4N8hNOLey9BW6hPBVyjmCnsX5IKlJJfy4vm+8LC6bdalFyn2QmfFyUFfTjfbQHe/HmFZ0pJ2naFamnesW128OtY2maEcFyc3XNKUw4BhKDwDWyw8w4jxlK3YfAjD5l2LsJuyeYP6dJPE0Xkr0bwb44E4TBCTpDqkU88njMrYou7o4KWoPOoEPkSEobkByUELSv0A4s71dZhq0tj8jnMr3rKNqPZjxKZ1rj49ZPFIU0l+qNBvN9H+uIBUHA9jWoFwlTMzMdsnZt+xQooc8YSsnwTbV21blqXgm8c8lYlYUox0lCcwk/Et7E5xm2UmtQj7NarcYOZFC5nw0Pr2NoqPtMo96o5+WObbmtwlh7Av3caQ0WQq0/jd+4crN6YmqUXQAAAABJRU5ErkJggg=="
+          alt="фон скалы">
+      </picture>
       </div>
+      <div class="equipmentRental__background-container_summer" *ngIf="season=='summer'">
+        <picture class="lazy-image equipmentRental__back-img">
+          <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-rent-summer-1_6cb.webp" type="image/webp">
+
+          <source media="(min-width: 900px)" data-srcset="./assets/images/background/back-rent-summer-1_19b.webp" type="image/webp">
+
+          <source  data-srcset="./assets/images/background/back-rent-summer-1_ce0.webp" type="image/webp">
+
+          <img width="1980px" height="800px"
+          src="./assets/images/background/back-rent-summer-1_bd8.png"
+          data-srcset="./assets/images/background/back-rent-summer-1_bd8.png"
+          srcset="data:image/png;base64,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"
+          alt="фон горы">
+        </picture>
+        <picture class="lazy-image ">
+          <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-rent-summer-2_e4e.webp" type="image/webp">
+
+          <source media="(min-width: 900px)" data-srcset="./assets/images/background/back-rent-summer-2_847.webp" type="image/webp">
+
+          <source  data-srcset="./assets/images/background/back-rent-summer-2_b63.webp" type="image/webp">
+
+          <img width="1980px" height="800px"
+          src="./assets/images/background/back-rent-summer-2_7a6.png"
+          data-srcset="./assets/images/background/back-rent-summer-2_7a6.png"
+          srcset="data:image/png;base64,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"
+          alt="фон горы">
+      </picture>
+      </div>
+
+
+
       <div class="pageContent">
         <app-rental-brands></app-rental-brands>
         <app-equipment-container [equipmentSmall]="equipmentSmall" ></app-equipment-container>
-        <img src="./assets/img/background/background - mountain.png" alt="картинка горы" class="equipmentContainer__img">
+        <!-- <img src="./assets/img/background/background - mountain.png" alt="картинка горы" class="equipmentContainer__img"> -->
+
+        <picture class="lazy-image equipmentContainer__img" *ngIf="season=='winter'">
+          <source  data-srcset="./assets/images/background/back-rent-mountain_463.webp" type="image/webp">
+
+          <img width="700px" height="560px"
+          src="./assets/images/background/back-rent-mountain_8eb.png"
+          data-srcset="./assets/images/background/back-rent-mountain_8eb.png"
+          srcset="data:image/png;base64,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"
+          alt="фон горы">
+      </picture>
       </div>
 
     </div>
@@ -22,7 +73,7 @@
       <div class="pageContent">
         <app-service-rent></app-service-rent>
       </div>
-    </div> -->
+    </div>
 
     <!-- content end -->
 
