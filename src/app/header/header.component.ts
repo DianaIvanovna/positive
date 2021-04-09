@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-header',
@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() season:string;
+
   showScroll = false;
 
   mobule = false;

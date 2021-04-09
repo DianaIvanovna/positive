@@ -10,24 +10,6 @@ export class HomeComponent implements OnInit, AfterViewInit{
   season = "summer"
 
   equipmentSmall = true;
-  dataForWelcomeSection = {}
-
-  dataForWelcomeSectionWinter = {
-    title: "Горнолыжные",
-    titleDark: "туры",
-    subtitle: "Челябинск, Екатеринбург",
-    link: ".our-trip__title",
-    page: "home",
-    btnText: "БЛИЖАЙШИЕ ПОЕЗДКИ"
-  }
-  dataForWelcomeSectionSummer = {
-    title: "активный",
-    titleDark: "отдых на урале",
-    subtitle: "Челябинск, Екатеринбург",
-    link: ".our-trip__title",
-    page: "home",
-    btnText: "БЛИЖАЙШИЕ ПОЕЗДКИ"
-  }
 
   constructor(private route: ActivatedRoute) {
   }
@@ -35,8 +17,6 @@ export class HomeComponent implements OnInit, AfterViewInit{
     this.route.queryParams.subscribe( params => {
       if (params.season){
         this.season = params.season;
-        if (params.season == 'summer') this.dataForWelcomeSection = this.dataForWelcomeSectionSummer;
-        else this.dataForWelcomeSection = this.dataForWelcomeSectionWinter;
       }
     })
   }

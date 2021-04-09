@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { HttpTripsService } from '../http-trips.service';
-
 
 @Component({
   selector: 'app-our-trip',
@@ -13,7 +12,8 @@ export class OurTripComponent implements OnInit {
   hideButton= false;
   readyForWork = false;
 
-  constructor(private httpTripsService:HttpTripsService) { }
+  constructor(private httpTripsService:HttpTripsService) {
+  }
   ngOnInit(): void {
     if (this.httpTripsService.trips === undefined){
       this.httpTripsService.getTrips()
@@ -35,11 +35,14 @@ export class OurTripComponent implements OnInit {
       this.tripsShown = this.trips.slice(0, this.httpTripsService.indexTrip);
     }
   }
+
+
   showMore(){
     this.hideButton = true;
     this.tripsShown = this.trips;
     this.httpTripsService.indexTrip = this.trips.length;
   }
+
 }
 
 

@@ -11,34 +11,12 @@ export class EquipmentRentalComponent implements OnInit {
 
   equipmentSmall = false;
 
-  dataForWelcomeSection = {}
-
-  dataForWelcomeSectionWinter = {
-    title: "Прокат",
-    titleDark: "горнолыжного оборудования",
-    subtitle: "Челябинск, Екатеринбург",
-    link: ".equipmentContainer",
-    page: "rent",
-    btnText: "ПОСМОТРЕТЬ ОБОРУДОВАНИЕ"
-  }
-  dataForWelcomeSectionSummer = {
-    title: "Прокат",
-    titleDark: "лучшего оборудования",
-    subtitle: "Челябинск, Екатеринбург",
-    link: ".equipmentContainer",
-    page: "rent",
-    btnText: "ПОСМОТРЕТЬ ОБОРУДОВАНИЕ"
-  }
-
-
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe( params => {
       if (params.season){
         this.season = params.season;
-        if (params.season == 'summer') this.dataForWelcomeSection = this.dataForWelcomeSectionSummer;
-        else this.dataForWelcomeSection = this.dataForWelcomeSectionWinter;
       }
     })
   }

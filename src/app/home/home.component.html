@@ -1,9 +1,9 @@
 <div class="main">
-  <app-header></app-header>
+  <app-header [season]="season"></app-header>
   <div class="main__contant">
 
     <!-- content start -->
-    <app-welcome-section [data] = "dataForWelcomeSection" [season]="season"></app-welcome-section>
+    <app-welcome-section [season]="season"></app-welcome-section>
 
     <div class="page">
       <div class="pageContent">
