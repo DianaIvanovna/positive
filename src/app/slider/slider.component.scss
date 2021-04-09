@@ -1,0 +1,97 @@
+.slider{
+  width: 100%;
+  position: relative;
+}
+.slider__card {
+  min-width: calc(100% /3);
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 900px){
+    min-width: calc(100% /2);
+  }
+  @media screen and (max-width: 600px){
+    min-width: calc(100% );
+  }
+}
+
+.slider__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.slider-wrapper{
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  transform: translateX(0px);
+  transition:  0.7s ease-in;
+  @media screen and (max-width: 450px){
+    transition:  0.5s ease-in;
+  }
+}
+
+.slider__button{
+  background: none;
+  border: none;
+  position: absolute;
+}
+.slider__button_left{
+  top: calc( 50% - 36px);
+  left: -72px;
+  @media screen and (max-width: 900px){
+    left: -45px;
+  }
+  @media screen and (max-width: 600px){
+    left: -25px;
+  }
+  @media screen and (max-width: 450px){
+    left: -40px;
+    z-index: 5;
+  }
+}
+.slider__button_right {
+  top: calc( 50% - 30px);
+  right: -72px;
+  @media screen and (max-width: 900px){
+    right: -45px;
+  }
+  @media screen and (max-width: 600px){
+    right: -25px;
+  }
+  @media screen and (max-width: 450px){
+    right: -40px;
+    z-index: 5;
+  }
+}
+.slider__button_active{
+  path{
+    fill: #F1A22C;
+  }
+}
+
+.slider__dashes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .slider__hr{
+    margin-left: 5px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .slider__hr_active{
+    rect{
+      fill: #F1A22C;
+    }
+  }
+  margin: 10px auto 100px;
+}

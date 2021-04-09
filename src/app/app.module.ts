@@ -25,6 +25,7 @@ import { EquipmentContainerComponent } from './equipment-container/equipment-con
 import { ServiceRentComponent } from './service-rent/service-rent.component';
 import { PreviewComponent } from './preview/preview.component';
 import { GoUpComponent } from './go-up/go-up.component';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { GoUpComponent } from './go-up/go-up.component';
     ServiceRentComponent,
     PreviewComponent,
     GoUpComponent,
+    SliderComponent,
   ],
   imports: [
     BrowserModule,

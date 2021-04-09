@@ -4,14 +4,15 @@
     <h2 class="our-trip__title">Наши поездки</h2>
   </div>
 
-  <div class="our-trip__container">
+  <!-- <div class="our-trip__container">
     <app-trip *ngFor="let trip of tripsShown" [trip]="trip" ></app-trip>
 
     <div class="button__background" *ngIf="!hideButton">
       <button  class="our-trip__button button" (click)="showMore()">Показать еще</button>
     </div>
-  </div>
+  </div> -->
 
+  <app-slider [trips]="trips"></app-slider>
 
 
 </section>

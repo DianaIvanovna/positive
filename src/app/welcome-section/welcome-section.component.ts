@@ -17,7 +17,14 @@ interface Data {
 export class WelcomeSectionComponent implements OnInit {
   @Input() season:string;
 
-  data = {}
+  data = {
+    title: "",
+    titleDark: "",
+    subtitle: "",
+    link: "",
+    page: "",
+    btnText: ""
+  }
 
   dataTripWinter = {
     title: "Горнолыжные",
@@ -53,7 +60,8 @@ export class WelcomeSectionComponent implements OnInit {
     btnText: "ПОСМОТРЕТЬ ОБОРУДОВАНИЕ"
   }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     if (window.location.href.includes('trips')){

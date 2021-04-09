@@ -39,18 +39,19 @@ export class HeaderComponent implements OnInit, AfterContentInit {
     this.mobule = false;
     const link = event.target.getAttribute('data-href');
     const anchor = event.target.getAttribute('data-anchor');
-    console.log(link, anchor);
-    this.router.navigate( [link], {
-      queryParams: {
-        'season': this.season,
-      },
-      fragment: anchor
-    });
+    if (link && anchor) {
+      this.router.navigate( [link], {
+        queryParams: {
+          'season': this.season,
+        },
+        fragment: anchor
+      });
+    }
+
   }
 
   smoothScroll(anchor){
     const element:HTMLElement = document.querySelector('#' + anchor);
-    console.log("Scroooollllll!!!!!!!", element);
     if (element !== null) {
       let rect = element.getBoundingClientRect();
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
