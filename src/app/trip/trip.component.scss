@@ -1,24 +1,68 @@
 @import "../../assets/styles/variables.scss";
 /* autoprefixer grid: autoplace */
-.trip{
-  display: inline-flex;
-  align-items: flex-start;
-  margin-bottom: 70px;
+
+.trip__background {
+  width: 300px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 20px;
+
 }
-.trip_reverse{
-  flex-flow: row-reverse;
+.trip__shadow {
+  position: absolute;
+  left:5px;
+  right:5px;
+  top:10px;
+  bottom:-10px;
+  background: #E6E6E6;
+  box-shadow: 0px 14px 74px rgba(0, 0, 0, 0.11);
+  border-radius: 10px;
+  z-index: -1;
 }
-.trip__info{
-  padding: 0px 30px;
+.trip {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.trip__img-background{
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  z-index: 2;
+
+  &::after{
+    content:  "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-box-shadow: inset 0px 0px 0px 27px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: inset 0px 0px 0px 27px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0px 0px 0px 27px rgba(255, 255, 255, 0.5);
+    border-radius: 32px 0px;
+  }
+}
+.trip__img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 32px 0px;
+  box-sizing: border-box;
 }
 .trip__title{
   @include mainFont;
-  font-size: 36px;
+  font-size: 28px;
+  font-weight: bold;
   line-height: 115.75%;
 
   color: $mainColor;
-  margin: 0px;
-  margin-bottom: 10px;
+  margin: 20px 0 15px;
 }
 .trip__description{
   @include mainFont;
@@ -26,11 +70,11 @@
   line-height: 115.75%;
   /* or 19px */
   color: $secondaryColor;
-
-  max-width: 555px;
   width: 100%;
-  margin-bottom: 30px;
+  margin: 0;
+  margin-bottom: 25px;
 }
+
 .trip__date{
   display: flex;
   align-items: center;
@@ -41,11 +85,34 @@
   .trip__icon{
     margin-right: 15px;
   }
-  margin-bottom: 28px;
+  margin-bottom: 25px;
 }
 
+.trip__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+
+// .trip{
+//   display: inline-flex;
+//   align-items: flex-start;
+//   margin-bottom: 70px;
+// }
+// .trip_reverse{
+//   flex-flow: row-reverse;
+// }
+// .trip__info{
+//   padding: 0px 30px;
+// }
+
+
+
 .trip__button{
-  width: 211px;
+  width: 139px;
   height: 51px;
   background: linear-gradient(180deg, $highlightColor 0%, #EEBE55 100%);
   box-shadow: 0px 3.22136px 0px #C17B11;
@@ -66,25 +133,12 @@
   &:focus {outline:none} // убрала рамку при нажатии
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
+// * {
+//   margin: 0;
+//   padding: 0;
+// }
 
-.trip__img-background{
-  -webkit-box-shadow: inset 0px 0px 0px 27px rgba(255, 255, 255, 0.5);
-  -moz-box-shadow: inset 0px 0px 0px 27px rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0px 0px 0px 27px rgba(255, 255, 255, 0.5);
-  border-radius: 32px 0px;
-}
-.trip__img{
-  width: 360px;
-  height: 341px;
-  object-fit: cover;
-  position: relative;
-  z-index: -1;
-  border-radius: 32px 0px;
-}
+
 .trip__price{
   @include mainFont;
   font-size: 14px;
@@ -94,47 +148,44 @@
 }
 .trip__price-value{
   @include mainFont;
-  font-size: 36px;
+  font-size: 24px;
   line-height: 115.75%;
   color: #241534;
   margin: 0px;
-  margin-top: 10px;
-  margin-right: 45px;
-  margin-bottom: 10px;
 }
-@media screen and (max-width: 780px){
-  .trip{
-    display: flex;
-    flex-direction: column;
-    .trip__img{
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-@media screen and (max-width: 600px){
-  .trip__title{
-    margin-top: 20px;
-    font-size: 32px;
-  }
-  .trip__description{
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  .trip__date{
-    font-size: 16px;
-    line-height: 115.75%;
-    margin-bottom: 20px;
-  }
-}
-@media screen and (max-width: 500px){
+// @media screen and (max-width: 780px){
+//   .trip{
+//     display: flex;
+//     flex-direction: column;
+//     .trip__img{
+//       width: 100%;
+//       height: 100%;
+//     }
+//   }
+// }
+// @media screen and (max-width: 600px){
+//   .trip__title{
+//     margin-top: 20px;
+//     font-size: 32px;
+//   }
+//   .trip__description{
+//     font-size: 14px;
+//     margin-bottom: 20px;
+//   }
+//   .trip__date{
+//     font-size: 16px;
+//     line-height: 115.75%;
+//     margin-bottom: 20px;
+//   }
+// }
+// @media screen and (max-width: 500px){
 
-  .trip__button{
-    width: 180px;
-    height: 40px;
-  }
-  .trip{
-    margin-bottom: 40px;
-  }
+//   .trip__button{
+//     width: 180px;
+//     height: 40px;
+//   }
+//   .trip{
+//     margin-bottom: 40px;
+//   }
 
-}
+// }

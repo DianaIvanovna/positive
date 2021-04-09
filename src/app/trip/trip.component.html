@@ -1,4 +1,4 @@
-<div class="trip" [class.trip_reverse]="trip.reverseTrip" id="{{trip.id}}">
+<!-- <div class="trip" [class.trip_reverse]="trip.reverseTrip" id="{{trip.id}}">
   <div class="trip__img-background">
     <img src="{{trip.mainImg}}" alt="фото поездки" class="trip__img">
 
@@ -16,8 +16,28 @@
     </div>
     <button class="trip__button" [routerLink]="['/',trip.linkName]">ПОДРОБНЕЕ</button>
   </div>
+</div> -->
+
+<div class="trip__background">
+  <div class="trip__shadow"></div>
+  <div class="trip" id="{{trip.id}}">
+    <div class="trip__img-background">
+      <img width="252px" height="239px" src="{{trip.mainImg}}" alt="фото поездки" class="trip__img">
+    </div>
+    <h3 class="trip__title">{{trip.title}}</h3>
+    <p class="trip__description" [innerHtml]="trip.shortDescription"></p>
+    <div class="trip__date">
+      <img width="32px" height="32px" src="./assets/img/Icon/Calendar_for_trip.svg" alt="иконка календаря" class="trip__icon">
+      <span class="">{{trip.date}}</span>
+    </div>
+    <div class="trip__footer">
+      <button class="trip__button" [routerLink]="['/',trip.linkName]">ПОДРОБНЕЕ</button>
+      <div>
+        <p class="trip__price">Цена:</p>
+        <p class="trip__price-value">от {{trip.tariff.light.price}} ₽</p>
+      </div>
+    </div>
+  </div>
 </div>
-
-
 
 

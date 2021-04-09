@@ -15,12 +15,12 @@ interface Data {
   styleUrls: ['./welcome-section.component.scss']
 })
 export class WelcomeSectionComponent implements OnInit {
+
   @Input() data: Data;
   @Input() season:string;
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
   scrollToBook(event, link){ // функция только для перехода по ссылке забронировать
