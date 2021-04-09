@@ -1,17 +1,16 @@
-import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, OnInit, AfterContentInit, Input } from '@angular/core';
+import {Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterContentInit {
   @Input() season:string;
 
   showScroll = false;
-
   mobule = false;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     // добавление линии у хедера при скролле
@@ -24,11 +23,34 @@ export class HeaderComponent implements OnInit {
 
     })
   }
+  ngAfterContentInit(){
+    this.activatedRoute.fragment.subscribe(value => {
+      if (value){
+        setTimeout(()=>{
+          this.smoothScroll(value);
+        }, 300);
+      }
+    })
+  }
+
 
   scrollTo(event){
     event.preventDefault();
     this.mobule = false;
-    const element:HTMLElement = document.querySelector('' + event.target.getAttribute('href'));
+    const link = event.target.getAttribute('data-href');
+    const anchor = event.target.getAttribute('data-anchor');
+    console.log(link, anchor);
+    this.router.navigate( [link], {
+      queryParams: {
+        'season': this.season,
+      },
+      fragment: anchor
+    });
+  }
+
+  smoothScroll(anchor){
+    const element:HTMLElement = document.querySelector('#' + anchor);
+    console.log("Scroooollllll!!!!!!!", element);
     if (element !== null) {
       let rect = element.getBoundingClientRect();
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -38,14 +60,10 @@ export class HeaderComponent implements OnInit {
         top: elementTop,
         behavior: 'smooth'
       })
-    }else {
-      document.location.href = event.target.getAttribute('href');
     }
   }
 
   goToPage(){
     this.mobule = false;
   }
-
-
 }

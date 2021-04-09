@@ -1,4 +1,5 @@
-<section class="section-header" [class.section-header_scroll]="showScroll">
+<section class="section-header" [class.section-header_scroll]="showScroll"
+[class.header_mobule_active]="mobule" >
   <div class="background__mobile" *ngIf="mobule" (click)="mobule=!mobule"></div>
   <header class="header">
     <div class="header__container">
@@ -13,10 +14,11 @@
 
       <nav class="header__nav">
 
-        <a  (click)="scrollTo($event)" href="#ourTrip" class="header__link">Наши поездки</a>
-        <a routerLink="/rent"  class="header__link">Прокат снаряжения</a>
-        <a  href="#photogallery"  (click)="scrollTo($event)" class="header__link">Фотогалерея</a>
-        <a href="#review" (click)="scrollTo($event)" class="header__link">Отзывы</a>
+        <a  (click)="scrollTo($event)"  data-href="/trips" data-anchor="ourTrip" class="header__link">Наши поездки</a>
+        <a [routerLink]="['/rent']"  [queryParams]="{'season':season}"  class="header__link">Прокат снаряжения</a>
+        <a  (click)="scrollTo($event)"   data-href="/trips" data-anchor="photogallery" class="header__link">Фотогалерея</a>
+        <!-- <a href="#review" (click)="scrollTo($event)" class="header__link">Отзывы</a> -->
+        <a  (click)="scrollTo($event)"   data-href="/trips" data-anchor="review" class="header__link">Отзывы</a>
 
       </nav>
       <div class="header__tel">
@@ -43,12 +45,12 @@
 
     </div>
 
-    <div class="header__container-mobule" [class.header__container-mobule_active]="mobule">
+    <div class="header__container-mobule">
       <nav class="header__nav">
-        <a href="#ourTrip" (click)="scrollTo($event)"  class="header__link" >Наши поездки</a>
-        <a routerLink="/rent" (click)="goToPage()"  class="header__link">Прокат снаряжения</a>
-        <a href="#photogallery" (click)="scrollTo($event)" class="header__link">Фотогалерея</a>
-        <a href="#review" (click)="scrollTo($event)"  class="header__link">Отзывы</a>
+        <a (click)="scrollTo($event)" data-href="/trips" data-anchor="ourTrip" class="header__link">Наши поездки</a>
+        <a [routerLink]="['/rent']"  [queryParams]="{'season':season}"  class="header__link">Прокат снаряжения</a>
+        <a  (click)="scrollTo($event)"   data-href="/trips" data-anchor="photogallery" class="header__link">Фотогалерея</a>
+        <a  (click)="scrollTo($event)"   data-href="/trips" data-anchor="review" class="header__link">Отзывы</a>
       </nav>
 
     </div>

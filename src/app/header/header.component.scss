@@ -126,7 +126,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 11;
+  z-index: -11;
 }
 .header__container-mobule{
 
@@ -159,9 +159,16 @@
     margin: 0px;
   }
 }
-.header__container-mobule_active{
-  display: flex;
+
+.header_mobule_active {
+  .header__container-mobule {
+    display: flex;
+  }
+  .header{
+    background-color: white;
+  }
 }
+
 .header__menu{
   display: block;
 }
