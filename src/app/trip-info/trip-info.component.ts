@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HttpTripsService } from '../http-trips.service';
-import {DomSanitizer} from '@angular/platform-browser';
 import { HttpClient  } from '@angular/common/http';
 
 @Component({
@@ -9,21 +8,25 @@ import { HttpClient  } from '@angular/common/http';
   templateUrl: './trip-info.component.html',
   styleUrls: ['./trip-info.component.scss']
 })
-export class TripInfoComponent implements OnInit {
-  @ViewChild ('tripUp') tripUp:ElementRef;
+export class TripInfoComponent implements OnInit, AfterViewInit {
+  @ViewChild ('videoImg') videoImg:ElementRef;
   equipmentSmall = true;
-
+  season = "summer"
   trip;
   readyForWork = false;
   numberActivePhoto:number;
-  tripVideo;
-  baseUrl:string = 'https://www.youtube.com/embed/';
 
   constructor(private httpTripsService:HttpTripsService,
-    private route: ActivatedRoute, private sanitizer: DomSanitizer, private http: HttpClient) {
+    private route: ActivatedRoute, private http: HttpClient) {
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe( params => {
+      if (params.season){
+        this.season = params.season;
+      }
+    })
+
     // загружаю данные о поездке
     this.route.params.subscribe((params: Params)=>{
       if (this.httpTripsService.trips === undefined) {
@@ -31,9 +34,7 @@ export class TripInfoComponent implements OnInit {
         .subscribe(
           data => {
             this.trip = data;
-            this.tripVideo = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this.trip.video);
             this.readyForWork = true;
-            console.log(this.baseUrl + this.trip.video);
           },
           error => console.log(error)
         );
@@ -42,7 +43,6 @@ export class TripInfoComponent implements OnInit {
         this.trip = this.httpTripsService.trips.find((item)=>{
           return item.linkName === params.linkName
         });
-        this.tripVideo = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this.trip.video);
         this.readyForWork = true;
       }
     })
@@ -51,6 +51,26 @@ export class TripInfoComponent implements OnInit {
   }
   ngAfterViewInit(): void {
     window.scrollTo(pageXOffset, 0);
+
+    const imageObserver = new IntersectionObserver((entries, imgObserver) => {
+      entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            const lazyPicture = entry.target;
+            const lazyImage = lazyPicture.getElementsByTagName("img");
+            const sourseLazyImage = lazyPicture.getElementsByTagName("source");
+            Array.from(sourseLazyImage).forEach((item)=>{
+              item.setAttribute('srcset', item.getAttribute('data-srcset'))
+            })
+            lazyImage[0].setAttribute('srcset', lazyImage[0].getAttribute('data-srcset'));
+            lazyPicture.classList.remove("lazy-image");
+            imgObserver.unobserve(lazyPicture);
+          }
+      })
+    });
+    const lazyImages = document.querySelectorAll('.lazy-image')
+    lazyImages.forEach((v) => {
+        imageObserver.observe(v);
+    })
   }
   changeActivePhoto(number){
     this.numberActivePhoto = number;
@@ -69,6 +89,12 @@ export class TripInfoComponent implements OnInit {
     })
 
   }
+
+  setImgVideo(){
+    console.log('!')
+  }
+
+
 }
 
 

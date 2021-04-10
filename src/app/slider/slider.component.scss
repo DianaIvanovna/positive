@@ -35,7 +35,7 @@
   transform: translateX(0px);
   transition:  0.7s ease-in;
   @media screen and (max-width: 450px){
-    transition:  0.5s ease-in;
+    transition:  0.5s ease-in-out;
   }
 }
 
@@ -43,12 +43,16 @@
   background: none;
   border: none;
   position: absolute;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 .slider__button_left{
   top: calc( 50% - 36px);
   left: -72px;
-  @media screen and (max-width: 900px){
-    left: -45px;
+  @media screen and (max-width: 1040px){
+    left: -55px;
   }
   @media screen and (max-width: 600px){
     left: -25px;
@@ -61,8 +65,8 @@
 .slider__button_right {
   top: calc( 50% - 30px);
   right: -72px;
-  @media screen and (max-width: 900px){
-    right: -45px;
+  @media screen and (max-width: 1040px){
+    right: -55px;
   }
   @media screen and (max-width: 600px){
     right: -25px;

@@ -1,97 +1,146 @@
-<div class="page" id="tripUp" *ngIf="readyForWork">
-  <div class="pageContent">
-    <section class="trip-info">
-      <div class="trip-info__header">
-        <a href="./#{{trip.id}}" class="">
-          <svg svg class="review__button" class="trip-info__arrow" alt="стрелка влево" width="74" height="72" viewBox="0 0 74 72" fill="none" xmlns="http://www.w3.org/2000/svg" [routerLink]="['/']">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.1224 59.2716C51.1232 58.3071 51.1301 56.7434 50.1156 55.7788L35.1138 41.4848L34.8488 41.2646C33.8348 40.5308 32.3854 40.6075 31.4648 41.4947C30.9661 41.9754 30.7116 42.6074 30.7116 43.2362C30.7116 43.8683 30.9661 44.5036 31.4717 44.9843L46.4735 59.2815L46.7385 59.5017C47.7525 60.2355 49.2019 60.1588 50.1224 59.2716ZM50.3482 15.965C51.1223 14.9969 51.0401 13.6092 50.1227 12.725C49.1184 11.7605 47.4848 11.7572 46.4737 12.7217L23.8851 34.2516L23.6532 34.5038C23.3017 34.943 23.125 35.4702 23.125 35.9996C23.125 36.6284 23.3795 37.2605 23.8782 37.7411C24.8824 38.709 26.516 38.7123 27.5272 37.7477L50.1158 16.2179L50.3482 15.965Z" fill="#B7B7B7"/>
-          </svg>
-        </a>
-        <h2 class="trip-info__title" >{{trip.title}}</h2>
-      </div>
+<div class="main">
+  <app-header [season]="season"></app-header>
+  <div class="main__contant">
 
-      <div class="trip-info__container">
-        <div class="img-container">
-          <div class="trip-info__img-background">
-            <img src="{{trip.photos[numberActivePhoto]}}" alt="фото поездки" class="trip-info__img">
+    <!-- content start -->
+    <div class="page" id="tripUp" *ngIf="readyForWork">
+      <div class="pageContent">
+        <section class="trip-info">
+          <div class="trip-info__header">
+            <a href="./#{{trip.id}}" class="">
+              <svg svg class="review__button" class="trip-info__arrow" alt="стрелка влево" width="74" height="72" viewBox="0 0 74 72" fill="none" xmlns="http://www.w3.org/2000/svg" [routerLink]="['/']">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M50.1224 59.2716C51.1232 58.3071 51.1301 56.7434 50.1156 55.7788L35.1138 41.4848L34.8488 41.2646C33.8348 40.5308 32.3854 40.6075 31.4648 41.4947C30.9661 41.9754 30.7116 42.6074 30.7116 43.2362C30.7116 43.8683 30.9661 44.5036 31.4717 44.9843L46.4735 59.2815L46.7385 59.5017C47.7525 60.2355 49.2019 60.1588 50.1224 59.2716ZM50.3482 15.965C51.1223 14.9969 51.0401 13.6092 50.1227 12.725C49.1184 11.7605 47.4848 11.7572 46.4737 12.7217L23.8851 34.2516L23.6532 34.5038C23.3017 34.943 23.125 35.4702 23.125 35.9996C23.125 36.6284 23.3795 37.2605 23.8782 37.7411C24.8824 38.709 26.516 38.7123 27.5272 37.7477L50.1158 16.2179L50.3482 15.965Z" fill="#B7B7B7"/>
+              </svg>
+            </a>
+            <h2 class="trip-info__title" >{{trip.title}}</h2>
           </div>
-          <img *ngFor="let item of trip.photos; let i = index" (click)="changeActivePhoto(i)"
-          [class.trip-info__img-small_active] ="i===numberActivePhoto"
-          src="{{item}}" alt="фото поездки"  class="trip-info__img-small">
-        </div>
 
-        <div class="trip-info__discription">
-          <p class="trip-info__text" [innerHtml]="trip.description"></p>
-          <ul class="trip-info__icons">
-            <li>
-              <img src="./assets/img/Icon/Calendar_for_trip.svg" alt="иконка календаря" class="trip-info__icon">
-              {{trip.date}}
-            </li>
-            <li>
-              <img src="./assets/img/Icon/Time Circle.svg" alt="иконка часов" class="trip-info__icon">
-              {{trip.time}}
-            </li>
-            <!-- <li>
-              <img src="./assets/img/Icon/numberPersons.svg" alt="иконка user" class="trip-info__icon">
-              {{trip.numberOfPersons}} человек
-            </li> -->
-            <li>
-              <img src="./assets/img/Icon/Discovery_for_trip.svg" alt="иконка компас" class="trip-info__icon">
-              {{trip.place}}
-            </li>
-          </ul>
-          <div class="trip-info__reserve">
+          <div class="trip-info__container">
+            <div class="img-container">
+              <div class="trip-info__img-background">
+                <img src="{{trip.photos[numberActivePhoto]}}" alt="фото поездки" class="trip-info__img">
+              </div>
+              <img *ngFor="let item of trip.photos; let i = index" (click)="changeActivePhoto(i)"
+              [class.trip-info__img-small_active] ="i===numberActivePhoto"
+              src="{{item}}" alt="фото поездки"  class="trip-info__img-small">
+            </div>
+
+            <div class="trip-info__discription">
+              <p class="trip-info__text" [innerHtml]="trip.description"></p>
+              <ul class="trip-info__icons">
+                <li>
+                  <img src="./assets/img/Icon/Calendar_for_trip.svg" alt="иконка календаря" class="trip-info__icon">
+                  {{trip.date}}
+                </li>
+                <li>
+                  <img src="./assets/img/Icon/Time Circle.svg" alt="иконка часов" class="trip-info__icon">
+                  {{trip.time}}
+                </li>
+                <!-- <li>
+                  <img src="./assets/img/Icon/numberPersons.svg" alt="иконка user" class="trip-info__icon">
+                  {{trip.numberOfPersons}} человек
+                </li> -->
+                <li>
+                  <img src="./assets/img/Icon/Discovery_for_trip.svg" alt="иконка компас" class="trip-info__icon">
+                  {{trip.place}}
+                </li>
+              </ul>
+              <div class="trip-info__reserve">
+                <div>
+                  <p class="trip-info__price">Цена:</p>
+                  <p class="trip-info__price-value">от {{trip.tariff.light.price}} ₽</p>
+                </div>
+                <div class="button__background">
+                  <button class="trip-info__button"  (click)="scrollToBook($event)">ТАРИФЫ</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section class="travel-plan">
             <div>
-              <p class="trip-info__price">Цена:</p>
-              <p class="trip-info__price-value">от {{trip.tariff.light.price}} ₽</p>
+              <h3 class="travel-plan__title">План поездки</h3>
+              <p class="travel-plan__text" [innerHtml]="trip.travelPlan"></p>
             </div>
-            <div class="button__background">
-              <button class="trip-info__button"  (click)="scrollToBook($event)">ТАРИФЫ</button>
+            <img src="{{trip.imgForTravelPlan}}" alt="фото поездки" class="travel-plan__img">
+          </section>
+
+
+        </section>
+      </div>
+    </div>
+
+
+    <!-- ТАРИФЫ -->
+    <app-tariff [trip]="trip" *ngIf="readyForWork"></app-tariff>
+    <!-- END ТАРИФЫ -->
+
+    <!-- VIDEO -->
+    <div class="page ">
+      <div class="pageContent">
+
+        <app-trip-video *ngIf="readyForWork && trip.video" [video]="this.trip.video"></app-trip-video>
+
+        <!-- <section class="travel-video">
+          <div>
+            <h3 class="travel-plan__title">Видео</h3>
+            <div class="video" #video>
+              <img width="1140px" height="650px" on-change="setImgVideo()" alt="video" class="trip-info__video-img" *ngIf="!showVideo" #videoImg>
+              <button class="video-play btn-reset" (click)="showVideo = !showVideo" *ngIf="!showVideo">
+                <svg width="68" height="48" viewBox="0 0 68 48">
+                  <path class="video-play-shape"
+                        d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z">
+                  </path>
+                  <path class="video-play-icon" d="M 45,24 27,14 27,34"></path>
+                </svg>
+              </button>
+              <div class="thumb-wrap" *ngIf="showVideo" #videoTripDOM>
+                <iframe width="607" height="360" [src]="tripVideo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
-        </div>
+        </section> -->
+
       </div>
+    </div>
+    <!-- END VIDEO -->
 
 
 
-      <section class="travel-plan">
-        <div>
-          <h3 class="travel-plan__title">План поездки</h3>
-          <p class="travel-plan__text" [innerHtml]="trip.travelPlan"></p>
-        </div>
-        <img src="{{trip.imgForTravelPlan}}" alt="фото поездки" class="travel-plan__img">
-      </section>
+    <!-- content end -->
+    <!-- footer start -->
+    <div class="page">
+      <div class="pageContent">
+        <app-footer></app-footer>
+        <!-- фоновые картинки footer -->
+        <picture *ngIf="season=='summer'" class="page__background_footer lazy-image">
+          <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-footer-summer_065.webp" type="image/webp">
+          <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-footer-summer_d1d.webp" type="image/webp">
+          <source media="(min-width: 600px)" data-srcset="./assets/images/background/back-footer-summer_bf9.webp" type="image/webp">
+          <source data-srcset="./assets/images/background/back-footer-summer_b51.webp" type="image/webp">
+          <img width="1980px" height="1080px"
+              src="./assets/images/background/back-footer-summer_4be.jpg"
+              data-srcset="./assets/images/background/back-footer-summer_4be.jpg"
+              srcset="data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAIDBQcIAf/EACcQAAEDAwQBAwUAAAAAAAAAAAECAwQAERIFBgchQRMxUSIzQmGB/8QAGQEAAwADAAAAAAAAAAAAAAAAAAEDAgQF/8QAIBEAAgICAQUBAAAAAAAAAAAAAAECAxEhEgUTFDFx0f/aAAwDAQACEQMRAD8A7LpWsdy8lTIO/wDU9rwtNC16VEbmOkgr9dpZRkRb7eAJPd8uh1Wyo7inWQ4tpTRP4qIuB4vageNZLKUqDrzTISXXEN5GwyUBc/HdAidK8BBFwQR+qUAcFK5H1SZNdmTEylTfSDKpCHylxTWQukqBuRe3RNWzucN0NMFK9Q1NAUMsRKUe79Ad2telK51ttsIxkpvfz8LOEWksCLzruktZyNa1nIpIXhJ69wL/AD5/lYydyfPflLkFzUZUlK8wuRKUfqt83PjzSlay6jfHSZh2IP2ZNnnLdMRj0mZTjbBTjipal3B6t7gilKVDyb3vmy3CC1g//9k="
+              alt="фоновая картинка горы">
+        </picture>
+        <picture *ngIf="season=='winter'"
+        class="page__background_footer page__background_footer-winter lazy-image">
+            <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-footer-winter_0e0.webp" type="image/webp">
+            <source media="(min-width: 1040px)" data-srcset="./assets/images/background/back-footer-winter_7c9.webp" type="image/webp">
+            <source media="(min-width: 600px)" data-srcset="./assets/images/background/back-footer-winter_be1.webp" type="image/webp">
+            <source data-srcset="./assets/images/background/back-footer-winter_ca8.webp" type="image/webp">
+            <img width="1980px" height="1080px"
+              src="./assets/images/background/back-footer-winter_0e0_915.png"
+              data-srcset="./assets/images/background/back-footer-winter_0e0_915.png"
+              srcset="data:image/png;base64,UklGRuABAABXRUJQVlA4WAoAAAAQAAAAJwAAEgAAQUxQSOEAAAABkGJr27JV9yu4NhZVKouq1W0E7pDIDIHoRBZDcI+cObi7Jn/lvo+71IiYAHy7McbC4XNn8BMtvuyMB+DtD/Mor6ta3ZnyAIrmGwHjzY+wFk03Xj2XdNFRs3hZj5YnAHjzFfMVCwy9lJRSkJ5KQdLBQi3gjDEAYJxz1nn0XpIiM6lIxaQcKN0dqwYAY1w5vtwpxSxSpJhFUkxButZe31AG4PrJ1uZE8+B2UKBIfStJ5SC9062j8yV9PYv6bpJK1BdzjDHlFCn+AIkUyRxjpCiSFPUTSfGzX5T6RaP4i7z/bwAAVlA4INgAAAAwBQCdASooABMAPm0ykkckIyGhKrgKAIANiWkAv+2MJuYixl7jr8Vr1i3HzBZ1qt62AAD+/nszJKnSpPhBfkKoVvham7OtPQ2OQvDhlB/+4mJWm2XJuS0OMCHJ5f/vdeD3I6VgRhSH0UGnLK/QsKwoPiw9QT8kaf3tjb2K08f7/speLaVzcrgofJX+i8fUNqy2l3Swfn9EijmCYcxs3R/rU3ZGD6E7WXbUPrG0Qiied9b7ACZADGhuw0osgDwzatyLIn35tOdfXqlmUXJO4DE62YNvJM3QAAA="
+              alt="фоновая картинка сноубордист">
+        </picture>
+        <!-- фоновые картинки footer -->
 
-      <!-- <section class="travel-video" *ngIf="readyForWork && trip.video">
-        <div>
-          <h3 class="travel-plan__title">Видео</h3>
-          <div class="thumb-wrap">
-            <iframe width="607" height="360" [src]="tripVideo" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-      </section> -->
-
-    </section>
-  </div>
-</div>
-
-
-<!-- ТАРИФЫ -->
-<app-tariff [trip]="trip" *ngIf="readyForWork"></app-tariff>
-<!-- позитив это -->
-<div class="page ">
-  <div class="pageContent">
-
-    <section class="travel-video" *ngIf="readyForWork && trip.video">
-      <div>
-        <h3 class="travel-plan__title">Видео</h3>
-        <div class="thumb-wrap">
-          <iframe width="607" height="360" [src]="tripVideo" frameborder="0" allowfullscreen></iframe>
-        </div>
       </div>
-    </section>
-
+    </div>
+    <!-- footer end -->
   </div>
+  <!-- кнопка вверх -->
+  <app-go-up></app-go-up>
 </div>
-
-

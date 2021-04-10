@@ -1,18 +1,101 @@
 @import "../../assets/styles/variables.scss";
 /* autoprefixer grid: autoplace */
+main{
+  position: relative;
+  .main__contant{
+    position: relative;
+    top: 106px;
+  }
+  @media screen and (max-width: 450px){
+    .main__contant{
+      top: 80px;
+    }
+  }
+}
+
 .page{
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
-.pageContent{
+.background-container{
+  width: 100%;
+  height: calc(100vh - 106px);
+  min-height: 550px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   display: flex;
   flex-direction: column;
-  max-width: 1140px;
-  margin: 0px auto;
+  align-items: center;
+  @media screen and (max-width: 800px){
+    &{
+      min-height: 400px;
+    }
+  }
+  .page__background{
+    @media screen and (min-width: 320px){
+      &{
+        position: relative;
+        height: 100%;
+        right: 22%;
+        top: 10%;
+        object-fit: cover;
+        z-index: -1;
+      }
+    }
+    @media screen and (min-width: 425px){
+      &{
+        min-width: 100%;
+        right: 0px;
+      }
+    }
+
+    @media screen and (min-width: 1024px){
+      &{
+        width: 150%;
+      }
+    }
+    @media screen and (min-width: 1280px){
+      &{
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 450px){
+      &{
+        height: calc( 100vh - 80px ) ;
+      }
+    }
+  }
 }
-.page_positiveIs{
-  margin-bottom: 50px;
+.page__background_footer{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom:0px;
+  left: 0px;
+  z-index: -1;
+  box-sizing: border-box;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+  }
+
+  @media screen and (max-width: 1040px){
+    height: 650px;
+  }
+  @media screen and (max-width: 800px){
+    height: 500px;
+  }
 }
+.page__background_footer-winter {
+  img {
+    object-position: 40% 0px;
+  }
+}
+
 
 
 .positive-is__background{
@@ -26,7 +109,12 @@
   top:0px;
   max-height: 900px;
   overflow: hidden;
-  object-fit: cover;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   @media screen and (max-width: 1280px){
     &{
@@ -40,6 +128,36 @@
     }
   }
 
+}
+.pageContent{
+  display: flex;
+  flex-direction: column;
+  max-width: 1140px;
+  margin: 0px auto;
+}
+@media screen and (max-width: 1280px){
+  .page{
+    box-sizing: border-box;
+    padding: 0px 80px;
+  }
+}
+@media screen and (max-width: 1040px){
+  .page{
+    padding: 0px 40px;
+  }
+}
+
+@media screen and (max-width: 500px){
+
+  .page{
+    padding: 0px 20px;
+  }
+}
+.trip-info{
+  margin-top: 106px;
+  @media screen and (max-width:450px){
+    margin-top: 80px;
+  }
 }
 .trip-info__header{
   margin-top: 40px;
@@ -259,186 +377,6 @@
     font-size: 32px;
   }
 }
-
-
-.thumb-wrap {
-  position: relative;
-  padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
-  height: 0;
-  overflow: hidden;
-}
-.thumb-wrap iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-width: 0;
-  outline-width: 0;
-}
-
-
-// // СТИЛИ ДЛЯ ПОПАПА РЕГИСТРАЦИИ
-
-// .popup.popup_is-opened {
-//   display: flex;
-// }
-
-// .popup {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, .5);
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   display: none;
-//   z-index: 20;
-
-// }
-
-// .popup__close {
-//   width: 26px;
-//   position: absolute;
-//   top: -26px;
-//   right: -26px;
-//   cursor: pointer;
-//   @media screen and (max-width: 540px) {
-//     &{
-//       display: none;
-//     }
-//   }
-// }
-
-// .popup__content {
-//   width: 430px;
-//   // min-height: 330px;
-//   background-color: #fff;
-//   border-radius: 10px;
-//   position: relative;
-//   box-sizing: border-box;
-//   padding: 34px 36px;
-//   @media screen and (max-width: 540px) {
-//     &{
-//       width: calc(100% - 60px);
-//     }
-//   }
-// }
-
-// .popup__title{
-//   @include mainFont;
-//   font-weight: bold;
-//   font-size: 22px;
-//   line-height: 24px;
-
-//   color: #414141;
-//   @media screen and (max-width: 540px) {
-//     &{
-//       font-size: 18px;
-//       line-height: 20px;
-//     }
-//   }
-// }
-// .popup__text{
-//   @include mainFont;
-//   font-weight: bold;
-//   font-size: 16px;
-//   line-height: 18px;
-//   margin-bottom: 40px;
-//   color: #414141;
-// }
-// .popup__input {
-//   @include mainFont;
-//   width: 100%;
-//   height: 47px;
-//   border: 0;
-//   border-bottom: 1px solid rgba(0, 0, 0, .2);
-//   font-size: 14px;
-//   line-height: 17px;
-//   box-sizing: border-box;
-//   padding: 5px 6px 13px;
-//   margin-bottom: 24px;
-//   color:#414141;
-//   &:focus {outline:none} // убрала рамку при нажатии
-//   &.ng-valid{
-//     border-bottom: 1px solid  rgb(241, 162, 44, );
-//   }
-//   &.popup__input_number{
-//     width: 45%;
-//     margin-left: 5%;
-//   }
-//   &.popup__input_tel{
-//     width: 50%;
-//   }
-//   @media screen and (max-width: 540px) {
-//     font-size: 12px;
-//     line-height: 16px;
-//     padding: 5px 6px 5px;
-//     margin-bottom: 12px;
-//     &.popup__input_number{
-//       width: 100%;
-//       margin-left: 0%;
-//     }
-//     &.popup__input_tel{
-//       width: 100%;
-//     }
-//   }
-// }
-// // убрала стрелки вверх вниз у инпут
-// input::-webkit-outer-spin-button,
-// input::-webkit-inner-spin-button {
-//     /* display: none; <- Crashes Chrome on hover */
-//     -webkit-appearance: none;
-//     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-// }
-// ::placeholder { // стиль для плейсхолдера
-//   color:#414141;
-// }
-
-// .popup__input:last-of-type {
-//   margin-bottom: 0;
-// }
-// .popup__button{
-//   // max-width: 317px;
-//   width: 100%;
-//   height: 50px;
-//   margin-top: 10px;
-
-//   border: none;
-//   background: linear-gradient(184.46deg,$highlightColor 3.39%, $highlightColor 96.19%);
-//   box-shadow: 0px 2.75659px 0px $highlightColor;
-//   border-radius: 90px;
-//   margin-bottom: 20px;
-
-//   @include mainFont;
-//   font-size: 14.2642px;
-//   line-height: 17px;
-//   text-align: center;
-//   letter-spacing: 0.09em;
-
-//   color: #FFFFFF;
-//   text-shadow: 0px -1.2183px 2.4366px #C17B11;
-//   &:focus {outline:none} // убрала рамку при нажатии
-//   &:hover{
-//     cursor: pointer;
-//     background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
-//   }
-//   &:disabled{
-//     opacity: 0.5;
-//   }
-
-// }
-
-
-
-// .popup_edit-profile .popup__button
-// {
-//   font-size: 18px;
-//   line-height: 22px;
-// }
 
 
 
