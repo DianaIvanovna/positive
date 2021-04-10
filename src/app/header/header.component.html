@@ -13,7 +13,6 @@
       </picture>
 
       <nav class="header__nav">
-
         <a  (click)="scrollTo($event)" data-href="/trips" data-anchor="ourTrip" class="header__link">Наши поездки</a>
         <a [routerLink]="['/rent']"  [queryParams]="{'season':season}"  class="header__link">Прокат снаряжения</a>
         <a  (click)="scrollTo($event)" data-href="/trips" data-anchor="photogallery" class="header__link">Фотогалерея</a>

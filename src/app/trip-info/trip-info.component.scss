@@ -181,6 +181,12 @@ main{
   height: 51px;
 }
 
+.trip-info__link-button{
+  &:hover{
+    cursor: pointer;
+  }
+}
+
 .trip-info__container{
   display: flex;
 }

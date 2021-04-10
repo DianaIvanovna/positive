@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params , Router} from '@angular/router';
 import { HttpTripsService } from '../http-trips.service';
 import { HttpClient  } from '@angular/common/http';
 
@@ -17,7 +17,7 @@ export class TripInfoComponent implements OnInit, AfterViewInit {
   numberActivePhoto:number;
 
   constructor(private httpTripsService:HttpTripsService,
-    private route: ActivatedRoute, private http: HttpClient) {
+    private route: ActivatedRoute, private http: HttpClient, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -87,13 +87,22 @@ export class TripInfoComponent implements OnInit, AfterViewInit {
       top: elementTop,
       behavior: 'smooth'
     })
-
   }
 
   setImgVideo(){
     console.log('!')
   }
 
+  goBack(event){
+    event.preventDefault();
+    this.router.navigate( ["/trips"], {
+      queryParams: {
+        'season': this.season,
+      },
+      fragment: `ourTrip`
+    });
+
+  }
 
 }
 
