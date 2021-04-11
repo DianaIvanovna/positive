@@ -1,6 +1,6 @@
-<section class="preview">
+<section class="preview" (mouseover)="initAnimText($event)">
 
-  <div class="preview__container" (click)="goPage('summer')">
+  <div class="preview__container preview__container_1" (click)="goPage('summer')">
     <picture class="preview__img preview__img_summer">
       <source media="(min-width: 1440px)" srcset="./assets/images/preview/preview-summer_4f7.webp" type="image/webp">
       <source media="(min-width: 600px)" srcset="./assets/images/preview/preview-summer_58a.webp" type="image/webp">
@@ -12,17 +12,13 @@
     </picture>
     <div class="preview__title-container">
       <h2 class="preview__title">лето</h2>
-      <p class="preview__text">
-        прокат туристического снаряжения<br>
-        велопрокат<br>
-        сплавы<br>
-        походы<br>
-        звездные ночи на природе, песни у костра
+      <p class="preview__text preview__text_1">
       </p>
+      <pre id="demo"></pre>
     </div>
   </div>
 
-  <div class="preview__container" (click)="goPage('winter')">
+  <div class="preview__container preview__container_2" (click)="goPage('winter')">
     <picture class="preview__img">
       <source media="(min-width: 1440px)" srcset="./assets/images/preview/preview-winter_13d.webp" type="image/webp">
       <source media="(min-width: 600px)" srcset="./assets/images/preview/preview-winter_7d2.webp" type="image/webp">
@@ -34,11 +30,7 @@
     </picture>
     <div class="preview__title-container">
       <h2 class="preview__title">зима</h2>
-      <p class="preview__text">горнолыжные центры Урала<br>
-        Шерегеш<br>
-        Казахстан<br>
-        Киргизия<br>
-        знакомства с позитивными людьми<br>
+      <p class="preview__text preview__text_2">
       </p>
     </div>
   </div>

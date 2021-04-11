@@ -33,6 +33,39 @@ interface Trip {
     }
   }
 }
+interface imgTrip {
+  small: string;
+  medium: string;
+  large: string;
+}
+interface Trip2 {
+  title: string;
+  linkName: string;
+  description: string,
+  date: string,
+  mainImg?: imgTrip,
+  photos: imgTrip[],
+  imgForTravelPlan: imgTrip,
+  time:string;
+  place: string,
+  travelPlan: string,
+  id?: number,
+  video?:string,
+  tariff: {
+    light: {
+      price: string,
+      advantages: string,
+    },
+    standard: {
+      price: string,
+      advantages: string,
+    },
+    vip: {
+      price: string,
+      advantages: string,
+    }
+  }
+}
 
 
 @Injectable({
@@ -44,6 +77,8 @@ export class HttpTripsService {
   }
 
   trips:Trip[]|undefined = undefined;
+
+  tripsSummer:Trip2[]|undefined = undefined;
   indexTrip = 2; // переменная, отвечающая за количество показывающих поездок
 
   getTrips(): Observable<Trip[]>{ // возвращает массив всех поездок
@@ -58,6 +93,57 @@ export class HttpTripsService {
           return trip;
           });
         return this.trips;
+      })
+    );
+  }
+
+  getTrips2(): Observable<any>{ // возвращает массив всех поездок
+    return this.http.get("http://cw51374.tmweb.ru/wp-json/wp/v2/trips-summer/").pipe(
+      map(data=>{
+        console.log(data);
+        // return result = Object.values(data).map((item)=>{
+        //   let images = Object.values(item.acf.photos).map((img)=>{
+        //     return {
+        //       small: img.sizes.thumbnail,
+        //       medium: img.sizes.medium,
+        //       large: img.sizes.large
+        //     }
+        //   })
+        //   let imgForTravelPlan = {
+        //     small: item.acf.imgForTravelPlan.sizes.thumbnail,
+        //     medium: item.acf.imgForTravelPlan.sizes.medium,
+        //     large: item.acf.imgForTravelPlan.sizes.large
+        //   }
+        //   let tariff = {
+        //     light: item.acf.light? {
+        //       price: item.acf.tariff.price_light,
+        //       advantages: item.acf.tariff.advantages_light,
+        //     }: null,
+        //     standard: item.acf.standard? {
+        //       price: item.acf.tariff.price_standard,
+        //       advantages: item.acf.tariff.advantages_standard,
+        //     }: null,
+        //     vip: item.acf.standard? {
+        //       price: item.acf.tariff.price_vip,
+        //       advantages: item.acf.tariff.advantages_vip,
+        //     }: null,
+        //   }
+        //   return {
+        //     title: item.acf.title,
+        //     linkName:item.acf.linkName,
+        //     description: item.acf.description,
+        //     date: item.acf.date,
+        //     mainImg: images[0],
+        //     photos: images,
+        //     imgForTravelPlan: imgForTravelPlan,
+        //     time:item.acf.time,
+        //     place: item.acf.place,
+        //     travelPlan: item.acf.travelPlan,
+        //     id: item.acf.id,
+        //     video:item.acf.video,
+        //     tariff: tariff
+        //   }
+        // })
       })
     );
   }
