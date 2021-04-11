@@ -51,12 +51,9 @@ export class HttpTripsService {
   tripsWinter:Trip[]|undefined = undefined;
 
   getLoadingTrips(season){
-    console.log(season);
     if (season == 'summer') {
-      console.log(this.tripsSummer)
       return this.tripsSummer;
     }
-    console.log(this.tripsWinter)
     return this.tripsWinter;
   }
 

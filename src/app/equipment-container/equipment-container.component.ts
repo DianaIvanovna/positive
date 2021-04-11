@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { HttpRentsService } from '../http-rents.service';
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-equipment-container',
@@ -7,8 +9,7 @@ import { Component, OnInit, Input, HostListener } from '@angular/core';
 })
 export class EquipmentContainerComponent implements OnInit {
   @Input() equipmentSmall;
-
-
+  season='summer';
   indexActive = 0;
   screenWidth;
   equipments =[
@@ -165,7 +166,7 @@ export class EquipmentContainerComponent implements OnInit {
       img: "./assets/img/equipments/4.png",
     }
   ];
-  constructor() { this.onResize(); }
+  constructor(private httpRentsService:HttpRentsService, private route: ActivatedRoute) { this.onResize(); }
 
 
   activeButtonRight = false;
@@ -179,6 +180,38 @@ export class EquipmentContainerComponent implements OnInit {
   ngOnInit(): void {
     if (this.equipments.length > 2 && this.screenWidth >1024) this.activeButtonRight = true;
     else if (this.equipments.length > 1 && this.screenWidth <=1024) this.activeButtonRight = true;
+
+
+    this.route.queryParams.subscribe( params => {
+      if (params.season){
+        this.season = params.season;
+      }
+    })
+
+    if (this.httpRentsService.getLoadingRents(this.season) === undefined){
+      console.log('!')
+      if (this.season == 'summer'){
+        this.httpRentsService.getRentsSummer()
+        .subscribe(
+          data => {
+            console.log(data);
+          },
+          error => console.log(error)
+        );
+      }else if (this.season == 'winter'){
+        this.httpRentsService.getRentsWinter()
+        .subscribe(
+          data => {
+            console.log(data);
+          },
+          error => console.log(error)
+        );
+      }
+    } else { // массив проката уже загружен
+    }
+
+
+
 
   }
   previousEquipment(){

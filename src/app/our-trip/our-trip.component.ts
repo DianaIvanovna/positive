@@ -11,8 +11,6 @@ import { ActivatedRoute} from '@angular/router';
 export class OurTripComponent implements OnInit {
   season='summer';
   trips = [];
-  // tripsShown = [];
-  // hideButton= false;
   readyForWork = false;
 
   constructor(private httpTripsService:HttpTripsService, private route: ActivatedRoute) {
@@ -23,22 +21,18 @@ export class OurTripComponent implements OnInit {
         this.season = params.season;
       }
     })
-    console.log(this.season, this.trips);
 
     if (this.httpTripsService.getLoadingTrips(this.season) === undefined){
-      console.log('!')
       this.httpTripsService.getTrips(this.season)
       .subscribe(
         data => {
           this.trips = data;
-          console.log(this.trips)
           this.readyForWork = true;
 
         },
         error => console.log(error)
       );
     } else { // массив поедок уже загружен
-      console.log('&')
       this.trips = this.httpTripsService.getLoadingTrips(this.season);
       this.readyForWork = true;
     }
