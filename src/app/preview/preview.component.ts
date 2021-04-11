@@ -10,7 +10,7 @@ export class PreviewComponent implements OnInit, AfterViewInit{
   animStop_1=false;
   animStop_2=false;
   textSummer = `прокат туристического снаряжения<br>
-  велопрокат<br>
+  велотурыт<br>
   сплавы<br>
   походы<br>
   путешествие по миру`;

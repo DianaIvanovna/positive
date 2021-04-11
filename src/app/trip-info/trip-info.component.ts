@@ -27,11 +27,10 @@ export class TripInfoComponent implements OnInit, AfterViewInit {
         this.season = params.season;
       }
     })
-
     // загружаю данные о поездке
     this.route.params.subscribe((params: Params)=>{
-      if (this.httpTripsService.trips === undefined) {
-        this.httpTripsService.searchByName(params.linkName)
+      if (this.httpTripsService.getLoadingTrips(this.season) === undefined) {
+        this.httpTripsService.searchByName(params.linkName, this.season)
         .subscribe(
           data => {
             this.trip = data;
@@ -42,7 +41,7 @@ export class TripInfoComponent implements OnInit, AfterViewInit {
         );
       }
       else { // массив поедок уже загружен
-        this.trip = this.httpTripsService.trips.find((item)=>{
+        this.trip = this.httpTripsService.getLoadingTrips(this.season).find((item)=>{
           return item.linkName === params.linkName
         });
         this.readyForWork = true;

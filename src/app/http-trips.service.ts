@@ -3,43 +3,13 @@ import { HttpClient  } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { delay, find, map } from 'rxjs/operators';
 
-interface Trip {
-  title: string;
-  linkName: string;
-  description: string,
-  date: string,
-  mainImg?: string,
-  photos: string[],
-  imgForTravelPlan: string,
-  time:string;
-  numberOfPersons: number,
-  place: string,
-  travelPlan: string,
-  reverseTrip?: boolean,
-  id?: number,
-  video?:string,
-  tariff: {
-    light: {
-      price: string,
-      advantages: string[],
-    },
-    standard: {
-      price: string,
-      advantages: string[],
-    },
-    vip: {
-      price: string,
-      advantages: string[],
-    }
-  }
-}
 interface imgTrip {
   small: string; // 100
   medium: string; //300
   large: string; //780
   origin: string;
 }
-interface Trip2 {
+interface Trip {
   title: string,
   linkName: string,
   shortDescription: string,
@@ -69,7 +39,6 @@ interface Trip2 {
   }
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -77,33 +46,24 @@ export class HttpTripsService {
 
   constructor(private http: HttpClient ) {
   }
-
-  trips:Trip2[]|undefined = undefined;
-
+  trips:Trip[]|undefined = undefined;
   tripsSummer:Trip[]|undefined = undefined;
-  indexTrip = 2; // переменная, отвечающая за количество показывающих поездок
+  tripsWinter:Trip[]|undefined = undefined;
 
-  // getTrips(): Observable<Trip[]>{ // возвращает массив всех поездок
-  //   return this.http.get("assets/trips.json").pipe(
-  //     map(data=>{
-  //       let trips = data["trips"];
-  //       this.trips = trips.map((trip:Trip, index)=>{
-  //         trip.id=index;
-  //         trip.mainImg = trip.photos[0];
-  //         if (index%2==0) trip.reverseTrip = false;
-  //         else trip.reverseTrip = true;
-  //         return trip;
-  //         });
-  //       return this.trips;
-  //     })
-  //   );
-  // }
+  getLoadingTrips(season){
+    console.log(season);
+    if (season == 'summer') {
+      console.log(this.tripsSummer)
+      return this.tripsSummer;
+    }
+    console.log(this.tripsWinter)
+    return this.tripsWinter;
+  }
 
-  getTrips(): Observable<Trip2[]>{ // возвращает массив всех поездок
-    return this.http.get("http://cw51374.tmweb.ru/wp-json/wp/v2/trips-summer/").pipe(
+  getTrips(season): Observable<Trip[]>{ // возвращает массив всех поездок
+    return this.http.get(`http://cw51374.tmweb.ru/wp-json/wp/v2/trips-${season}/`).pipe(
       map(data=>{
-        console.log(data)
-        this.trips = Object.values(data).map((item)=>{
+        let buffer = Object.values(data).map((item)=>{
           let images = Object.values(item.acf.photos).map((img:any)=>{
             return {
               small: img.sizes.thumbnail, //100*100
@@ -149,34 +109,16 @@ export class HttpTripsService {
             tariff: tariff
           }
         })
-        return this.trips;
+        if (season == 'summer') return this.tripsSummer = buffer;
+        return this.tripsWinter = buffer;
       })
     );
   }
 
-  // searchByName(name){ // возвращает поездку по link
-  //   return this.http.get("http://cw51374.tmweb.ru/wp-json/wp/v2/trips-summer/").pipe(
-  //     map(data=>{
-  //       let trips = data["trips"];
-  //       this.trips = trips.map((trip:Trip, index)=>{
-  //         trip.id=index;
-  //         trip.mainImg = trip.photos[0];
-  //         if (index%2==0) trip.reverseTrip = false;
-  //         else trip.reverseTrip = true;
-  //         return trip;
-  //       });
-
-  //       return trips.find((item)=>{
-  //         return item.linkName === name
-  //       })
-  //     })
-  //   );
-  // }
-
-  searchByName(name){ // возвращает поездку по link
-    return this.http.get("http://cw51374.tmweb.ru/wp-json/wp/v2/trips-summer/").pipe(
+  searchByName(name, season){ // возвращает поездку по link
+    return this.http.get(`http://cw51374.tmweb.ru/wp-json/wp/v2/trips-${season}/`).pipe(
       map(data=>{
-        this.trips = Object.values(data).map((item)=>{
+        let buffer = Object.values(data).map((item)=>{
           let images = Object.values(item.acf.photos).map((img:any)=>{
             return {
               small: img.sizes.thumbnail, //100*100
@@ -222,9 +164,18 @@ export class HttpTripsService {
             tariff: tariff
           }
         })
-        return  this.trips.find((item)=>{
-          return item.linkName === name
-        })
+        if (season == 'summer') {
+          this.tripsSummer = buffer;
+          this.tripsSummer.find((item)=>{
+            return item.linkName === name
+          })
+        }
+        else {
+          this.tripsWinter = buffer;
+          this.tripsWinter.find((item)=>{
+            return item.linkName === name
+          })
+        }
 
       })
     );
