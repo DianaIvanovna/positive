@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient  } from '@angular/common/http';
-import { delay, find, map } from 'rxjs/operators';
-import { ConditionalExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-footer',

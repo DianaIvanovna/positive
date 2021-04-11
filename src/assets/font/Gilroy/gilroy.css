@@ -1,5 +1,6 @@
 @font-face {
 	font-family: 'Gilroy-Regular';
+  font-display:swap;
 	src: url('./fonts/gilroy-regular.eot'); /* IE 9 Compatibility Mode */
 	src: url('./fonts/gilroy-regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
 		url('./fonts/gilroy-regular.woff2') format('woff2'), /* Super Modern Browsers */
