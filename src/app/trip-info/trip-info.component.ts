@@ -35,6 +35,7 @@ export class TripInfoComponent implements OnInit, AfterViewInit {
           data => {
             this.trip = data;
             this.readyForWork = true;
+            console.log(this.trip);
           },
           error => console.log(error)
         );

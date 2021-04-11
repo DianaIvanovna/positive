@@ -2,7 +2,7 @@
   <div class="trip__shadow"></div>
   <div class="trip" id="{{trip.id}}">
     <div class="trip__img-background">
-      <img width="252px" height="239px" src="{{trip.mainImg}}" alt="фото поездки" class="trip__img">
+      <img width="252px" height="239px" src="{{trip.mainImg.medium}}" alt="фото поездки" class="trip__img">
     </div>
     <h3 class="trip__title">{{trip.title}}</h3>
     <p class="trip__description" [innerHtml]="trip.shortDescription"></p>

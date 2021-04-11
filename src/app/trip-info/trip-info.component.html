@@ -18,11 +18,11 @@
           <div class="trip-info__container">
             <div class="img-container">
               <div class="trip-info__img-background">
-                <img src="{{trip.photos[numberActivePhoto]}}" alt="фото поездки" class="trip-info__img">
+                <img width="453px" height="434px" src="{{trip.photos[numberActivePhoto].large}}" alt="фото поездки" class="trip-info__img">
               </div>
-              <img *ngFor="let item of trip.photos; let i = index" (click)="changeActivePhoto(i)"
+              <img width="80px" height="80px"  *ngFor="let item of trip.photos; let i = index" (click)="changeActivePhoto(i)"
               [class.trip-info__img-small_active] ="i===numberActivePhoto"
-              src="{{item}}" alt="фото поездки"  class="trip-info__img-small">
+              src="{{item.small}}" alt="фото поездки"  class="trip-info__img-small">
             </div>
 
             <div class="trip-info__discription">
@@ -57,7 +57,9 @@
               <h3 class="travel-plan__title">План поездки</h3>
               <p class="travel-plan__text" [innerHtml]="trip.travelPlan"></p>
             </div>
-            <img src="{{trip.imgForTravelPlan}}" alt="фото поездки" class="travel-plan__img">
+            <div class="travel-plan__img">
+              <img src="{{trip.imgForTravelPlan.large}}" alt="фото поездки" class="">
+            </div>
           </section>
 
 
@@ -67,13 +69,13 @@
 
 
     <!-- ТАРИФЫ -->
-    <app-tariff [trip]="trip" *ngIf="readyForWork"></app-tariff>
+    <!-- <app-tariff [trip]="trip" *ngIf="readyForWork"></app-tariff> -->
     <!-- END ТАРИФЫ -->
 
     <!-- VIDEO -->
     <div class="page ">
       <div class="pageContent">
-        <app-trip-video *ngIf="readyForWork && trip.video" [video]="this.trip.video"></app-trip-video>
+        <app-trip-video *ngIf="readyForWork && trip.video!=='' " [video]="this.trip.video"></app-trip-video>
       </div>
     </div>
     <!-- END VIDEO -->

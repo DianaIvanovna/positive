@@ -21,6 +21,7 @@ export class OurTripComponent implements OnInit {
       .subscribe(
         data => {
           this.trips = data;
+          console.log(this.trips)
           this.readyForWork = true;
           // if (this.trips.length <= this.httpTripsService.indexTrip) this.hideButton = true;
           // this.tripsShown = this.trips.slice(0, this.httpTripsService.indexTrip);
@@ -28,15 +29,16 @@ export class OurTripComponent implements OnInit {
         },
         error => console.log(error)
       );
-      this.httpTripsService.getTrips2()
-      .subscribe(
-        data => {
-          // if (this.trips.length <= this.httpTripsService.indexTrip) this.hideButton = true;
-          // this.tripsShown = this.trips.slice(0, this.httpTripsService.indexTrip);
 
-        },
-        error => console.log(error)
-      );
+      // this.httpTripsService.getTrips2()
+      // .subscribe(
+      //   data => {
+      //     this.trips = data;
+      //     console.log(this.trips);
+      //     this.readyForWork = true;
+      //   },
+      //   error => console.log(error)
+      // );
     } else { // массив поедок уже загружен
       this.trips = this.httpTripsService.trips;
       this.readyForWork = true;
