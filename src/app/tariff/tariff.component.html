@@ -1,5 +1,7 @@
 <div class="page">
+  <!-- НЕ ЗАБУДЬ ИСПРАВИТЬ  -->
   <img src="./assets/img/background-tariffs.png" alt="фоновая картинка горы" class="tariff__background">
+
   <div class="pageContent">
     <section>
       <div class="tariff__header">
@@ -9,14 +11,14 @@
 
       <div class="tariff__container">
 
-        <div class="tariff-item" *ngIf="trip.tariff.light">
+        <div class="tariff-item" *ngIf="trip.tariff.light.price">
           <h3 class="tariff-item__title">Лайт</h3>
           <p class="tariff-item__subtitle">Если хотите по лайту!</p>
-          <img src="./assets/img/Icon/tariff-light.png" class="tariff-item__img" alt="лист">
+          <img width="66px" height="70px" src="./assets/images/Icon/tariff-light.png" class="tariff-item__img" alt="лист">
           <p class="tariff-item__price">{{trip.tariff.light.price}} ₽</p>
           <ul class="tariff-item__advantages">
-            <li *ngFor="let advantage of trip.tariff.light.advantages">
-              <img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">
+            <li *ngFor="let advantage of trip.tariff.light.advantages.split(';')">
+              <img width="24px" height="24px" src="./assets/images/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">
               {{advantage}}
             </li>
           </ul>
@@ -26,19 +28,19 @@
         </div>
 
 
-        <div class="tariff-item tariff-item_accent" *ngIf="trip.tariff.standard">
+        <div class="tariff-item tariff-item_accent" *ngIf="trip.tariff.standard.price">
           <div class="clientСhoice">
-            <img src="./assets/img/Icon/Heart.svg" class="tariff-item__icon" alt="иконка плюс">
+            <img width="24px" height="24px" src="./assets/images/Icon/Heart.svg" class="tariff-item__icon" alt="иконка сердце">
             <p class="clientСhoice__text">Выбор клиентов</p>
           </div>
           <h3 class="tariff-item__title">Стандарт</h3>
           <p class="tariff-item__subtitle">То что нужно!</p>
-          <img src="./assets/img/Icon/logo-tariff.png" class="tariff-item__img" alt="логотип">
+          <img width="80px" height="80px" src="./assets/images/Icon/logo-tariff.png" class="tariff-item__img" alt="логотип">
 
           <p class="tariff-item__price">{{trip.tariff.standard.price}} ₽</p>
           <ul class="tariff-item__advantages">
-            <li *ngFor="let advantage of trip.tariff.standard.advantages">
-              <img src="./assets/img/Icon/Plus-accent.svg" class="tariff-item__icon" alt="иконка плюс">
+            <li *ngFor="let advantage of trip.tariff.standard.advantages.split(';')">
+              <img width="24px" height="24px" src="./assets/images/Icon/Plus-accent.svg" class="tariff-item__icon" alt="иконка плюс">
               {{advantage}}
             </li>
           </ul>
@@ -47,14 +49,14 @@
           </div>
         </div>
 
-        <div class="tariff-item" *ngIf="trip.tariff.vip">
-          <h3 class="tariff-item__title">VIP <img src="./assets/img/Icon/Star.svg" alt="звездочка"></h3>
+        <div class="tariff-item" *ngIf="trip.tariff.vip.price">
+          <h3 class="tariff-item__title">VIP <img width="24px" height="24px" src="./assets/images/Icon/Star.svg" alt="звездочка"></h3>
           <p class="tariff-item__subtitle">Для королей этого мира</p>
-          <img src="./assets/img/Icon/crown.png" class="tariff-item__img" alt="корона">
+          <img width="77px" height="67px" src="../assets/images/Icon/crown.png" class="tariff-item__img" alt="корона">
           <p class="tariff-item__price">{{trip.tariff.vip.price}} ₽</p>
           <ul class="tariff-item__advantages">
-            <li *ngFor="let advantage of trip.tariff.vip.advantages">
-              <img src="./assets/img/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">
+            <li *ngFor="let advantage of trip.tariff.vip.advantages.split(';')">
+              <img width="24px" height="24px" src="./assets/images/Icon/Plus.svg" class="tariff-item__icon" alt="иконка плюс">
               {{advantage}}
             </li>
           </ul>
@@ -72,7 +74,7 @@
 
  <div class="popup popup_edit-profile" [class.popup_is-opened]="bookTrip" (click)="closePopup($event)">
   <div class="popup__content" *ngIf="messageIsSent==1">
-    <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
+    <img width="26px" height="25px" src="./assets/images/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
     <h3 class="popup__title">Забронировать поездку</h3>
 
     <form class="popup__form popup__form_editProfile" name="editProfile" [formGroup]="formBook"  #formBookNative action="send.php" method="post" (ngSubmit)="submit()">
@@ -105,13 +107,13 @@
   </div>
 
   <div class="popup__content" *ngIf="messageIsSent==2">
-    <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
+    <img src="./assets/images/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
     <p class="popup__text">Вам нужен прокат оборудования?</p>
     <a href="./rent" class="popup__link_active">ДА</a> <span class="popup__link" (click)="messageIsSent = 3">нет</span>
   </div>
 
   <div class="popup__content" *ngIf="messageIsSent==3">
-    <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
+    <img src="./assets/images/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
 
     <h3 class="popup__title">Спасибо, что забронировали поездку!</h3>
     <p class="popup__text">В ближайшее время с вами свяжется наш менеджер и подтвердит бронирование.</p>

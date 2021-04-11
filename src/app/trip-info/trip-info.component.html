@@ -58,7 +58,7 @@
               <p class="travel-plan__text" [innerHtml]="trip.travelPlan"></p>
             </div>
             <div class="travel-plan__img">
-              <img src="{{trip.imgForTravelPlan.large}}" alt="фото поездки" class="">
+              <img width="650px" height="504px" src="{{trip.imgForTravelPlan.large}}" alt="фото поездки" class="">
             </div>
           </section>
 
@@ -69,13 +69,13 @@
 
 
     <!-- ТАРИФЫ -->
-    <!-- <app-tariff [trip]="trip" *ngIf="readyForWork"></app-tariff> -->
+    <app-tariff [trip]="trip" *ngIf="readyForWork"></app-tariff>
     <!-- END ТАРИФЫ -->
 
     <!-- VIDEO -->
     <div class="page ">
       <div class="pageContent">
-        <app-trip-video *ngIf="readyForWork && trip.video!=='' " [video]="this.trip.video"></app-trip-video>
+        <app-trip-video *ngIf="readyForWork && trip.video" [video]="this.trip.video"></app-trip-video>
       </div>
     </div>
     <!-- END VIDEO -->

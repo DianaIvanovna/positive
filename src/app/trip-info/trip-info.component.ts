@@ -12,6 +12,7 @@ export class TripInfoComponent implements OnInit, AfterViewInit {
   @ViewChild ('videoImg') videoImg:ElementRef;
   equipmentSmall = true;
   season = "summer"
+  advantages = [];
   trip;
   readyForWork = false;
   numberActivePhoto:number;

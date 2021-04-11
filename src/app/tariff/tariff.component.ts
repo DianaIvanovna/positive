@@ -27,7 +27,7 @@ export class TariffComponent implements OnInit {
 
   ngOnInit(): void {
      // инициализирую форму бронирования поездки
-     this.formBook = new FormGroup({
+    this.formBook = new FormGroup({
       // поля для php, чтобы отправить письмо
       project_name: new FormControl('Positive'),
       admin_email: new FormControl('pozitivtour74@pozitivtour74.ru'),
