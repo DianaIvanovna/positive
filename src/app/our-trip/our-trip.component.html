@@ -1,20 +1,17 @@
+
+<div class="loading" *ngIf="!readyForWork">
+  <picture class="loading__pulse">
+    <source srcset="./assets/images/logo/logo-big_a1b.webp" type="image/webp">
+    <img  width="106px" height="106px" src="./assets/images/logo/logo-big.png" alt="логтип positive">
+  </picture>
+
+</div>
 <section class="our-trip"  #ourTrip *ngIf="readyForWork">
   <div class="forlink" id="ourTrip"></div>
   <div class="our-trip__header">
     <h2 class="our-trip__title">Наши поездки</h2>
   </div>
-
-  <!-- <div class="our-trip__container">
-    <app-trip *ngFor="let trip of tripsShown" [trip]="trip" ></app-trip>
-
-    <div class="button__background" *ngIf="!hideButton">
-      <button  class="our-trip__button button" (click)="showMore()">Показать еще</button>
-    </div>
-  </div> -->
-
   <app-slider [trips]="trips"></app-slider>
-
-
 </section>
 
 

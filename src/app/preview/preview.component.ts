@@ -13,12 +13,13 @@ export class PreviewComponent implements OnInit, AfterViewInit{
   велопрокат<br>
   сплавы<br>
   походы<br>
-  звездные ночи на природе, песни у костра`;
-  textWinter = `горнолыжные центры Урала<br>
+  путешествие по миру`;
+  textWinter = `Горнолыжные туры:<br>
+  горы Урала<br>
   Шерегеш<br>
   Казахстан<br>
   Киргизия<br>
-  знакомства с позитивными людьми`
+  Кавказ<br>`
   constructor( private router: Router) { }
 
   ngOnInit(): void {

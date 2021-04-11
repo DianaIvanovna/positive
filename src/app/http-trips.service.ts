@@ -40,14 +40,15 @@ interface imgTrip {
   origin: string;
 }
 interface Trip2 {
-  title: string;
-  linkName: string;
+  title: string,
+  linkName: string,
+  shortDescription: string,
   description: string,
   date: string,
   mainImg?: imgTrip,
   photos: imgTrip[],
   imgForTravelPlan: imgTrip,
-  time:string;
+  time:string,
   place: string,
   travelPlan: string,
   id?: number,
@@ -101,6 +102,7 @@ export class HttpTripsService {
   getTrips(): Observable<Trip2[]>{ // возвращает массив всех поездок
     return this.http.get("http://cw51374.tmweb.ru/wp-json/wp/v2/trips-summer/").pipe(
       map(data=>{
+        console.log(data)
         this.trips = Object.values(data).map((item)=>{
           let images = Object.values(item.acf.photos).map((img:any)=>{
             return {
@@ -133,6 +135,7 @@ export class HttpTripsService {
           return {
             title: item.acf.title,
             linkName:item.acf.linkName,
+            shortDescription: item.acf.shortDescription,
             description: item.acf.description,
             date: item.acf.date,
             mainImg: images[0],
@@ -205,6 +208,7 @@ export class HttpTripsService {
           return {
             title: item.acf.title,
             linkName:item.acf.linkName,
+            shortDescription: item.acf.shortDescription,
             description: item.acf.description,
             date: item.acf.date,
             mainImg: images[0],

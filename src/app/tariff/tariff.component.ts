@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./tariff.component.scss']
 })
 export class TariffComponent implements OnInit {
-
+  @Input() season;
   @Input() trip;
   @ViewChild('formBookNative') formBookNative:ElementRef;
 
