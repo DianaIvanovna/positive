@@ -5,14 +5,7 @@ import { map } from 'rxjs/operators';
 
 interface RentSummer {
   title:string;
-  price_1:string;
-  price_2:string;
-  price_3:string;
-  price_4:string;
-  price_5:string;
-  price_6:string;
-  price_7:string;
-  deposit:string;
+  price: string[];
   img:string;
   number: number;
 }
@@ -54,17 +47,44 @@ export class HttpRentsService {
   getLoadingRents(season){
     console.log(season);
     if (season == 'summer') {
-      console.log(this.rentSummer)
       return this.rentSummer;
     }
-    console.log(this.rentWinter)
     return this.rentWinter;
   }
-  getRentsSummer(): Observable<RentWinter[]>{
+  getRentsSummer(): Observable<RentSummer[]>{
     return this.http.get(`http://cw51374.tmweb.ru/wp-json/wp/v2/rents-summer/`).pipe(
       map(data=>{
-        return this.rentWinter =
+        return this.rentSummer =
         Object.values(data)
+        .map((item)=>{
+          return {
+            title:item.acf.title,
+            price: [
+              item.acf.price_1,
+              item.acf.price_2,
+              item.acf.price_3,
+              item.acf.price_4,
+              item.acf.price_5,
+              item.acf.price_6,
+              item.acf.price_7,
+              item.acf.deposit,
+            ],
+            img:item.acf.img.sizes.large,
+            number: item.acf.number
+          };
+        })
+        .sort((a,b)=>{
+          return a.number - b.number;
+        });
+      })
+    )
+  }
+
+  getRentsWinter(): Observable<RentWinter[]>{
+    return this.http.get(`http://cw51374.tmweb.ru/wp-json/wp/v2/rents-winter/`).pipe(
+      map(data=>{
+        return this.rentWinter =
+          Object.values(data)
           .map((item)=>{
             return {
               title:item.acf.title,
@@ -85,33 +105,6 @@ export class HttpRentsService {
                 price_positive:item.acf.price_4.price_positive,
                 price: item.acf.price_4.price,
               },
-              img:item.acf.img.sizes.large,
-              number: item.acf.number
-            };
-          })
-          .sort((a,b)=>{
-            return a.number - b.number;
-          });
-      })
-    )
-  }
-
-  getRentsWinter(): Observable<RentSummer[]>{
-    return this.http.get(`http://cw51374.tmweb.ru/wp-json/wp/v2/rents-winter/`).pipe(
-      map(data=>{
-        return this.rentSummer =
-          Object.values(data)
-          .map((item)=>{
-            return {
-              title:item.acf.title,
-              price_1:item.acf.price_1,
-              price_2:item.acf.price_2,
-              price_3:item.acf.price_3,
-              price_4:item.acf.price_4,
-              price_5:item.acf.price_5,
-              price_6:item.acf.price_6,
-              price_7:item.acf.price_7,
-              deposit:item.acf.deposit,
               img:item.acf.img.sizes.large,
               number: item.acf.number
             };

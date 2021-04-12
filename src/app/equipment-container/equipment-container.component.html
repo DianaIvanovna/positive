@@ -7,7 +7,9 @@
   <div class="equipmentContainer__container" *ngIf="readyForWork; else loadingRent">
     <app-equipment
       *ngFor="let rent of rents; let equipmentIndex = index" [rent]="rent"
-      [equipmentIndex]="equipmentIndex" >
+      [equipmentIndex]="equipmentIndex"
+      [season]="season"
+      >
     </app-equipment>
   </div>
   <ng-template #loadingRent>
@@ -19,7 +21,7 @@
     </div>
   </ng-template>
 
-  <div class="equipmentContainer__footer" >
+  <div class="equipmentContainer__footer" *ngIf="season=='winter'">
     <h3 class="equipmentContainer__downtitle">Залог за прокат одного комплекта снаряжения:</h3>
     <p class="equipmentContainer__text">
       Паспорт или водительское удостоверение + 5 000 р

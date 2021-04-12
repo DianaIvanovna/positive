@@ -1,5 +1,8 @@
-
-<div class="equipment"  [class.equipment-reverse]="equipmentIndex%2" [class.equipment_small]="equipmentSmall" >
+<!-- ПРОКАТ ЗИМА -->
+<div class="equipment" *ngIf="season=='winter'"
+  [class.equipment-reverse]="equipmentIndex%2 && season!='summer'"
+  [class.equipment_small]="equipmentSmall"
+  >
 
   <div class="equipment__shadow"></div>
   <div class="forlink" id="{{equipmentIndex}}" ></div>
@@ -19,7 +22,6 @@
     </div>
 
   </div>
-
   <div class="equipment__secondPart">
 
     <!-- ЦЕНЫ ДЛЯ ЗИМНЕГО ПРОКАТА -->
@@ -88,9 +90,40 @@
     </ng-template>
 
   </div>
-
-
 </div>
+
+<!-- ПРОКАТ ЛЕТО -->
+<div class="equipment-summer_back"  [class.equipment-summer_back-reverse]="equipmentIndex%2">
+  <div *ngIf="season=='summer'" class="equipment-summer">
+
+    <img width="280px" height="274px" src="{{rent.img}}" alt="{{rent.title}}" class="equipment__img">
+    <div class="equipment-summer__content">
+      <h3 class="equipment__title equipment__title_summer">{{rent.title}}</h3>
+      <div class=""class="equipment-summer__prices equipment-summer__prices_first">
+
+        <div *ngFor="let price of rent.price.slice(4); let i = index" class="equipment-summer__item">
+          <p class="equipment-summer__date">{{i+1}} Дн</p>
+          <p class="equipment-summer__price">{{price}} ₽</p>
+        </div>
+      </div>
+      <div class="equipment-summer__prices equipment-summer__prices_second" >
+        <div class="" class="" *ngFor="let price of rent.price.slice(4); let i = index" class="equipment-summer__item">
+          <p class="equipment-summer__date">{{ i==3?'Залог': i+5 + ' Дн'}}</p>
+          <p class="equipment-summer__price">{{price}} ₽</p>
+        </div>
+      </div>
+    </div>
+    <div class="button__background button__background_summer">
+      <button class="button"(click)="openPopup($event)">
+        <a href="" class="button__link" > ЗАБРОНИРОВАТЬ</a>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+
 
 
 <!-- ПОПАП РЕГИСТРАЦИЯ  -->

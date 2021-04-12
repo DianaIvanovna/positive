@@ -10,6 +10,122 @@
     }
   }
 }
+.equipment-summer_back{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.equipment-summer_back-reverse{
+  @media screen and (max-width:1200px) and (min-width:600px){
+    justify-content: flex-end;
+  }
+}
+.equipment-summer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 26px;
+  margin-bottom: 35px;
+  position: relative;
+  box-sizing: border-box;
+  &::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 21px;
+    left: 21px;
+    width: calc(100% - 42px);
+    height: 100%;
+    z-index: -1;
+
+    background: #E6E6E6;
+    box-shadow: 0px 14px 74px rgba(0, 0, 0, 0.11);
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width:1200px){
+    flex-direction: column;
+    width: max-content;
+  }
+  @media screen and (max-width:600px){
+    width: 100%;
+  }
+
+  .equipment-summer__item{
+    margin: 0 10px;
+  }
+
+  .equipment-summer__date{
+    @include mainFontValue(normal, 600, 18px, 115.75%);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    width: max-content;
+    padding: 5px 14px;
+    margin: 0;
+    background: #F1A22C;
+    border-radius: 5px;
+
+  }
+  .equipment-summer__prices{
+    display: flex;
+  }
+  .equipment-summer__content{
+    @media screen and (max-width:1200px){
+      margin: 20px 0 40px;
+    }
+  }
+  .equipment__title_summer{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: start;
+  }
+  .equipment-summer__prices_first{
+    padding-bottom: 18px;
+    border-bottom: 1px solid #C3C3C3;
+    @media screen and (max-width:600px){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+    }
+  }
+  .equipment-summer__prices_second{
+    padding-top: 18px;
+    @media screen and (max-width:600px){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      align-items: center;
+    }
+  }
+  .equipment-summer__price{
+    @include mainFontValue(normal, 600, 22px, 115.75%);
+    margin: 0;
+    margin-top: 8px;
+    width: max-content;
+    color: #0F0F0F;
+    @media screen and (max-width:600px){
+      margin-bottom: 10px;
+    }
+  }
+
+  .button__background_summer{
+    margin: 0;
+    left: -17px;
+    @media screen and (max-width:1200px){
+      left: 0;
+    }
+  }
+}
+
+
+
 .equipment{
   display: flex;
   justify-content: space-between;
@@ -89,6 +205,7 @@
   column-gap: 10px;
   row-gap: 25px;
   margin-right: 20px;
+
 }
 
 

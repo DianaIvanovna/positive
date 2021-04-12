@@ -7,6 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./equipment.component.scss']
 })
 export class EquipmentComponent implements OnInit {
+  @Input() season;
   @Input() rent;
   @Input() equipmentIndex;
   @Input() equipmentSmall;
@@ -37,11 +38,6 @@ export class EquipmentComponent implements OnInit {
         Validators.required,
         Validators.pattern(/\+7\([0-9]{1}[0-9]{2}\) [0-9]{3}-[0-9]{2}-[0-9]{2}/),
       ]),
-      // footSize: new FormControl(''),
-      // height: new FormControl(''),
-      // weight: new FormControl(''),
-      // clothingSize: new FormControl(''),
-      // headСircumference: new FormControl(''),
       comment:new FormControl(''),
     });
   }
