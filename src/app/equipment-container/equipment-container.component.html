@@ -1,5 +1,8 @@
 <!-- <section class="equipmentContainer" [class.equipmentContainer_small]="equipmentSmall" #ourRent> -->
-<section class="equipmentContainer" *ngIf="!equipmentSmall; else small" #ourRent>
+<section class="equipmentContainer"
+*ngIf="!equipmentSmall; else small"
+[class.equipmentContainer_summer]="season=='summer'"
+#ourRent>
   <h2 class="sectionTitle equipmentContainer__title">забронировать прокат</h2>
 
 
