@@ -37,7 +37,6 @@ export class EquipmentContainerComponent implements OnInit {
         this.httpRentsService.getRentsSummer()
         .subscribe(
           data => {
-            console.log(data);
             this.rents = data;
           },
           error => console.log(error)
@@ -46,7 +45,6 @@ export class EquipmentContainerComponent implements OnInit {
         this.httpRentsService.getRentsWinter()
         .subscribe(
           data => {
-            console.log(data);
             this.rents = data;
           },
           error => console.log(error)

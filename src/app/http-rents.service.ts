@@ -45,14 +45,13 @@ export class HttpRentsService {
   }
 
   getLoadingRents(season){
-    console.log(season);
     if (season == 'summer') {
       return this.rentSummer;
     }
     return this.rentWinter;
   }
   getRentsSummer(): Observable<RentSummer[]>{
-    return this.http.get(`http://cw51374.tmweb.ru/wp-json/wp/v2/rents-summer/`).pipe(
+    return this.http.get(`https://app-pozitivtour74.ru/wp-json/wp/v2/rents-summer/`).pipe(
       map(data=>{
         return this.rentSummer =
         Object.values(data)
@@ -81,7 +80,7 @@ export class HttpRentsService {
   }
 
   getRentsWinter(): Observable<RentWinter[]>{
-    return this.http.get(`http://cw51374.tmweb.ru/wp-json/wp/v2/rents-winter/`).pipe(
+    return this.http.get(`https://app-pozitivtour74.ru/wp-json/wp/v2/rents-winter/`).pipe(
       map(data=>{
         return this.rentWinter =
           Object.values(data)

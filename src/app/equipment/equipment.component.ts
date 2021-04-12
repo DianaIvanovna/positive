@@ -23,7 +23,6 @@ export class EquipmentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.rent);
     // инициализирую форму бронирования поездки
     this.formRent = new FormGroup({
       // поля для php, чтобы отправить письмо

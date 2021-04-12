@@ -58,7 +58,7 @@ export class HttpTripsService {
   }
 
   getTrips(season): Observable<Trip[]>{ // возвращает массив всех поездок
-    return this.http.get(`http://cw51374.tmweb.ru/wp-json/wp/v2/trips-${season}/`).pipe(
+    return this.http.get(`https://app-pozitivtour74.ru/wp-json/wp/v2/trips-${season}/`).pipe(
       map(data=>{
         let buffer = Object.values(data).map((item)=>{
           let images = Object.values(item.acf.photos).map((img:any)=>{
@@ -113,7 +113,7 @@ export class HttpTripsService {
   }
 
   searchByName(name, season){ // возвращает поездку по link
-    return this.http.get(`http://cw51374.tmweb.ru/wp-json/wp/v2/trips-${season}/`).pipe(
+    return this.http.get(`https://app-pozitivtour74.ru/wp-json/wp/v2/trips-${season}/`).pipe(
       map(data=>{
         let buffer = Object.values(data).map((item)=>{
           let images = Object.values(item.acf.photos).map((img:any)=>{

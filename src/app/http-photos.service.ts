@@ -3,6 +3,11 @@ import { HttpClient  } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { delay, find, map } from 'rxjs/operators';
 
+interface Photo {
+  photo: string;
+  description: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +15,6 @@ export class HttpPhotosService {
 
   constructor(private http: HttpClient ) {
   }
-
 
   photos:any = [];
 
@@ -26,6 +30,7 @@ export class HttpPhotosService {
       })
     );
   }
+
   getPartPhoto(index){
     if (this.photos.length !== 0) return this.photos[index];
   }
