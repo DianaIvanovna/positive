@@ -10,6 +10,7 @@ import { ActivatedRoute} from '@angular/router';
 export class EquipmentContainerComponent implements OnInit {
   @Input() equipmentSmall;
   season='summer';
+  readyForWork = false;
   indexActive = 0;
   screenWidth;
   equipments =[
@@ -166,6 +167,7 @@ export class EquipmentContainerComponent implements OnInit {
       img: "./assets/img/equipments/4.png",
     }
   ];
+  rents = []
   constructor(private httpRentsService:HttpRentsService, private route: ActivatedRoute) { this.onResize(); }
 
 
@@ -195,6 +197,7 @@ export class EquipmentContainerComponent implements OnInit {
         .subscribe(
           data => {
             console.log(data);
+            this.rents = data;
           },
           error => console.log(error)
         );
@@ -203,11 +206,15 @@ export class EquipmentContainerComponent implements OnInit {
         .subscribe(
           data => {
             console.log(data);
+            this.rents = data;
           },
           error => console.log(error)
         );
       }
+    this.readyForWork = true;
     } else { // массив проката уже загружен
+      this.rents = this.httpRentsService.getLoadingRents(this.season);
+      this.readyForWork = true;
     }
 
 

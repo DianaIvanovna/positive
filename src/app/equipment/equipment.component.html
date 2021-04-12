@@ -1,15 +1,15 @@
 
 <div class="equipment"  [class.equipment-reverse]="equipmentIndex%2" [class.equipment_small]="equipmentSmall" >
+
   <div class="equipment__shadow"></div>
   <div class="forlink" id="{{equipmentIndex}}" ></div>
-
   <div class="equipment__firstPart">
-    <img src="{{equipment.img}}" alt="фотография {{equipment.title}}" class="equipment__img">
+    <img width="280px" height="274px" src="{{rent.img}}" alt="{{rent.title}}" class="equipment__img">
 
     <div class="equipment__main">
       <div >
-        <h3 class="equipment__title">{{equipment.title}}</h3>
-        <p  class="equipment__description">{{equipment.description}}</p>
+        <h3 class="equipment__title">{{rent.title}}</h3>
+        <p  class="equipment__description">{{rent.description}}</p>
       </div>
       <div class="button__background ">
         <button class="button"(click)="openPopup($event)">
@@ -21,22 +21,57 @@
   </div>
 
   <div class="equipment__secondPart">
+
+    <!-- ЦЕНЫ ДЛЯ ЗИМНЕГО ПРОКАТА -->
     <div class="equipment__prices">
-      <div class="price" *ngFor="let price of equipment.price">
-        <p class="price__title">{{price.title}}<span class="price__title_disabled">{{price.titleDisabled}}</span></p>
+      <div class="price">
+        <p class="price__title">БУДНИЕ ДНИ<span class="price__title_disabled">(СУТКИ)</span></p>
         <div class="price__value">
           <div class="price__value_withUs">
-            {{price.withUs}} ₽ <img src="../../assets/img/Icon/Heart.svg" alt="иконка сердца">
+            {{rent.price_1.price_positive}} ₽ <img width="24px" height="24px" src="./assets/images/Icon/Heart.svg" alt="иконка сердца">
           </div>
           <div class="price__value_withoutUs">
-            {{price.withoutUs}} ₽
+            {{rent.price_1.price}} ₽
+          </div>
+        </div>
+      </div>
+      <div class="price">
+        <p class="price__title">2 ДНЯ<span class="price__title_disabled">(СБ-ВСК)</span></p>
+        <div class="price__value">
+          <div class="price__value_withUs">
+            {{rent.price_2.price_positive}} ₽ <img width="24px" height="24px" src="./assets/images/Icon/Heart.svg" alt="иконка сердца">
+          </div>
+          <div class="price__value_withoutUs">
+            {{rent.price_2.price}} ₽
+          </div>
+        </div>
+      </div>
+      <div class="price">
+        <p class="price__title">ВЫХОДНЫЕ<span class="price__title_disabled">(СУТКИ)</span></p>
+        <div class="price__value">
+          <div class="price__value_withUs">
+            {{rent.price_3.price_positive}} ₽ <img width="24px" height="24px" src="./assets/images/Icon/Heart.svg" alt="иконка сердца">
+          </div>
+          <div class="price__value_withoutUs">
+            {{rent.price_3.price}} ₽
+          </div>
+        </div>
+      </div>
+      <div class="price">
+        <p class="price__title">ПРАЗДНИЧНЫЕ ДНИ<span class="price__title_disabled">(СУТКИ)</span></p>
+        <div class="price__value">
+          <div class="price__value_withUs">
+            {{rent.price_4.price_positive}} ₽ <img width="24px" height="24px" src="./assets/images/Icon/Heart.svg" alt="иконка сердца">
+          </div>
+          <div class="price__value_withoutUs">
+            {{rent.price_4.price}} ₽
           </div>
         </div>
       </div>
     </div>
 
     <p class="equipment__footnote">
-      <img src="../../assets/img/Icon/Heart_invect.svg" alt="иконка сердца" class="equipment__footnote-icon">Тариф для тех, кто едет нашим автобусным туром</p>
+      <img width="24px" height="24px" src="./assets/images/Icon/Heart_invect.svg" alt="иконка сердца" class="equipment__footnote-icon">Тариф для тех, кто едет нашим автобусным туром</p>
 
     <div class="button__background " *ngIf="!equipmentSmall; else buttonSmall">
       <button class="button" (click)="openPopup($event)">
@@ -62,8 +97,8 @@
 
 <div class="popup popup_edit-profile" [class.popup_is-opened]="openPopupRent" (click)="closePopup($event)">
   <div class="popup__content" *ngIf="!messageIsSent; else Message">
-    <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="openPopupRent = false" class="popup__close popup__close_edit-profile">
-    <h3 class="popup__title">{{equipment.title}}</h3>
+    <img  width="26px" height="25px" src="./assets/images/Icon/close.svg" alt="Иконка закрытия формы" (click)="openPopupRent = false" class="popup__close popup__close_edit-profile">
+    <h3 class="popup__title">{{rent.title}}</h3>
 
     <form class="popup__form popup__form_editProfile" name="editProfile" [formGroup]="formRent"  #formRentNative action="send.php" method="post" (ngSubmit)="submit()">
         <!-- Hidden Required Fields -->
@@ -77,27 +112,14 @@
         <input class="popup__input" type="text" name="name" placeholder="ФИО" formControlName="name" required>
 
         <input [textMask]="{mask: mask}"  class="popup__input popup__input_tel"  name="tel" placeholder="+7(___) ___-__-__"  formControlName="tel" required >
-        <input *ngIf="equipment.form.weight" class="popup__input  popup__input_second-half" type="number" name="weight" placeholder="вес"  formControlName="weight"  >
 
-
+        <!-- <input *ngIf="equipment.form.weight" class="popup__input  popup__input_second-half" type="number" name="weight" placeholder="вес"  formControlName="weight"  >
         <input *ngIf="equipment.form.height" class="popup__input popup__input_half" type="number" name="height" placeholder="рост"  formControlName="height"  >
-
-
         <input *ngIf="equipment.form.footSize" class="popup__input popup__input_second-half" type="number" name="footSize" formControlName="footSize"  placeholder="размер ноги">
-
         <input  *ngIf="equipment.form.clothingSize"  class="popup__input  popup__input_second-half" type="number" name="clothingSize" placeholder="размер одежды"  formControlName="clothingSize"  >
-
-        <input *ngIf="equipment.form.headCircumference" class="popup__input  popup__input_half" type="number" name="headСircumference" placeholder="окружность головы"  formControlName="headСircumference"  >
-
-
+        <input *ngIf="equipment.form.headCircumference" class="popup__input  popup__input_half" type="number" name="headСircumference" placeholder="окружность головы"  formControlName="headСircumference"  > -->
 
         <input class="popup__input" type="text" name="comment" formControlName="comment" placeholder="Комментарии">
-
-        <!-- <div class="button__background button__background_popup ">
-          <button  class="button" type="submit"  [disabled]="formRent.invalid">
-            <a href="" class="button__link"> ЗАБРОНИРОВАТЬ</a>
-          </button>
-        </div> -->
 
         <div class="button__background button__background_popup">
           <button class="button" type="submit" [disabled]="formRent.invalid">ЗАБРОНИРОВАТЬ</button>
@@ -108,7 +130,7 @@
 
   <ng-template #Message>
     <div class="popup__content">
-      <img src="./assets/img/Icon/close.svg" alt="Иконка закрытия формы" (click)="openPopupRent = false" class="popup__close popup__close_edit-profile">
+      <img width="26px" height="25px" src="./assets/images/Icon/close.svg" alt="Иконка закрытия формы" (click)="openPopupRent = false" class="popup__close popup__close_edit-profile">
 
       <h3 class="popup__title">Спасибо, что забронировали снаряжение!</h3>
       <p class="popup__text">В ближайшее время с вами свяжется  наш менеджер и подтвердит бронирование.</p>

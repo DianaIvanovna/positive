@@ -2,9 +2,22 @@
 <section class="equipmentContainer" *ngIf="!equipmentSmall; else small" #ourRent>
   <h2 class="sectionTitle equipmentContainer__title">забронировать прокат</h2>
 
-  <div class="equipmentContainer__container">
-    <app-equipment *ngFor="let equipment of equipments; let equipmentIndex = index" [equipment]="equipment" [equipmentIndex]="equipmentIndex" ></app-equipment>
+
+
+  <div class="equipmentContainer__container" *ngIf="readyForWork; else loadingRent">
+    <app-equipment
+      *ngFor="let rent of rents; let equipmentIndex = index" [rent]="rent"
+      [equipmentIndex]="equipmentIndex" >
+    </app-equipment>
   </div>
+  <ng-template #loadingRent>
+    <div class="loading">
+      <picture class="loading__pulse">
+        <source srcset="./assets/images/logo/logo-big_a1b.webp" type="image/webp">
+        <img  width="106px" height="106px" src="./assets/images/logo/logo-big.png" alt="логтип positive">
+      </picture>
+    </div>
+  </ng-template>
 
   <div class="equipmentContainer__footer" >
     <h3 class="equipmentContainer__downtitle">Залог за прокат одного комплекта снаряжения:</h3>
@@ -22,9 +35,9 @@
 </section>
 
 
-
-<ng-template #small> <!--  ДЛЯ ВСТАВКИ НА ДРУГИЕ СТРАНИЦЫ -->
-  <section class="equipmentContainer equipmentContainer_for-insert">
+<!--  ДЛЯ ВСТАВКИ НА ДРУГИЕ СТРАНИЦЫ -->
+<ng-template #small>
+  <!-- <section class="equipmentContainer equipmentContainer_for-insert">
     <h2 class="sectionTitle equipmentContainer__title">забронировать прокат</h2>
 
     <div class="equipmentContainer__container_for-insert">
@@ -49,7 +62,7 @@
 
     <h3 class="equipmentContainer__downtitle">*Скидки на прокат для тех, кто едет нашим автобусным туром</h3>
 
-  </section>
+  </section> -->
 </ng-template>
 
 
