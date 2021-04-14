@@ -2,6 +2,7 @@
   <app-header [season]="season"></app-header>
   <div class="main__contant">
 
+
     <!-- content start -->
     <div class="page" id="tripUp" *ngIf="readyForWork">
       <div class="pageContent">
@@ -73,7 +74,7 @@
     <!-- END ТАРИФЫ -->
 
     <!-- VIDEO -->
-    <div class="page ">
+    <div class="page " *ngIf="readyForWork">
       <div class="pageContent">
         <app-trip-video *ngIf="readyForWork && trip.video" [video]="this.trip.video"></app-trip-video>
       </div>

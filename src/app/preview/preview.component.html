@@ -1,5 +1,5 @@
-<section class="preview" (mouseover)="initAnimText($event)">
-
+<!-- <section class="preview" (mouseover)="initAnimText($event)"> -->
+  <section class="preview">
   <div class="preview__container preview__container_1" (click)="goPage('summer')">
     <picture class="preview__img preview__img_summer">
       <source media="(min-width: 1440px)" srcset="./assets/images/preview/preview-summer_4f7.webp" type="image/webp">
@@ -13,6 +13,11 @@
     <div class="preview__title-container">
       <h2 class="preview__title">лето</h2>
       <p class="preview__text preview__text_1">
+        прокат туристического снаряжения<br>
+        велотуры<br>
+        сплавы<br>
+        походы<br>
+        путешествия по миру
       </p>
       <pre id="demo"></pre>
     </div>
@@ -31,16 +36,23 @@
     <div class="preview__title-container">
       <h2 class="preview__title">зима</h2>
       <p class="preview__text preview__text_2">
+        Горнолыжные туры:<br>
+        горы Урала<br>
+        Шерегеш<br>
+        Казахстан<br>
+        Киргизия<br>
+        Кавказ<br>
       </p>
     </div>
   </div>
 
-
-  <picture class="preview__logo">
+<div class="preview__logo loading" (click)="goPage('summer')">
+  <picture class=" loading__pulse" >
     <source srcset="./assets/images/logo/logo-big_a1b.webp" type="image/webp">
     <img  width="186px" height="186px"
         src="./assets/images/logo/logo-big.png"
         alt="логотип">
   </picture>
+</div>
 
 </section>
