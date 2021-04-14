@@ -176,6 +176,7 @@
 
   .tariff-item__button{
     position: relative;
+    overflow: hidden;
     left: -16px;
     width: 255.8px;
     height: 70.43px;
@@ -191,12 +192,31 @@
     letter-spacing: 0.09em;
     color: #FFFFFF;
     text-shadow: 0px -1.2183px 2.4366px #C17B11;
-     &:hover{
+    &:hover{
       cursor: pointer;
       .tariff-item__button{
         background: linear-gradient(184.46deg, rgb(187,71,35) 3.39%, #ECB21D 96.19%);
       }
     }
+    &::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(#fff,0.5);
+      width: 2.5em;
+      height: 100%;
+      transform: translateX(-4em) skewX(-45deg);
+      animation: button-light 6s infinite ;
+    }
+  }
+}
+@keyframes button-light {
+  75%{
+    transform: translateX(-4em) skewX(-45deg);
+  }
+  100% {
+    transform: translateX(25em) skewX(-45deg);
   }
 }
 .button__background_popup{

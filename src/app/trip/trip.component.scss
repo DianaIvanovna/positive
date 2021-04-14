@@ -136,6 +136,15 @@
     }
   }
 }
+@keyframes button-light {
+  60%{
+    transform: translateX(-4em) skewX(-45deg);
+  }
+  100% {
+    transform: translateX(50em) skewX(-45deg);
+    animation-delay: 5s;
+  }
+}
 
 .trip__button{
   width: 130px;
@@ -144,6 +153,8 @@
   box-shadow: 0px 3.22136px 0px #C17B11;
   border-radius: 5.84204px;
   border: none;
+  position: relative;
+  overflow: hidden;
 
   @include mainFont;
   font-size: 11.862px;
@@ -157,6 +168,17 @@
     cursor: pointer;
   }
   &:focus {outline:none} // убрала рамку при нажатии
+  &::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(#fff,0.5);
+    width: 2em;
+    height: 50px;
+    transform: translateX(-4em) skewX(-45deg);
+    animation: button-light 6s infinite ;
+  }
 }
 
 .trip__price{

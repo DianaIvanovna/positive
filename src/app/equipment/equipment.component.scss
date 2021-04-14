@@ -124,7 +124,21 @@
   }
 }
 
-
+.button{
+  position: relative;
+  overflow: hidden;
+  &::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(#fff,0.5);
+    width: 2em;
+    height: 100%;
+    transform: translateX(-4em) skewX(-45deg);
+    animation: button-light 7s infinite ;
+  }
+}
 
 .equipment{
   display: flex;
@@ -194,6 +208,7 @@
   @include button(227px, 77px);
   margin-left: 17px;
   margin-bottom: 35px;
+
 }
 
 .equipment__prices{
@@ -551,6 +566,17 @@
         background: linear-gradient(184.46deg, #FAE198 3.39%, #EEBE55 96.19%);
       }
     }
+
   }
 
+}
+
+@keyframes button-light {
+  70%{
+    transform: translateX(-4em) skewX(-45deg);
+  }
+  100% {
+    transform: translateX(50em) skewX(-45deg);
+    animation-delay: 5s;
+  }
 }

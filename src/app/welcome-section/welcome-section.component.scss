@@ -223,9 +223,28 @@
     &:hover{
       cursor: pointer;
     }
+    &::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(#fff,0.5);
+      width: 3em;
+      height: 100%;
+      transform: translateX(-4em) skewX(-45deg);
+      animation: button-light 6s infinite ;
+    }
 }
 }
 
+@keyframes button-light {
+  80%{
+    transform: translateX(-4em) skewX(-45deg);
+  }
+  100% {
+    transform: translateX(20em) skewX(-45deg);
+  }
+}
 
 
 .welcome__link{

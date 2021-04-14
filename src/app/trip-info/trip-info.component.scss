@@ -23,7 +23,9 @@ main{
   border-radius: 50%;
   animation: radial-pulse 1s infinite;
 }
-
+.loading_trip-info{
+  margin-top: 150px;
+}
 .loading {
   width: 100%;
   height: 300px;
@@ -211,10 +213,12 @@ main{
 }
 
 .trip-info__link-button{
+  position: relative;
   &:hover{
     cursor: pointer;
   }
 }
+
 
 .trip-info__container{
   display: flex;
@@ -324,6 +328,7 @@ main{
     width: 275.8px;
     height: 77.57px;
     border: none;
+    overflow: hidden;
     background: linear-gradient(184.46deg, #F1A22C 3.39%, #ECB21D 96.19%);
     box-shadow: 0px 2.75659px 0px #D58C1F;
     border-radius: 91.8864px;
@@ -339,11 +344,28 @@ main{
     &:hover{
       cursor: pointer;
     }
-
+    &::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(#fff,0.5);
+      width: 2.5em;
+      height: 100%;
+      transform: translateX(-4em) skewX(-45deg);
+      animation: button-light 6s infinite ;
+    }
 
   }
 }
-
+@keyframes button-light {
+  75%{
+    transform: translateX(-4em) skewX(-45deg);
+  }
+  100% {
+    transform: translateX(25em) skewX(-45deg);
+  }
+}
 
 .trip-info__price{
   @include mainFont;
