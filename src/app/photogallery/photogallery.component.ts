@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, } from '@angular/core';
-import { HttpPhotosService } from "../http-photos.service";
+import photosWinter from "./winter";
+import photosSummer from "./summer";
 
 @Component({
   selector: 'app-photogallery',
@@ -8,58 +9,63 @@ import { HttpPhotosService } from "../http-photos.service";
 })
 export class PhotogalleryComponent implements OnInit {
   @Input() season;
+  readyForWork = false;
   urlBigPhoto = "";
   bigPhoto = {
+    photoWebp: '',
     photo: '',
     description: '',
     index: undefined,
   }
   activeButtonBigPhotoLeft = true;
   activeButtonBigPhotoRight = true;
-
+  photos = []
   activeButtonLeft = false;
   activeButtonRight = true;
   photoPages = 0;
   photoPagesActive = 0;
   photosActive = [];
 
-  constructor(private httpPhotosService:HttpPhotosService) { }
+  constructor() { }
 
   ngOnInit(): void {
+    if (this.season == 'winter'){
+      this.photos = photosWinter;
+    }else {
+      this.photos = photosSummer;
+    }
+    this.photosActive = this.photos.slice(this.photoPagesActive, this.photoPagesActive + 8);
+    this.photoPages = this.photos.length ;
+    this.readyForWork = true;
 
-    this.httpPhotosService.getPhotos()
-    .subscribe(
-      data => {
-        this.photosActive = this.httpPhotosService.getPartPhoto(this.photoPagesActive);
-        this.photoPages = this.httpPhotosService.photos.length;
-      },
-      error => console.log(error)
-    );
   }
   next(event){
     event.preventDefault();
-    if (this.photoPagesActive!==this.photoPages-1){
-      this.photoPagesActive++;
+    if (this.photoPagesActive!==this.photoPages - 8){
+      this.photoPagesActive = this.photoPagesActive + 8;
       this.activeButtonLeft = true;
-      this.photosActive = this.httpPhotosService.getPartPhoto(this.photoPagesActive);
+      this.photosActive = this.photos.slice(this.photoPagesActive, this.photoPagesActive + 8);
     }
-    if (this.photoPagesActive===this.photoPages-1) this.activeButtonRight = false;
+    if (this.photoPagesActive===this.photoPages - 8) this.activeButtonRight = false;
+    console.log(this.photoPagesActive, this.photoPages)
   }
   previous(event){
     event.preventDefault();
     if (this.photoPagesActive!==0){
-      this.photoPagesActive--;
+      this.photoPagesActive-=8;
       this.activeButtonRight=true;
-      this.photosActive = this.httpPhotosService.getPartPhoto(this.photoPagesActive);
+      this.photosActive = this.photos.slice(this.photoPagesActive, this.photoPagesActive + 8);
     }
     if (this.photoPagesActive===0) this.activeButtonLeft = false;
   }
   closePopup(event){
     if (event.target.classList.contains('popup')){
+      this.bigPhoto.photoWebp = ""
       this.bigPhoto.photo = ""
     }
   }
   openBigPhoto(photo, index){
+    this.bigPhoto.photoWebp = photo.photoBigWebp;
     this.bigPhoto.photo = photo.photo;
     this.bigPhoto.description= photo.description;
     this.bigPhoto.index = index;
@@ -76,6 +82,7 @@ export class PhotogalleryComponent implements OnInit {
     if (this.bigPhoto.index !== this.photosActive.length - 1){
       this.activeButtonBigPhotoLeft = true;
       this.bigPhoto.index+=1;
+      this.bigPhoto.photoWebp = this.photosActive[this.bigPhoto.index].photoBigWebp;
       this.bigPhoto.photo = this.photosActive[this.bigPhoto.index].photo;
       this.bigPhoto.description = this.photosActive[this.bigPhoto.index].description;
     }
@@ -88,6 +95,7 @@ export class PhotogalleryComponent implements OnInit {
     if (this.bigPhoto.index !== 0){
       this.activeButtonBigPhotoRight = true;
       this.bigPhoto.index--;
+      this.bigPhoto.photoWebp = this.photosActive[this.bigPhoto.index].photoBigWebp;
       this.bigPhoto.photo = this.photosActive[this.bigPhoto.index].photo;
       this.bigPhoto.description = this.photosActive[this.bigPhoto.index].description;
     }

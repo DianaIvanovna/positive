@@ -1,4 +1,4 @@
-<section class="photogallery" #photogallery>
+<section class="photogallery" #photogallery *ngIf="readyForWork">
   <div class="forlink" id="photogallery" ></div>
 
   <picture class="photogallery__snowboarder" *ngIf="season=='winter'">
@@ -11,15 +11,23 @@
         alt="сноубордист">
   </picture>
 
-
-
   <div class="photogallery__header">
     <h2 class="photogallery__title">Фотогалерея</h2>
   </div>
+
+
+
   <div class="photogallery__grid">
-    <img width="270px" height="200px"  *ngFor="let item of photosActive; let i = index;" (click)="openBigPhoto(item, i)"
-    src="{{item.photo}}" alt="" class="grid__item item-{{i+1}}">
+    <picture *ngFor="let item of photosActive; let i = index;" class="grid__item item-{{i+1}}" (click)="openBigPhoto(item, i)">
+      <source srcset="{{item.photoWebp}}" type="image/webp">
+      <source media="(min-width: 500px)" srcset="{{item.photoSmall}}" type="image/webp">
+      <img width="720px" height="720px"
+      src="{{item.photo}}"
+      alt="фото горнолыжныу туры">
+    </picture>
   </div>
+
+
 
 
   <div class="photogallery__footer">
@@ -45,7 +53,13 @@
       (click)="bigPhoto.photo='';" class="popup__close popup__close_image">
 
       <div>
-          <img  src="{{bigPhoto.photo}}" alt="" class="popup__image">
+          <picture class="popup__image">
+            <source srcset="{{bigPhoto.photoWebp}}" type="image/webp">
+            <img width="720px" height="720px"
+            src="{{bigPhoto.photo}}"
+            alt="фото горнолыжныу туры">
+        </picture>
+
       </div>
     </div>
     <div class="popup__footer">
