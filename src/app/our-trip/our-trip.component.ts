@@ -28,7 +28,7 @@ export class OurTripComponent implements OnInit {
         data => {
           this.trips = data;
           this.readyForWork = true;
-
+          console.log(this.trips);
         },
         error => console.log(error)
       );

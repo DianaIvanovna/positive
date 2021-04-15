@@ -40,7 +40,7 @@
         <div  class="advantage__text">комфортный безопасный трансфер</div>
       </div>
     </div>
-    <div class="advantage positive-is__item">
+    <div class="advantage positive-is__item" *ngIf="season=='winter'">
       <picture class="advantage__background">
         <source srcset="./assets/images/background/back-positive-is-card_242.webp" type="image/webp">
         <img width="175px" height="200px"
@@ -50,6 +50,18 @@
       <div class="">
         <img width="64px" height="64px" src="./assets/images/Icon/ski-goggles.svg" alt="Иконка очки" class="advantage__icon">
         <div class="advantage__text">прокат современного снаряжения</div>
+      </div>
+    </div>
+    <div class="advantage positive-is__item" *ngIf="season=='summer'">
+      <picture class="advantage__background">
+        <source srcset="./assets/images/background/back-positive-is-card_242.webp" type="image/webp">
+        <img width="175px" height="200px"
+          src="./assets/images/background/back-positive-is-card_10e.png"
+          alt="фон карточки позитив это">
+      </picture>
+      <div class="">
+        <img width="64px" height="64px" src="./assets/images/Icon/backpack.svg" alt="Иконка рюкзак" class="advantage__icon">
+        <div class="advantage__text">Качественный прокат оборудования</div>
       </div>
     </div>
     <div class="advantage positive-is__item">

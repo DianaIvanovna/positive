@@ -23,20 +23,7 @@ interface Trip {
   travelPlan: string,
   id?: number,
   video?:string,
-  tariff: {
-    light: {
-      price: string,
-      advantages: string,
-    },
-    standard: {
-      price: string,
-      advantages: string,
-    },
-    vip: {
-      price: string,
-      advantages: string,
-    }
-  },
+  price: string,
   number: number
 }
 
@@ -76,20 +63,6 @@ export class HttpTripsService {
             large: item.acf.imgForTravelPlan.sizes.large,
             origin: item.acf.imgForTravelPlan.url
           }
-          let tariff = {
-            light: {
-              price: item.acf.tariff.price_light,
-              advantages: item.acf.tariff.advantages_light,
-            },
-            standard: {
-              price: item.acf.tariff.price_standard,
-              advantages: item.acf.tariff.advantages_standard
-            },
-            vip: {
-              price: item.acf.tariff.price_vip,
-              advantages: item.acf.tariff.advantages_vip,
-            },
-          }
           return {
             title: item.acf.title,
             linkName:item.acf.linkName,
@@ -104,7 +77,7 @@ export class HttpTripsService {
             travelPlan: item.acf.travelPlan,
             id: item.acf.id,
             video:item.acf.video,
-            tariff: tariff,
+            price: item.acf.price,
             number: item.acf.number
           }
         })

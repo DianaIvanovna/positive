@@ -46,15 +46,15 @@ export class WelcomeSectionComponent implements OnInit {
   dataRentWinter = {
     title: "Прокат",
     titleDark: "горнолыжного оборудования",
-    subtitle: "Челябинск, Екатеринбург",
+    subtitle: "Челябинск",
     link: ".equipmentContainer",
     page: "rent",
     btnText: "ПОСМОТРЕТЬ ОБОРУДОВАНИЕ"
   }
   dataRentSummer = {
     title: "Прокат",
-    titleDark: "лучшего оборудования",
-    subtitle: "Челябинск, Екатеринбург",
+    titleDark: "туристического оборудования и велосипедов",
+    subtitle: "Челябинск",
     link: ".equipmentContainer",
     page: "rent",
     btnText: "ПОСМОТРЕТЬ ОБОРУДОВАНИЕ"

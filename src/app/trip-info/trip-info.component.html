@@ -52,10 +52,10 @@
               <div class="trip-info__reserve">
                 <div>
                   <p class="trip-info__price">Цена:</p>
-                  <p class="trip-info__price-value">от {{trip.tariff.light.price}} ₽</p>
+                  <p class="trip-info__price-value">{{trip.price}} ₽</p>
                 </div>
                 <div class="button__background">
-                  <button class="trip-info__button"  (click)="scrollToBook($event)">ТАРИФЫ</button>
+                  <button class="trip-info__button"  (click)="openPopup('light')">ЗАБРОНИРОВАТЬ</button>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@
 
 
     <!-- ТАРИФЫ -->
-    <app-tariff [trip]="trip" *ngIf="readyForWork" [season] = "season"></app-tariff>
+    <!-- <app-tariff [trip]="trip" *ngIf="readyForWork" [season] = "season"></app-tariff> -->
     <!-- END ТАРИФЫ -->
 
     <!-- VIDEO -->
@@ -127,4 +127,58 @@
   </div>
   <!-- кнопка вверх -->
   <app-go-up></app-go-up>
+</div>
+
+
+
+
+
+<!-- ПОПАП РЕГИСТРАЦИЯ  -->
+
+ <div   *ngIf="readyForWork" class="popup popup_edit-profile" [class.popup_is-opened]="bookTrip" (click)="closePopup($event)">
+  <div class="popup__content" *ngIf="messageIsSent==1">
+    <img width="26px" height="25px" src="./assets/images/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
+    <h3 class="popup__title">Забронировать поездку</h3>
+
+    <form class="popup__form popup__form_editProfile" name="editProfile" [formGroup]="formBook"  #formBookNative action="send.php" method="post" (ngSubmit)="submit()">
+        <!-- Hidden Required Fields -->
+        <input type="hidden" name="project_name" formControlName="project_name" >
+        <input type="hidden" name="admin_email" formControlName="admin_email">
+        <input type="hidden" name="form_subject" formControlName="form_subject">
+
+        <input type="hidden" name="trip" formControlName="trip">
+        <input type="hidden" name="dateTrip" formControlName="dateTrip">
+        <input type="hidden" name="tariff" formControlName="tariff">
+        <!-- END Hidden Required Fields -->
+
+        <input class="popup__input" type="text" name="name" placeholder="ФИО" formControlName="name" required>
+
+        <input [textMask]="{mask: mask}"  class="popup__input popup__input_tel"  name="tel" placeholder="+7(___) ___-__-__"  formControlName="tel" required >
+
+        <input class="popup__input popup__input_number" type="number" name="numberPerson" formControlName="numberPerson" required placeholder="количество человек">
+
+        <!-- <input class="popup__input" type="date" name="dateBirth" formControlName="dateBirth" required> -->
+        <input [textMask]="{mask: maskDate}" class="popup__input"  name="dateBirth"  placeholder="дата рождения" formControlName="dateBirth" required>
+
+
+        <input class="popup__input" type="text" name="comment" formControlName="comment" placeholder="Комментарии">
+
+        <div class="button__background button__background_popup">
+          <button type="submit" class="tariff-item__button tariff-item__button_popup" [disabled]="formBook.invalid">ЗАБРОНИРОВАТЬ</button>
+        </div>
+    </form>
+  </div>
+
+  <div class="popup__content" *ngIf="messageIsSent==2">
+    <img src="./assets/images/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
+    <p class="popup__text">Вам нужен прокат оборудования?</p>
+    <a href="./rent" class="popup__link_active">ДА</a> <span class="popup__link" (click)="messageIsSent = 3">нет</span>
+  </div>
+
+  <div class="popup__content" *ngIf="messageIsSent==3">
+    <img src="./assets/images/Icon/close.svg" alt="Иконка закрытия формы" (click)="bookTrip = false" class="popup__close popup__close_edit-profile">
+
+    <h3 class="popup__title">Спасибо, что забронировали поездку!</h3>
+    <p class="popup__text">В ближайшее время с вами свяжется наш менеджер и подтвердит бронирование.</p>
+  </div>
 </div>

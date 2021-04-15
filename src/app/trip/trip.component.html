@@ -14,7 +14,7 @@
       <button class="trip__button" [routerLink]="['/',trip.linkName]" [queryParams]="{'season':season}">ПОДРОБНЕЕ</button>
       <div>
         <p class="trip__price">Цена:</p>
-        <p class="trip__price-value">от {{trip.tariff.light.price}} ₽</p>
+        <p class="trip__price-value">{{trip.price}} ₽</p>
       </div>
     </div>
   </div>

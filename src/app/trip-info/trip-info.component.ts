@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angula
 import { ActivatedRoute, Params , Router} from '@angular/router';
 import { HttpTripsService } from '../http-trips.service';
 import { HttpClient  } from '@angular/common/http';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-trip-info',
@@ -10,12 +11,21 @@ import { HttpClient  } from '@angular/common/http';
 })
 export class TripInfoComponent implements OnInit, AfterViewInit {
   @ViewChild ('videoImg') videoImg:ElementRef;
+  @ViewChild('formBookNative') formBookNative:ElementRef;
   equipmentSmall = true;
   season = "summer"
   advantages = [];
   trip;
   readyForWork = false;
   numberActivePhoto:number;
+
+
+  bookTrip = false; // открытия попапа забронировать
+  formBook:FormGroup;
+  mask = ['+','7','(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-', /\d/, /\d/];
+  maskDate=[/\d/, /\d/,'.',/\d/, /\d/,'.',/\d/, /\d/,/\d/, /\d/,];
+  messageIsSent = 1;
+  tariff = '' ;
 
   constructor(private httpTripsService:HttpTripsService,
     private route: ActivatedRoute, private http: HttpClient, private router: Router) {
@@ -27,32 +37,62 @@ export class TripInfoComponent implements OnInit, AfterViewInit {
         this.season = params.season;
       }
     })
-  // загружаю данные о поездке
-  this.route.params.subscribe((params: Params)=>{
-    if (this.httpTripsService.trips === undefined) {
-      this.httpTripsService.getTrips(this.season)
-      .subscribe(
-        data => {
-          this.trip = data.find((item)=>{
-            return item.linkName === params.linkName
-          });
-          this.readyForWork = true;
+    // загружаю данные о поездке
+    this.route.params.subscribe((params: Params)=>{
+      if (this.httpTripsService.trips === undefined) {
+        this.httpTripsService.getTrips(this.season)
+        .subscribe(
+          data => {
+            this.trip = data.find((item)=>{
+              return item.linkName === params.linkName
+            });
+            this.initform();
+            this.readyForWork = true;
 
-        },
-        error => console.log(error)
-      );
+          },
+          error => console.log(error)
+        );
 
-    }
-    else { // массив поедок уже загружен
-      this.trip = this.httpTripsService.trips.find((item)=>{
-        return item.linkName === params.linkName
-      });
-      this.readyForWork = true;
-    }
-  })
-  this.numberActivePhoto = 0;
-
+      }
+      else { // массив поедок уже загружен
+        this.trip = this.httpTripsService.trips.find((item)=>{
+          return item.linkName === params.linkName
+        });
+        this.initform();
+        this.readyForWork = true;
+      }
+    })
+    this.numberActivePhoto = 0;
   }
+
+initform(){
+ // инициализирую форму бронирования поездки
+  this.formBook = new FormGroup({
+    // поля для php, чтобы отправить письмо
+    project_name: new FormControl('Positive'),
+    admin_email: new FormControl('pozitivtour74@pozitivtour74.ru'),
+    form_subject: new FormControl('Бронирование поездки'),
+    trip: new FormControl(this.trip.title),
+    dateTrip: new FormControl(this.trip.date),
+    tariff: new FormControl(''),
+    name: new FormControl('', [
+      Validators.required,
+    ]),
+    tel: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/\+7\([0-9]{1}[0-9]{2}\) [0-9]{3}-[0-9]{2}-[0-9]{2}/),
+    ]),
+    numberPerson: new FormControl('', [
+      Validators.required,
+    ]),
+    dateBirth: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/[0-9]{2}\.[0-9]{2}\.[0-9]{4}/),
+    ]),
+    comment:new FormControl(''),
+  });
+}
+
   ngAfterViewInit(): void {
     window.scrollTo(pageXOffset, 0);
 
@@ -115,6 +155,34 @@ export class TripInfoComponent implements OnInit, AfterViewInit {
       fragment: `ourTrip`
     });
 
+  }
+
+  // форма забронировать поездку
+  closePopup(event){
+    if (event.target.classList.contains('popup')){
+      this.bookTrip = false;
+    }
+  }
+
+  submit(){
+    this.messageIsSent = 2;
+    this.formBookNative.nativeElement.tariff.value = this.tariff;
+    fetch("assets/php/mail.php", {
+        method: "POST",
+        body: new FormData(this.formBookNative.nativeElement)
+      })
+      .then(data=>{
+      })
+      .catch(function(error) { console.log(error); });
+  }
+
+  openPopup(tarif){
+    console.log('!')
+    this.tariff = tarif;
+    // очищает форму
+    // this.formBook.reset();
+    this.messageIsSent = 1; // !!!!!!!!!!!!!!!!!!!!!!!!!!
+    this.bookTrip = true;
   }
 
 }
