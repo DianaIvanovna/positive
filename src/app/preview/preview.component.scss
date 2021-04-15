@@ -19,9 +19,6 @@
   animation: radial-pulse_preview 2.5s infinite;
 }
 
-.preview__logo_preview{
-
-}
 
 .loading {
   display: flex;
@@ -109,15 +106,19 @@
   @media screen and (max-width: 600px){
     width: 100%;
   }
-  animation: text 1s ease-in;
+  animation:  text 2.5s ease-in ;
 }
 
 @keyframes text {
-  from {
+  0% {
     transform: scale(0.7);
     opacity: 0;
   }
-  to {
+  50%{
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
     transform: scale(1);
     opacity: 1;
   }
