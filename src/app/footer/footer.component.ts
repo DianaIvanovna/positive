@@ -34,11 +34,11 @@ export class FooterComponent implements OnInit {
   }
   submit(){
     this.messageIsSent = true;
-    fetch("assets/php/mail.php", {
+    fetch("assets/php/telegram.php", {
         method: "POST",
         body: new FormData(this.formNative.nativeElement)
       })
       .then(data=>{})
       .catch(function(error) { console.log(error); });
   }
- }
+}
