@@ -41,6 +41,18 @@
 
 .equipmentContainer__title{
   margin-bottom: 68px;
+  animation: TitleAnim 1s ease-in;
+}
+@keyframes TitleAnim {
+
+  from{
+    transform: translate(-20%, 20%) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 1;
+  }
 }
 
 .equipmentContainer__footer{

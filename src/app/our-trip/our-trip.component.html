@@ -1,17 +1,19 @@
 
-<div class="loading" *ngIf="!readyForWork">
-  <picture class="loading__pulse">
-    <source srcset="./assets/images/logo/logo-big_a1b.webp" type="image/webp">
-    <img  width="106px" height="106px" src="./assets/images/logo/logo-big.png" alt="логтип positive">
-  </picture>
 
-</div>
-<section class="our-trip"  #ourTrip *ngIf="readyForWork">
+<section class="our-trip"  #ourTrip>
   <div class="forlink" id="ourTrip"></div>
   <div class="our-trip__header">
-    <h2 class="our-trip__title">Наши поездки</h2>
+    <h2 class="our-trip__title anim__title">Наши поездки</h2>
   </div>
-  <app-slider [trips]="trips"></app-slider>
+
+  <div class="loading" *ngIf="!readyForWork">
+    <picture class="loading__pulse">
+      <source srcset="./assets/images/logo/logo-big_a1b.webp" type="image/webp">
+      <img  width="106px" height="106px" src="./assets/images/logo/logo-big.png" alt="логтип positive">
+    </picture>
+
+  </div>
+  <app-slider [trips]="trips" *ngIf="readyForWork"></app-slider>
 </section>
 
 
