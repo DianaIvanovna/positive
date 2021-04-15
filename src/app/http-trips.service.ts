@@ -36,7 +36,8 @@ interface Trip {
       price: string,
       advantages: string,
     }
-  }
+  },
+  number: number
 }
 
 @Injectable({
@@ -103,9 +104,13 @@ export class HttpTripsService {
             travelPlan: item.acf.travelPlan,
             id: item.acf.id,
             video:item.acf.video,
-            tariff: tariff
+            tariff: tariff,
+            number: item.acf.number
           }
         })
+        .sort((a,b)=>{
+          return a.number - b.number;
+        });
         if (season == 'summer') return this.tripsSummer = this.trips;
         return this.tripsWinter = this.trips;
       })
