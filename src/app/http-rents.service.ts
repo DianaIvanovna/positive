@@ -2,10 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
+interface priceSummer {
+  title: string,
+  price: string,
+}
 
 interface RentSummer {
   title:string;
-  price: string[];
+  price: priceSummer[];
   img:string;
   number: number;
 }
@@ -59,14 +63,38 @@ export class HttpRentsService {
           return {
             title:item.acf.title,
             price: [
-              item.acf.price_1,
-              item.acf.price_2,
-              item.acf.price_3,
-              item.acf.price_4,
-              item.acf.price_5,
-              item.acf.price_6,
-              item.acf.price_7,
-              item.acf.deposit,
+              {
+                title:item.acf.price_1.title,
+                price: item.acf.price_1.price
+              },
+              {
+                title:item.acf.price_2.title,
+                price: item.acf.price_2.price
+              },
+              {
+                title:item.acf.price_3.title,
+                price: item.acf.price_3.price
+              },
+              {
+                title:item.acf.price_4.title,
+                price: item.acf.price_4.price
+              },
+              {
+                title:item.acf.price_5.title,
+                price: item.acf.price_5.price
+              },
+              {
+                title:item.acf.price_6.title,
+                price: item.acf.price_6.price
+              },
+              {
+                title:item.acf.price_7.title,
+                price: item.acf.price_7.price
+              },
+              {
+                title:item.acf.price_8.title,
+                price: item.acf.price_8.price
+              },
             ],
             img:item.acf.img.sizes.large,
             number: item.acf.number

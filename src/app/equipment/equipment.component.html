@@ -101,15 +101,15 @@
       <h3 class="equipment__title equipment__title_summer">{{rent.title}}</h3>
       <div class=""class="equipment-summer__prices equipment-summer__prices_first">
 
-        <div *ngFor="let price of rent.price.slice(4); let i = index" class="equipment-summer__item">
-          <p class="equipment-summer__date">{{i+1}} Дн</p>
-          <p class="equipment-summer__price">{{price}} ₽</p>
+        <div *ngFor="let price of rent.price.slice(0,4); let i = index" class="equipment-summer__item">
+          <p class="equipment-summer__date">{{price.title}}</p>
+          <p class="equipment-summer__price">{{price.price}} ₽</p>
         </div>
       </div>
       <div class="equipment-summer__prices equipment-summer__prices_second" >
         <div class="" class="" *ngFor="let price of rent.price.slice(4); let i = index" class="equipment-summer__item">
-          <p class="equipment-summer__date">{{i+5}} Дн</p>
-          <p class="equipment-summer__price">{{price}} ₽</p>
+          <p class="equipment-summer__date">{{price.title}}</p>
+          <p class="equipment-summer__price">{{price.price}} ₽</p>
         </div>
       </div>
     </div>
