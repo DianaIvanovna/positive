@@ -108,8 +108,8 @@
       </div>
       <div class="equipment-summer__prices equipment-summer__prices_second" >
         <div class="" class="" *ngFor="let price of rent.price.slice(4); let i = index" class="equipment-summer__item">
-          <p class="equipment-summer__date">{{price.title}}</p>
-          <p class="equipment-summer__price">{{price.price}} ₽</p>
+          <p class="equipment-summer__date" *ngIf="price.price != ' '">{{price.title}}</p>
+          <p class="equipment-summer__price" *ngIf="price.price != ' '">{{price.price}} ₽</p>
         </div>
       </div>
     </div>
