@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { TripInfoComponent } from './trip-info/trip-info.component';
 import { EquipmentRentalComponent } from './equipment-rental/equipment-rental.component';
 import { PreviewComponent } from './preview/preview.component';
+import { OfferComponent } from "./offer/offer.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'rent',
     component: EquipmentRentalComponent
+  },
+  {
+    path: 'offer',
+    component: OfferComponent
   },
   {
     path: ':linkName',

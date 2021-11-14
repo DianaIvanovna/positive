@@ -55,12 +55,24 @@
       </div>
     </div>
     <!-- content end -->
+    <div class="page">
+      <div class="pageContent">
+        <div class="card__header">
+          <h2 class="card__title" >Как нас найти</h2>
+        </div>
+        <p class="card__text">Адрес г. Челябинск, ул. Братьев Кашириных, д.95 а, 10:00-20:00</p>
+        <div class="card__container">
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A38ddacb98d40b1263a5b2c6e97591dc9c0d924e92bd1f96f8a5358cb7a63db0e&amp;source=constructor" width="1000" height="400" frameborder="0"></iframe>
+        </div>
 
+      </div>
+    </div>
 
     <!-- footer start -->
     <div class="page">
       <div class="pageContent">
-        <app-footer></app-footer>
+
+        <app-footer [season]="season"></app-footer>
         <!-- фоновые картинки footer -->
         <picture *ngIf="season=='summer'" class="page__background_footer lazy-image">
           <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-footer-summer_065.webp" type="image/webp">

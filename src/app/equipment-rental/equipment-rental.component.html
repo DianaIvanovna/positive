@@ -78,7 +78,7 @@
     <!-- footer start -->
     <div class="page">
       <div class="pageContent">
-        <app-footer></app-footer>
+        <app-footer [season]="season"></app-footer>
         <!-- фоновые картинки footer -->
         <picture *ngIf="season=='summer'" class="page__background_footer lazy-image">
           <source media="(min-width: 1600px)" data-srcset="./assets/images/background/back-footer-summer_065.webp" type="image/webp">

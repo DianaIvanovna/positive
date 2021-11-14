@@ -1,6 +1,13 @@
 @import "../../assets/styles/variables.scss";
 /* autoprefixer grid: autoplace */
 
+.footer__offer {
+  text-decoration: underline;
+  font-size: 18px;
+  &:hover {
+    cursor: pointer;
+  }
+}
 .footer{
   position: relative;
   min-height: 350px;

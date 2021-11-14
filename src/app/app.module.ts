@@ -26,6 +26,7 @@ import { PreviewComponent } from './preview/preview.component';
 import { GoUpComponent } from './go-up/go-up.component';
 import { SliderComponent } from './slider/slider.component';
 import { TripVideoComponent } from './trip-video/trip-video.component';
+import { OfferComponent } from './offer/offer.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { TripVideoComponent } from './trip-video/trip-video.component';
     GoUpComponent,
     SliderComponent,
     TripVideoComponent,
+    OfferComponent,
   ],
   imports: [
     BrowserModule,

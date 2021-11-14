@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient  } from '@angular/common/http';
+import {Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -8,14 +9,27 @@ import { HttpClient  } from '@angular/common/http';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  @Input() season:string;
 
   @ViewChild('formNative') formNative:ElementRef;
   form:FormGroup;
   mask = ['+','7','(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-', /\d/, /\d/];
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router, private activatedRoute: ActivatedRoute) {
   }
   messageIsSent = false;
-
+  scrollTo(event){
+    event.preventDefault();
+    const link = event.target.getAttribute('data-href');
+    const anchor = event.target.getAttribute('data-anchor');
+    if (link) {
+      this.router.navigate( [link], {
+        queryParams: {
+          'season': this.season,
+        },
+        fragment: anchor
+      });
+    }
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -41,4 +55,6 @@ export class FooterComponent implements OnInit {
       .then(data=>{})
       .catch(function(error) { console.log(error); });
   }
+
+
 }
