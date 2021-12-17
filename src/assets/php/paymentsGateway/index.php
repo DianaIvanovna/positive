@@ -1,20 +1,4 @@
 <?php
-
-//========================== Конфиг ==================
-// Данные доступа к Букзе
-define('BUKZA_LOGIB', );
-define('BUKZA_PASS', );
-
-// Данные доступа к сберу
-define('SBERAPI_LOGIN', 'T741208548498-api');
-define('SBERAPI_PASS', 'T741208548498');
-
-// Путь к файлику с платежами
-define('PATH_PAYMENTS_FILE', __DIR__ . '/payments.json');
-
-
-//========================== Входящие параметры =============
-
 $rawRequest = file_get_contents('php://input');
 $arRequest = json_decode($rawRequest, true);
 // выкинем exception если не удалось получить валидный  json
@@ -22,7 +6,7 @@ if ($arRequest === false ) {
     throw new ErrorException('Не удалось распарсить входящий json (' . $rawRequest . ')', 0);
 }
 
-//= получим тип запроса, запрос от букзы или ответ от сбера
+//= получим тип запроса, запрос от букзы или ответы от сбера
 $action = $_GET['action'];
 
 require __DIR__ . '/functions.php';
@@ -31,14 +15,58 @@ require __DIR__ . '/functions.php';
 switch($action) {
     case 'bukza': 
         //= сформировать и отправить запрос в сбер
+        $arSberPay = SberSend_CreatePay([
+            'number'        => $arRequest['orderNumber'],
+            'amount'        => intval($arRequest['amount']) * 100,
+            'description'   => 'телефон: ' . $arRequest['phone'],
+        ]);
 
         //= сохранить данные о заказе в файлике
+        if ($arSberPay['errorCode'] == 0) {
+            $arStore = GetFromStore();
+            $arStore[$arSberPay['orderId']] = [
+                'bankID' => $arSberPay['orderId'],
+                'bukzaID' => $arRequest['orderNumber'],
+                'amount' => $arRequest['amount'],
+                'date'  => date('d.m.Y H:i'),
+            ];
+            SaveInStore($arStore);
+        }
+        
         //= отправить букзе адрес платежной формы
+        SendJSON([
+            'url' => $arSberPay['formUrl'],
+            'redirect' => false,
+        ]);
 
         break;
 
-    case 'sber':
+    case 'success':
+        $bankID = $_GET['orderId'];
+
+        $arStore = GetFromStore();
+        if (!count($arStore)) {
+            throw new ErrorException('Не найден заказ № ' . $bankID . ' в хранилище', 0);
+        }
+
         //= отправить букзе информацию о платеже
+        $res = BukzaSend([
+            'orderNumber'   => $arStore[$bankID]['bukzaID'],
+            'command'       => 'AuthorizeCallback',
+            'data'          => '',
+            'amount'        => $arStore[$bankID]['amount'],
+            'timestamp'     => time(),
+            'hash'          => '................',
+            'comment'       => '..................'
+        ]);
+
+        break;
+        
+    case 'fail':
+        $bankID = $_GET['orderId'];
+
+        //= отправить букзе информацию о платеже
+            
         break;
 }
 
@@ -78,3 +106,10 @@ switch($action) {
 // Документация сбера
 // https://www.sberbank.ru/ru/legal/finapi
 // https://snipp.ru/php/sberbank-pay
+
+// Вот так ответит сбер если платеж создан
+// {
+// 	"errorCode":"0",
+// 	"orderId":"70906e55-7114-41d6-8332-4609dc6590f4",
+// 	"formUrl":"https://3dsec.sberbank.ru/payment/merchants/test/payment_ru.html?mdOrder=70906e55-7114-41d6-8332-4609dc6590f4"
+// }
