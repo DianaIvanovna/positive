@@ -44,7 +44,6 @@ function SberSend_CreatePay(array $order) {
 }
 
 function BukzaSend(array $order) {
-    $order['userId'] = 'BUKZA_USER_ID';
     $options = [
         'http' => [
             'method'  => 'POST',
