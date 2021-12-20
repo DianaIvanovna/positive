@@ -39,6 +39,14 @@
  * 	"orderId":"70906e55-7114-41d6-8332-4609dc6590f4",
  * 	"formUrl":"https://3dsec.sberbank.ru/payment/merchants/test/payment_ru.html?mdOrder=70906e55-7114-41d6-8332-4609dc6590f4"
  * }
+ * 
+ * https://securepayments.sberbank.ru/wiki/doku.php/integration:api:start
+ * https://securepayments.sberbank.ru/wiki/doku.php/integration:cms:start
+ * https://securepayments.sberbank.ru/wiki/doku.php/integration:simple
+ * https://securepayments.sberbank.ru/wiki/doku.php/mportal3:auth
+ * https://securepayments.sberbank.ru/wiki/doku.php/merchant_website_guidelines
+ * https://securepayments.sberbank.ru/wiki/doku.php/test_cards
+ * 
  */
 
 $rawRequest = file_get_contents('php://input');
