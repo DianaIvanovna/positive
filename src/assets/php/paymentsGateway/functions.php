@@ -1,13 +1,10 @@
 <?php
 
-function SberSend_CreatePay(array $order) {
-    // Данные доступа к сберу
-    define('SBERAPI_LOGIN', 'T741208548498-api');
-    define('SBERAPI_PASS', 'T741208548498');
+function SberSend_CreatePay(array $order, $sberLogin, $sberPass) {
 
     $vars = array();
-    $vars['userName'] = SBERAPI_LOGIN;
-    $vars['password'] = SBERAPI_PASS;
+    $vars['userName'] = $sberLogin;
+    $vars['password'] = $sberPass;
 
     /* ID заказа в магазине */
     $vars['orderNumber'] = $order['number'];
@@ -33,7 +30,7 @@ function SberSend_CreatePay(array $order) {
     /* Описание заказа, не более 24 символов, запрещены % + \r \n */
     $vars['description'] = $order['description'];
 
-    $ch = curl_init('https://3dsec.sberbank.ru/payment/rest/register.do?' . http_build_query($vars));
+    $ch = curl_init('https://3dsec.sberbank.ru/sbrfpayment/rest/register.do?' . http_build_query($vars));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_HEADER, false);

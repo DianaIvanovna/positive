@@ -49,6 +49,10 @@
  * 
  */
 
+define('BUKZA_API_KEY', 'nUpKT4$kxxWK');
+define('SBER_LOGIN', 'T741208548498-api');
+define('SBER_PASS', 'T741208548498');
+
 $rawRequest = file_get_contents('php://input');
 $arRequest = json_decode($rawRequest, true);
 
@@ -69,7 +73,7 @@ switch($action) {
             'number'        => $arRequest['orderNumber'],
             'amount'        => intval($arRequest['amount']) * 100,
             'description'   => 'телефон: ' . $arRequest['phone'],
-        ]);
+        ], SBER_LOGIN, SBER_PASS);
 
         //= сохранить данные о заказе в файлике
         if ($arSberPay['errorCode'] == 0) {
@@ -106,7 +110,7 @@ switch($action) {
         $queryHash = hash_hmac(
             'sha256',
             $arStore[$bankOrderID]['bukzaUserID'] . $arStore[$bankOrderID]['bukzaOrderID'] . 'CaptureCallback' . $bankOrderID . $arStore[$bankOrderID]['amount'] . $timeStamp,
-            'secret',
+            BUKZA_API_KEY,
             true
         );
 
@@ -121,36 +125,5 @@ switch($action) {
             'hash'          => base64_encode($queryHash)
         ]);
 
-        break;
-        
-    case 'fail':
-        //= отправить букзе информацию о платеже
-        // $bankID = $_GET['orderId'];
-
-        // $arStore = GetFromStore();
-        // if (!count($arStore)) {
-        //     throw new ErrorException('Не найден заказ № ' . $bankID . ' в хранилище', 0);
-        // }
-
-        // $timeStamp = time();
-
-        // $queryHash = hash_hmac(
-        //     'sha256',
-        //     $arStore[$bankID]['bukzaUserID'] . $arStore[$bankID]['bukzaOrderID'] . 'Cancel' . $bankID . $arStore[$bankID]['amount'] . $timeStamp,
-        //     'secret',
-        //     true
-        // );
-
-        // //= отправить букзе информацию о платеже
-        // $res = BukzaSend([
-        //     'userId'        => $arStore[$bankID]['bukzaUserID']
-        //     'orderNumber'   => $arStore[$bankID]['bukzaOrderID'],
-        //     'command'       => 'AuthorizeCallback',
-        //     'data'          => $bankID,
-        //     'amount'        => $arStore[$bankID]['amount'],
-        //     'timestamp'     => $timeStamp,
-        //     'hash'          => base64_encode($queryHash)
-        // ]);
-            
         break;
 }
