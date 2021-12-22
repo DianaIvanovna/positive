@@ -52,9 +52,9 @@
 define('BUKZA_API_KEY', 'nUpKT4$kxxWK');
 define('SBER_LOGIN', 'T741208548498-api');
 define('SBER_PASS', 'T741208548498');
+define('FILE_DEBUG_LOG', getenv('DOCUMENT_ROOT') . '/assets/php/paymentsGateway/debug.log');
 
-$rawRequest = file_get_contents('php://input');
-$arRequest = json_decode($rawRequest, true);
+$arRequest = json_decode(file_get_contents('php://input'), true);
 
 // выкинем exception если не удалось получить валидный  json
 if ($arRequest === false ) {
@@ -66,14 +66,23 @@ $action = $_GET['action'];
 
 require __DIR__ . '/functions.php';
 
+// TODO DEBUG
+file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . ' Запрошено действие (action): ' . $action . "\n", FILE_APPEND);
+// TODO DEBUG
+file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Тело запроса:\n" . print_r($arRequest, true) . "\n\n", FILE_APPEND);
+
 switch($action) {
     case 'bukza': 
+
         //= сформировать и отправить запрос в сбер
         $arSberPay = SberSend_CreatePay([
             'number'        => $arRequest['orderNumber'],
             'amount'        => intval($arRequest['amount']) * 100,
             'description'   => 'телефон: ' . $arRequest['phone'],
         ], SBER_LOGIN, SBER_PASS);
+
+        // TODO DEBUG
+        file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Ответ от Сбера при создании платежа:\n" . print_r($arSberPay, true) . "\n\n", FILE_APPEND);
 
         //= сохранить данные о заказе в файлике
         if ($arSberPay['errorCode'] == 0) {
@@ -101,6 +110,10 @@ switch($action) {
         $bankOrderID = $_GET['orderId'];
 
         $arStore = GetFromStore();
+
+        // TODO DEBUG
+        file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Получено содержимое хранилища:\n" . print_r($arStore, true) . "\n\n", FILE_APPEND);
+
         if (!count($arStore)) {
             throw new ErrorException('Не найден заказ № ' . $bankOrderID . ' в хранилище', 0);
         }
@@ -124,6 +137,9 @@ switch($action) {
             'timestamp'     => $timeStamp,
             'hash'          => base64_encode($queryHash)
         ]);
+
+        // TODO DEBUG
+        file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Букза ответила:\n" . print_r($res, true) . "\n\n", FILE_APPEND);
 
         break;
 }
