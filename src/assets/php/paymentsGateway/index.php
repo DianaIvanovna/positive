@@ -76,23 +76,24 @@ switch($action) {
 
         //= сформировать и отправить запрос в сбер
         $arSberPay = SberSend_CreatePay([
-            'number'        => $arRequest['orderNumber'],
-            'amount'        => intval($arRequest['amount']) * 100,
-            'description'   => 'телефон: ' . $arRequest['phone'],
+            'number'        => $arRequest['OrderNumber'],
+            'amount'        => intval($arRequest['Amount']) * 100,
+            'description'   => 'телефон: ' . $arRequest['Phone'],
+            'userID'        => $arRequest['UserId'],
         ], SBER_LOGIN, SBER_PASS);
 
         // TODO DEBUG
         file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Ответ от Сбера при создании платежа:\n" . print_r($arSberPay, true) . "\n\n", FILE_APPEND);
 
         //= сохранить данные о заказе в файлике
-        if ($arSberPay['errorCode'] == 0) {
+        if (isset($arSberPay['orderId'])) {
             $arStore = GetFromStore();
             $arStore[$arSberPay['orderId']] = [
-                'bukzaUserID' => $arRequest['userId'],
-                'bukzaData' => $arRequest['data'],
-                'bukzaOrderID' => $arRequest['orderNumber'],
+                'bukzaUserID' => $arRequest['UserId'],
+                'bukzaData' => $arRequest['Data'],
+                'bukzaOrderID' => $arRequest['OrderNumber'],
                 'sberOrderID' => $arSberPay['orderId'],
-                'amount' => $arRequest['amount'],
+                'amount' => $arRequest['Amount'],
                 'date'  => date('d.m.Y H:i'),
             ];
             SaveInStore($arStore);
@@ -110,9 +111,6 @@ switch($action) {
         $bankOrderID = $_GET['orderId'];
 
         $arStore = GetFromStore();
-
-        // TODO DEBUG
-        file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Получено содержимое хранилища:\n" . print_r($arStore, true) . "\n\n", FILE_APPEND);
 
         if (!count($arStore)) {
             throw new ErrorException('Не найден заказ № ' . $bankOrderID . ' в хранилище', 0);
@@ -137,9 +135,5 @@ switch($action) {
             'timestamp'     => $timeStamp,
             'hash'          => base64_encode($queryHash)
         ]);
-
-        // TODO DEBUG
-        file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Букза ответила:\n" . print_r($res, true) . "\n\n", FILE_APPEND);
-
         break;
 }

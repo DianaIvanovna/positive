@@ -9,17 +9,11 @@ function SberSend_CreatePay(array $order, $sberLogin, $sberPass) {
     /* ID заказа в магазине */
     $vars['orderNumber'] = $order['number'];
 
-    $vars['orderBundle'] = json_encode(
-        [
-            'cartItems' => [
-                'items' => []
-            ]
-        ],
-        JSON_UNESCAPED_UNICODE
-    );
-
     /* Сумма заказа в копейках */
     $vars['amount'] = $order['amount'];
+
+    /* ID клиента */
+    $vars['clientId'] = $order['userID'];
 
     /* URL куда клиент вернется в случае успешной оплаты */
     $vars['returnUrl'] = 'https://pozitivtour74.ru/assets/php/paymentsGateway/?action=success';
@@ -30,7 +24,11 @@ function SberSend_CreatePay(array $order, $sberLogin, $sberPass) {
     /* Описание заказа, не более 24 символов, запрещены % + \r \n */
     $vars['description'] = $order['description'];
 
-    $ch = curl_init('https://3dsec.sberbank.ru/sbrfpayment/rest/register.do?' . http_build_query($vars));
+    // TODO DEBUG
+    file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Запрос в Сбер:\n" . print_r($vars, true) . "\n\n", FILE_APPEND);
+
+
+    $ch = curl_init('https://3dsec.sberbank.ru/payment/rest/register.do?' . http_build_query($vars));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_HEADER, false);
@@ -64,18 +62,15 @@ function SaveInStore(array $data) {
 
 // Вернет содержимое хранилища
 function GetFromStore() {
-    $ar = jsond_decode(file_get_contents(__DIR__ . '/payments.json'), true);
+    $ar = json_decode(file_get_contents(__DIR__ . '/payments.json'), true);
     if ($ar === false) {
         $ar = array();
     }
     return $ar;
 }
 
-function SendJSON(array $date) {
-    header('HTTP/1.0 200');
-    header('Cache-Control: no-cache, must-revalidate');
-    header('Expires: '.date('r',time()-86400));
-    header('Content-type: application/javascript; charset=utf-8');
-    echo json_encode($json);
+function SendJSON(array $data) {
+    header('Content-Type: application/json');
+    echo json_encode($data);
     exit;
 }
