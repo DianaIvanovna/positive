@@ -7,7 +7,7 @@ function SberSend_CreatePay(array $order, $sberLogin, $sberPass) {
     $vars['password'] = $sberPass;
 
     /* ID заказа в магазине */
-    $vars['orderNumber'] = $order['number'];
+    $vars['orderNumber'] = $order['number'] . '-bukza-' . rand(10,99);
 
     /* Сумма заказа в копейках */
     $vars['amount'] = $order['amount'];
