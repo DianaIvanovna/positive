@@ -135,5 +135,9 @@ switch($action) {
             'timestamp'     => $timeStamp,
             'hash'          => base64_encode($queryHash)
         ]);
+
+        //= Удалим успешный платеж из хранилища
+        unset($arStore[$bankOrderID]);
+        SaveInStore($arStore);
         break;
 }
