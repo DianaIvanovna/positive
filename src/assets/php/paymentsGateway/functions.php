@@ -28,7 +28,7 @@ function SberSend_CreatePay(array $order, $sberLogin, $sberPass) {
     file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Запрос в Сбер:\n" . print_r($vars, true) . "\n\n", FILE_APPEND);
 
 
-    $ch = curl_init('https://3dsec.sberbank.ru/payment/rest/register.do?' . http_build_query($vars));
+    $ch = curl_init('https://securepayments.sberbank.ru/payment/rest/register.do?' . http_build_query($vars));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_HEADER, false);
