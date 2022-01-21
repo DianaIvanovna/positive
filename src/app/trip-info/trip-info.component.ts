@@ -176,13 +176,22 @@ initform(){
       .catch(function(error) { console.log(error); });
   }
 
-  openPopup(tarif){
-    console.log('!')
-    this.tariff = tarif;
-    // очищает форму
-    // this.formBook.reset();
-    this.messageIsSent = 1; // !!!!!!!!!!!!!!!!!!!!!!!!!!
-    this.bookTrip = true;
+  // openPopup(tarif){
+  //   console.log('!')
+  //   this.tariff = tarif;
+  //   // очищает форму
+  //   // this.formBook.reset();
+  //   this.messageIsSent = 1; // !!!!!!!!!!!!!!!!!!!!!!!!!!
+  //   this.bookTrip = true;
+  // }
+
+  openPopup(url){
+    if (url) {
+      window.location.href = url;
+    } else {
+      alert("Упс! Что-то пошло не так")
+    }
+
   }
 
 }

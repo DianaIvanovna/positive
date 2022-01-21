@@ -15,7 +15,7 @@
  *     email: "ivanov@example.com",
  *     phone: "+79111111111",
  * }
- * 
+ *
  * Вот так нужно ответить букзе по завершении платежа
  * {
  *     userId:11223,
@@ -27,8 +27,8 @@
  *     hash: "eUKOwld1sEK3axhF9ZAy0WugXMJW+9nrs4BRlvnCeb0=",
  *     comment: "Любой комментарий к платежу. Он будет виден в интерфейсе управляющего. Он не участвует в подписи запроса."
  * }
- * 
- * 
+ *
+ *
  * ## Документация сбера
  * https://www.sberbank.ru/ru/legal/finapi
  * https://snipp.ru/php/sberbank-pay
@@ -39,19 +39,19 @@
  * 	"orderId":"70906e55-7114-41d6-8332-4609dc6590f4",
  * 	"formUrl":"https://3dsec.sberbank.ru/payment/merchants/test/payment_ru.html?mdOrder=70906e55-7114-41d6-8332-4609dc6590f4"
  * }
- * 
+ *
  * https://securepayments.sberbank.ru/wiki/doku.php/integration:api:start
  * https://securepayments.sberbank.ru/wiki/doku.php/integration:cms:start
  * https://securepayments.sberbank.ru/wiki/doku.php/integration:simple
  * https://securepayments.sberbank.ru/wiki/doku.php/mportal3:auth
  * https://securepayments.sberbank.ru/wiki/doku.php/merchant_website_guidelines
  * https://securepayments.sberbank.ru/wiki/doku.php/test_cards
- * 
+ *
  */
 
 define('BUKZA_API_KEY', 'nUpKT4$kxxWK');
-define('SBER_LOGIN', 'T741208548498-api');
-define('SBER_PASS', 'T741208548498');
+define('SBER_LOGIN', 'P741208548498-api');
+define('SBER_PASS', 'MYU-GRQ-xhp-hvC');
 define('FILE_DEBUG_LOG', getenv('DOCUMENT_ROOT') . '/assets/php/paymentsGateway/debug.log');
 
 $arRequest = json_decode(file_get_contents('php://input'), true);
@@ -72,7 +72,7 @@ file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . ' Запрошено де�
 file_put_contents(FILE_DEBUG_LOG, date('d.m.Y H:i') . " Тело запроса:\n" . print_r($arRequest, true) . "\n\n", FILE_APPEND);
 
 switch($action) {
-    case 'bukza': 
+    case 'bukza':
 
         //= сформировать и отправить запрос в сбер
         $arSberPay = SberSend_CreatePay([
@@ -98,7 +98,7 @@ switch($action) {
             ];
             SaveInStore($arStore);
         }
-        
+
         //= отправить букзе адрес платежной формы
         SendJSON([
             'url' => $arSberPay['formUrl'],
